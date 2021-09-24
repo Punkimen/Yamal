@@ -1,0 +1,227 @@
+$md1: 1440px;
+$md2: 1200px;
+$md3: 992px;
+$md4: 767px;
+$md5: 568px;
+$md6: 412px;
+$colorGreen: #009974;
+$colorGrey: #E6E6E6;
+$colorBlue: #213A8F;
+
+html,
+body {
+    height: 100%;
+    box-sizing: border-box;
+
+}
+
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+}
+
+body {
+    font-family: "PT-Root", sans-serif;
+    // font-family: "Iskra", sans-serif;
+    background: #f2f2f2;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    overflow-x: hidden;
+
+    @media(max-width: $md3) {
+        font-size: 14px;
+        line-height: 20px;
+    }
+}
+
+ul,
+li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    padding: 0 24px;
+    max-width: 1248px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.stroke-white {
+    stroke: #fff;
+}
+
+.btn {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    display: block;
+    cursor: pointer;
+    border: none;
+    background: none;
+    outline: none;
+    transition: all ease .2s;
+}
+
+.btn-green {
+    font-size: 14px;
+    line-height: 20px;
+    padding: 10px 32px;
+    background: $colorGreen;
+    border: 2px solid $colorGreen;
+    color: #fff;
+    border-radius: 7px;
+
+    &:hover {
+        border: 2px solid rgba($color: #000000, $alpha: 0.2);
+        color: rgba($color: #000000, $alpha: .2);
+    }
+}
+
+.input-reset {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    display: block;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.section-title {
+    font-family: "Iskra", sans-serif;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 40px;
+
+    @media(max-width: $md3) {
+        font-size: 30px;
+        line-height: 36px;
+    }
+
+    @media(max-width:$md5) {
+        font-size: 20px;
+        line-height: 24px;
+    }
+}
+
+.slick-arrow {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF;
+    border-radius: 7px;
+    z-index: 3;
+
+    svg {
+        width: 14px;
+        height: 14px;
+        display: block;
+    }
+
+    &--prev {
+        top: calc(50% - 17px);
+        left: 0;
+    }
+
+    &--next {
+        top: calc(50% - 17px);
+        right: 0;
+
+        svg {
+            width: 14px;
+            height: 14px;
+            display: block;
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.green {
+    color: $colorGreen;
+}
+
+
+
+.control-radio .control_indicator {}
+
+.costum-radio {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-right: 27px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.costum-radio input {
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    opacity: 0;
+}
+
+.costum-radio input:checked~.control_indicator:after {
+    display: block;
+}
+
+.costum-radio .control_indicator {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    width: 20px;
+    height: 20px;
+    background: #FFFFFF;
+    border: 1px solid #E6E6E6;
+    border-radius: 50%;
+}
+
+.costum-radio .control_indicator::after {
+    content: url(../img/icon/check.svg);
+    position: absolute;
+    top: -2px;
+    left: 4px;
+    display: none;
+}
+
+.rellax {
+    z-index: 2;
+}

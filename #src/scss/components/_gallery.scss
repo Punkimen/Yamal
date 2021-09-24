@@ -1,0 +1,111 @@
+.gallery {
+    padding-top: 43px;
+    padding-bottom: 143px;
+
+    @media(max-width: $md3) {
+        padding-bottom: 150px;
+    }
+
+    @media(max-width: $md4) {
+        padding-bottom: 101px;
+    }
+
+    &__container {
+        @media(max-width: $md5) {
+            padding-left: 10px;
+            padding-right: 0px;
+        }
+    }
+
+    &__wrapper {
+        position: relative;
+        z-index: 3;
+    }
+
+    &__slider {
+        padding-left: 60px;
+        padding-bottom: 68px;
+
+        @media(max-width: $md2) {
+            padding-left: 0;
+        }
+
+        .swiper-horizontal>.swiper-scrollbar {
+            height: 3px;
+        }
+
+        .swiper-scrollbar-drag {
+            opacity: 1;
+            background: $colorGreen;
+            border-radius: 10px;
+        }
+
+        .swiper-scrollbar {
+            background: #E6E6E6;
+            border-radius: 10px;
+        }
+    }
+
+    &__slide {
+        @media(max-width: $md3) {
+            max-width: 165px;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+    }
+
+    .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+        background: $colorGreen;
+        margin: 0;
+        height: 3px;
+    }
+
+    .mCSB_scrollTools.mCSB_scrollTools_horizontal .mCSB_draggerRail {
+        display: none;
+    }
+
+    .mCSB_scrollTools .mCSB_draggerContainer {
+        height: 3px;
+        background: #E6E6E6;
+    }
+
+    .mCSB_horizontal.mCSB_inside>.mCSB_container {
+        margin-bottom: 74px;
+    }
+}
+
+
+.gallery-arrow {
+
+    &__prev {
+        top: 92px;
+        left: -19px;
+
+        @media(max-width: $md3) {
+            top: 41%;
+        }
+
+        @media(max-width: $md4) {
+            display: none;
+        }
+    }
+
+    &__next {
+        top: 92px;
+        right: 0;
+        transform: rotate(180deg);
+
+        @media(max-width: $md3) {
+            top: 41%;
+            right: -15px;
+        }
+
+        @media(max-width: $md4) {
+            display: none;
+        }
+    }
+}

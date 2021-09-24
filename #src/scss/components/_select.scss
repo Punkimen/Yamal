@@ -1,0 +1,184 @@
+.playbill {
+
+    &__select-city {}
+}
+
+.custom-select {
+
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    min-width: 154px;
+    position: relative;
+    overflow: visible;
+
+    &__header {
+        background: #fff;
+        padding: 9px 13px;
+        display: flex;
+        align-items: center;
+        border: 1px solid #e5e5e5;
+        box-sizing: border-box;
+        border-radius: 7px;
+        margin-bottom: 20px;
+
+        &:hover {
+            border-color: $colorGreen;
+        }
+
+        &.active {
+            .custom-select__arrow {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    &__arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 10px;
+        transition: all ease .2s;
+    }
+
+    &__current-elem {}
+
+    &__body {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        max-width: 240px;
+        padding: 12px;
+        background: #fff;
+        border-radius: 7px;
+
+        @media(max-width: $md4) {
+            left: auto;
+            right: 0;
+        }
+
+        // overflow-y: auto;
+        // overflow-x: scroll;
+        z-index: 5;
+
+
+    }
+
+    &__categoryes {
+        max-height: 300px;
+
+        .mCSB_inside>.mCSB_container {
+            margin-right: 3px;
+        }
+
+        .mCSB_scrollTools .mCSB_dragger {
+            width: 3px;
+            margin: 0;
+        }
+
+        .mCSB_scrollTools .mCSB_draggerContainer {
+            width: 3px;
+            left: auto;
+        }
+
+        .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+            width: 2px;
+            background: $colorGreen;
+        }
+
+        .mCSB_scrollTools .mCSB_draggerRail {
+            display: none;
+        }
+    }
+
+    &__search {
+        position: relative;
+        margin-bottom: 23px;
+    }
+
+    &__input {
+        padding: 10px 10px 10px 38px;
+        background: #fff;
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 18px;
+        border: 1px solid #E5E5E5;
+        border-radius: 7px;
+
+        &:hover {
+            border-color: $colorGreen;
+        }
+
+        &::placeholder {
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 20px;
+        }
+    }
+
+    &__search-btn {
+        position: absolute;
+        top: 14px;
+        left: 15px;
+    }
+
+    &__category {
+        padding-left: 10px;
+    }
+
+    &__category-letter {
+        position: relative;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 20px;
+        color: #D8D8D8;
+
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            left: 30px;
+            height: 2px;
+            background: #D8D8D8;
+        }
+
+        img {
+            display: block;
+            width: 20px;
+            height: 20px;
+        }
+
+
+    }
+
+    &__category-list {}
+
+    &__category__elem {
+        padding: 10px 0 10px 34px;
+
+        &:first-child {
+            padding-top: 5px;
+        }
+
+        &:not(:last-child) {
+            border-bottom: 2px solid #e6e6e6;
+        }
+    }
+}
+
+.btn {}
+
+.control {
+
+    &_indicator {}
+}
+
+.control-radio {}
+
+.costum-radio {}
+
+.choosen-radio {}

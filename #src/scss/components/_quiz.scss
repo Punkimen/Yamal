@@ -1,0 +1,433 @@
+.quiz {
+    overflow-x: hidden;
+
+    @media(max-width: $md5) {
+        overflow-x: visible;
+    }
+
+    &__container {
+        @media(max-width: $md5) {
+            padding: 0 10px;
+        }
+    }
+
+    &__wrapper {
+        padding-left: 59px;
+        display: flex;
+        align-items: flex-start;
+        // justify-content: space-between;
+        margin-bottom: 100px;
+
+        @media(max-width: $md2) {
+            padding-left: 0;
+        }
+
+        @media(max-width: $md4) {
+            flex-direction: column-reverse;
+            align-items: center;
+        }
+
+        @media(max-width: $md5) {
+            margin-bottom: 64px;
+        }
+    }
+
+    &__questions-block {
+        margin-right: 10.5%;
+        background: #F2F2F2;
+        box-shadow: 0px 7px 70px rgba(0, 0, 0, 0.1);
+        border-radius: 12px;
+        padding: 32px 32px 24px 32px;
+        max-width: 420px;
+        width: 100%;
+
+        @media(max-width: $md2) {
+            margin-right: 36px;
+            min-width: 324px;
+        }
+
+        @media(max-width: $md3) {
+            padding: 32px 24px 24px;
+        }
+
+        @media(max-width: $md4) {
+            max-width: none;
+            margin-right: 0;
+        }
+    }
+}
+
+.questions-block {
+
+    &__title {
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 32px;
+        margin-bottom: 24px;
+
+        @media(max-width: $md3) {
+            font-size: 22px;
+            line-height: 28px;
+        }
+    }
+
+    &__wrapper {
+        margin-bottom: 22px;
+    }
+
+    &__answer {
+        border-radius: 12px;
+        width: 100%;
+        padding: 16px 24px;
+        display: flex;
+        align-items: center;
+        background: #fff;
+        border: 1px solid #E6E6E6;
+        transition: all ease .2s;
+
+        &:hover {
+            background: $colorGreen;
+            color: #fff;
+
+            svg {
+                stroke: #fff;
+            }
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 22px;
+
+            @media(max-width: $md3) {
+                margin-bottom: 20px;
+            }
+        }
+
+        svg {
+            width: 32px;
+            height: 32px;
+            stroke: $colorGreen;
+            display: block;
+            margin-right: 25px;
+            transition: all ease .2s;
+        }
+    }
+
+    &__dott {
+        display: block;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: #B3B3B3;
+        margin: 0 auto;
+    }
+}
+
+.btn {}
+
+.quiz-routes {
+    max-width: 476px;
+    width: 100%;
+
+    @media(max-width: $md4) {
+        margin-bottom: 40px;
+    }
+
+    &__title {
+        margin-bottom: 40px;
+
+        @media(max-width: $md3) {
+            max-width: 360px;
+        }
+
+        @media(max-width: $md5) {}
+    }
+
+    &__text {
+        margin-bottom: 64px;
+
+        @media(max-width: $md3) {
+            margin-bottom: 48px;
+        }
+    }
+
+    &__progress {
+        display: flex;
+        position: relative;
+
+        @media(max-width: $md4) {
+            justify-content: space-between;
+            max-width: 365px;
+            width: 100%;
+        }
+
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0;
+            right: 30px;
+            top: 30px;
+            height: 1px;
+            border: 2px dashed #213A8F;
+
+            @media(max-width: $md3) {
+                top: 21px;
+                border: 1px dashed #213A8F;
+            }
+        }
+    }
+
+    &__progress-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &:not(:last-child) {
+            margin-right: 33px;
+
+            @media(max-width: $md4) {
+                margin-right: 15px;
+            }
+        }
+
+        &.active {
+            .quiz-routes__progress-num {
+                background: $colorBlue;
+            }
+
+            .quiz-routes__progress-num {
+                &::after {
+                    display: block;
+                }
+            }
+        }
+
+        &.past {
+            .btn-return {
+                display: flex;
+            }
+
+            .quiz-routes__progress-num {
+                &::after {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    &__progress-num {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 66px;
+        height: 66px;
+        background: #E4E4E4;
+        border-radius: 12px;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 32px;
+        color: #fff;
+        margin-bottom: 14px;
+
+        @media(max-width: $md3) {
+            width: 44px;
+            height: 44px;
+            font-size: 16px;
+            line-height: 20px;
+
+            img {
+                width: 20px;
+                height: 20px;
+                display: block;
+            }
+        }
+
+        &::after {
+            content: '';
+            display: none;
+            background: #009974;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            position: absolute;
+            bottom: -49%;
+            left: calc(50% - 2px);
+
+            @media(max-width: $md3) {
+                bottom: -30px;
+            }
+        }
+
+        &.current {
+            &::after {
+                display: block;
+            }
+        }
+    }
+
+    &__progress-btn {
+        display: none;
+        border-radius: 7px;
+        width: 32px;
+        height: 32px;
+        background: #fff;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+            width: 14px;
+            height: 14px;
+            stroke: $colorGreen;
+        }
+    }
+}
+
+.quiz-individual {
+
+    &__wrapper {
+        position: relative;
+        width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: flex-start;
+
+        @media(max-width: $md5) {
+            right: 0 !important;
+            padding: 0 10px;
+            width: 100%;
+            display: block;
+        }
+    }
+
+    &__left-icons {
+        position: relative;
+        left: 63px;
+        top: 30px;
+        flex: 0 0 338px;
+        background: url(../img/lines-1.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 130px;
+
+        @media(max-width: $md3) {
+            flex: 0 0 306px;
+        }
+
+        @media(max-width: $md5) {
+            display: none;
+        }
+    }
+
+    &__fly-icon {}
+
+    &__fly-icon--first {
+        top: -8px;
+        left: -2px;
+    }
+
+    &__fly-icon--second {
+        top: -30px;
+        right: 162px;
+
+        @media(max-width: $md3) {
+            right: 130px;
+        }
+    }
+
+    &__fly-icon--thrid {
+        bottom: -27px;
+        left: 100px;
+    }
+
+    &__content {
+        text-align: center;
+        flex: 0 0 522px;
+
+        @media(max-width: $md3) {
+            flex: 0 0 440px;
+        }
+    }
+
+    &__title {
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 32px;
+        margin-bottom: 32px;
+
+        @media(max-width: $md3) {
+            font-size: 22px;
+            line-height: 28px;
+        }
+
+        @media(max-width: $md5) {
+            margin-bottom: 28px;
+        }
+    }
+
+    &__text {
+        margin-bottom: 32px;
+
+        @media(max-width: $md3) {
+            margin-bottom: 20px;
+        }
+    }
+
+    &__btn {
+        margin: 0 auto;
+
+        @media(max-width: $md3) {
+            font-size: 12px;
+            line-height: 18px;
+        }
+    }
+
+    &__right-icons {
+        position: relative;
+        bottom: 202px;
+        right: -20px;
+        flex: 0 0 262px;
+        background: url(../img/lines-2.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 381px;
+
+        @media(max-width: $md3) {
+            right: -60px;
+            bottom: 223px;
+        }
+
+        @media(max-width: $md5) {
+            display: none;
+        }
+    }
+
+    &__fly-icon--right-first {
+        top: 33px;
+        right: 0;
+    }
+
+    &__fly-icon--right-second {
+        top: 82px;
+        left: -26px;
+    }
+
+    &__fly-icon--right-thrid {
+        top: 53%;
+        left: 24%;
+    }
+
+    &__fly-icon--right-fourth {
+        top: 61%;
+        right: 0;
+    }
+
+    &__fly-icon--right-fifth {
+        bottom: -30px;
+        right: 30px;
+    }
+}
+
+.fly-icon {}
+
+.btn-green {}

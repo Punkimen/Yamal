@@ -1,0 +1,223 @@
+.fixed-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    height: 100vh;
+    width: 64px;
+    padding: 55px 14px 0;
+    background: #f2f2f2;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: all ease .3s;
+    z-index: 9;
+
+    @media(max-width: $md2) {
+        display: none !important;
+    }
+
+    &.show-leftMenu {
+        display: flex;
+    }
+
+    .menu-elem {
+        white-space: nowrap;
+        overflow: visible;
+    }
+
+    &.menu-isOpen {
+        width: 64px;
+    }
+
+    &.show {
+        width: 225px;
+    }
+
+    &__logo {
+        position: absolute;
+        top: 25px;
+        left: 20px;
+    }
+
+    &__wrapper {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+        margin-bottom: 25px;
+        transition: all ease .2s;
+
+        &.current {
+            .fixed-menu__link-icon {
+                background: #E5E5E5;
+            }
+        }
+
+        &:hover {
+            .fixed-menu__link-icon {
+                background: #008D6B;
+
+                svg {
+                    stroke: #fff;
+                }
+            }
+
+            span {
+                color: $colorGreen;
+            }
+        }
+    }
+
+    &__link-icon {
+        flex: 0 0 36px;
+        display: block;
+        width: 36px;
+        height: 36px;
+        border-radius: 7px;
+        transition: all .2s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 24px;
+
+
+
+        &:hover {
+            background: #008D6B;
+
+            svg {
+                stroke: #fff;
+            }
+        }
+
+        svg {
+            transition: all .2s ease;
+            display: block;
+            width: 24px;
+            height: 24px;
+            stroke: $colorGreen;
+        }
+    }
+
+    &__line {
+        margin: 0px 0 25px 10px;
+        width: 20px;
+        height: 2px;
+        background: rgba(0, 153, 116, 0.15);
+    }
+
+    &__menu-block {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        background: #f2f2f2;
+        left: -100%;
+        padding: 55px 14px 0;
+        top: 0;
+        bottom: 0;
+        height: 100vh;
+        overflow-y: auto;
+        z-index: 11;
+        transition: all ease .8s;
+        min-height: 477px;
+
+        .header-menu__container {
+            padding-top: 87px;
+        }
+
+        &.active {
+            left: 64px;
+        }
+
+    }
+
+    &__label {
+        position: relative;
+        font-weight: bold;
+        color: #009974;
+        margin-bottom: 40px;
+
+        &::before {
+            content: url(../img/icon/arrow.svg);
+            display: block;
+            position: absolute;
+            left: -30px;
+            top: 0;
+        }
+    }
+}
+
+.fixed-menu {
+
+    &__menu-header {
+        background: #f2f2f2;
+        padding: 15px 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 4;
+        height: 70px;
+    }
+
+    &__header-left {
+        display: flex;
+        align-items: center;
+    }
+
+    &__header-logo {
+        margin-right: 30px;
+    }
+
+    &__header-location {
+        display: flex;
+
+        svg {
+            width: 20px;
+            height: 20px;
+            stroke: #000;
+            display: block;
+            margin-right: 10px;
+        }
+    }
+
+    &__close {
+        position: absolute;
+        top: 17px;
+        right: 50px;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #fff;
+        border-radius: 7px;
+        z-index: 5;
+    }
+
+    .location-menu {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+
+        &__lists {
+            background: #f2f2f2;
+        }
+    }
+}
+
+.logo {}
+
+.btn {}
+
+.location-name {}
