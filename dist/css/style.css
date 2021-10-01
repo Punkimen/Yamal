@@ -5997,6 +5997,10 @@ body[data-aos-easing=ease-in-out-quart] [data-aos] {
     display: block;
   }
 
+  .new-review__block--default .btn-positive {
+    margin-bottom: 20px;
+  }
+
   .personal-review__header {
     padding-left: 0;
   }

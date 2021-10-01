@@ -102,6 +102,12 @@
     border-radius: 12px;
     z-index: 99;
 
+    @media(max-width: $md6) {
+        // right: auto;
+        // left: 50%;
+        // transform: translateX(-50%);
+    }
+
     &.show {
         display: flex;
     }

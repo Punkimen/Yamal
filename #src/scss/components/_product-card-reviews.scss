@@ -83,6 +83,10 @@
             svg {
                 stroke: #fff;
             }
+
+            @media(max-width: $md5) {
+                margin-bottom: 20px;
+            }
         }
 
         .btn-negative {
