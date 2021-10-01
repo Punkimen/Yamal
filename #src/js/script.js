@@ -1,6 +1,6 @@
 "use strict";
 @@include('./_aos.js');
-document.addEventListener("DOMContentLoaded", function () {
+$(document).ready(function () {
     // slide-menu
     (function () {
         const searchInputElem = $('.location-menu__search-inp');
@@ -60,7 +60,9 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         const swiperBanners = new Swiper('.playbill-events__slider--banner', {
             slidesPerView: "auto",
+            loop: true,
             spaceBetween: 20,
+            speed: 1000,
             pagination: {
                 el: ".swiper-pagination",
                 clickable: true,
@@ -103,6 +105,9 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         $('.banner-arrow__next').on('click', () => {
             swiperBanners.slideNext();
+        })
+        $('.banner-arrow__prev').on('click', () => {
+            swiperBanners.slidePrev();
         })
         $('.goods-arrow__next').on('click', () => {
             swiperGoods.slideNext();
@@ -228,7 +233,8 @@ document.addEventListener("DOMContentLoaded", function () {
         ];
         const renderQuestions = (count) => {
             const quizInnerBlock = document.querySelector('.quiz__questions-block');
-            quizInnerBlock.innerHTML = `
+            if (quizInnerBlock) {
+                quizInnerBlock.innerHTML = `
             <div class="questions-block__title">${anketa[count].question}</div>
                 <div class="questions-block__wrapper">
                     <button type="button" class="questions-block__answer btn" data-value="${anketa[count].answer[0]}">
@@ -257,7 +263,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     </button>
                 </div>
                 <div class="questions-block__dott"></div>
-            `
+            `}
+
             $('.questions-block__answer').on('click', function () {
                 $('.quiz-routes__progress-item').eq(count).addClass('past')
                 if (count != 3) {
@@ -278,6 +285,252 @@ document.addEventListener("DOMContentLoaded", function () {
             renderQuestions(count)
         })
     })();
-})
+    // filter
+    (function () {
+        const filterBtnTransform = () => {
+            const windowWidth = $(window).width();
+            if (windowWidth <= 992) {
+                $('.catalog__header-settings').append($('.catalog-filter__btn'))
+            } else {
+                $('.catalog-filter').append($('.catalog-filter__btn'))
+            }
+        };
+        filterBtnTransform()
+        $(window).resize(() => {
+            filterBtnTransform()
+        });
+        $('.filter-item__header').on('click', function () {
+            $(this).toggleClass('active');
+            $(this).next().slideToggle();
+            $('.custom-select__categoryes').mCustomScrollbar({
+                axis: "y",
+            });
+        })
+        $('.js-open-filter').on('click', function () {
+            $('.fixed-filter').toggleClass('show')
+        });
+        $('.fixed-filter__close').on('click', function () {
+            $('.fixed-filter').toggleClass('show')
+        })
+    })();
+    // catalog
+    (function () {
+        $('.card-item__price').each((index, el) => {
+            let countGreenElem = +el.getAttribute('data-price');
+            switch (countGreenElem) {
+                case 1:
+                    for (let i = 0; i <= countGreenElem - 1; i++) {
+                        el.children[i].style.color = 'green';
+                    }
+                    break
+                case 2:
+                    for (let i = 0; i <= countGreenElem - 1; i++) {
+                        el.children[i].style.color = 'green';
+                    }
+                    break
+                case 3:
+                    for (let i = 0; i <= countGreenElem - 1; i++) {
+                        el.children[i].style.color = 'green';
+                    }
+                    break
+                case 4:
+                    for (let i = 0; i <= countGreenElem - 1; i++) {
+                        el.children[i].style.color = 'green';
+                    }
+                    break
+                case 5:
+                    for (let i = 0; i <= countGreenElem - 1; i++) {
+                        el.children[i].style.color = 'green';
+                    }
+                    break
+            }
+
+        })
+    })();
+    // questions
+    (function () {
+        $('.questions-item__header').on('click', function () {
+            $(this).toggleClass('active');
+            $(this).next().slideToggle();
+        })
+    })();
+    // card-product
+    (function () {
+        const showBlock = (auth, stat) => {
+            $('.new-review__block--default').hide()
+            if (auth === 'auth') {
+                $('.new-review__block--auth').show()
+            } else if (auth === 'noAuth') {
+                $('.new-review__block--noAuth').show()
+            } else if (auth === 'old') {
+                $('.new-review__block--old').show()
+            }
+            if (stat === 'positive') {
+                $('.new-review__input-icon').addClass('like')
+            } else if (stat === 'negative') {
+                $('.new-review__input-icon').addClass('dislike')
+            }
+        };
+        $('.btn-positive').on('click', function () {
+            let authStat = $(this).parents('.product-review__new-review').attr('data-auth');
+            let statLike = $(this).attr('data-status')
+            showBlock(authStat, statLike)
+        });
+        $('.btn-negative').on('click', function () {
+            let authStat = $(this).parents('.product-review__new-review').attr('data-auth');
+            let statLike = $(this).attr('data-status')
+            showBlock(authStat, statLike)
+        });
+        $('.card-photos__slide').on('click', function () {
+            let urlActivePhoto = $(this).children().attr('src');
+            const changeBigPhoto = src => {
+                $('.card-photos__big-photo img').attr('src', urlActivePhoto)
+            }
+            changeBigPhoto(urlActivePhoto)
+            $(this).addClass('active').siblings().removeClass('active')
+        })
+        const swiperCardPhotos = new Swiper('.card-photos__slider', {
+            slidesPerView: "auto",
+            spaceBetween: 24,
+            breakpoints: {
+                768: {
+                    slidesPerView: 4,
+                    spaceBetween: 32,
+                }
+            }
+        })
+        $('.card-photos-arrow__prev').on('click', () => {
+            swiperCardPhotos.slidePrev();
+        })
+        $('.card-photos-arrow__next').on('click', () => {
+            swiperCardPhotos.slideNext();
+        })
+        const transformPhoto = () => {
+            let windowWidth = $(document).width();
+            if (windowWidth <= 1200) {
+                $('.product-card__header').after($('.product-card__right'))
+            } else { $('.product-card__left').after($('.product-card__right')) }
+        }
+        $(window).resize(() => {
+            transformPhoto()
+        });
+        transformPhoto();
+    })();
+    // popups
+    (function () {
+        const showPopup = el => {
+            $('.popups').show();
+            $('body').addClass('overlay');
+            $(el).addClass('show');
+        };
+        const showNotify = el => {
+            $(el).addClass('show');
+        }
+        const closeNotify = el => {
+            $('.notification').removeClass('show');
+        }
+        const closeModal = () => {
+            $('.popup').removeClass('show');
+            $('.popups').hide();
+            $('body').removeClass('overlay');
+        }
+        $('.personal-review__delete').on('click', function () {
+            let el = $(this).attr('data-popup')
+            showPopup(el)
+        })
+        $('.js-close').on('click', function () {
+            closeModal();
+            closeNotify();
+        });
+        $('.popup__btn-delete').on('click', function () {
+            let el = $(this).attr('data-popup')
+            showNotify(el);
+            $(this).parents('.popup').removeClass('show');
+            $('body').removeClass('overlay');
+            closeModal()
+            setTimeout(closeNotify, 3000)
+        })
+        $('.btn-add-rewiew').on('click', function () {
+            let el = $(this).attr('data-popup')
+            showNotify(el);
+            closeModal()
+            setTimeout(closeNotify, 3000)
+        })
+        $('.add-to-favorite').on('click', function () {
+            let status = $(this).attr('data-status');
+            let el = $(this).attr('data-popup');
+            if (status === 'auth') {
+                $(this).addClass('active');
+            } else if (status === 'noAuth') {
+                showPopup(el);
+            }
+        })
+    })();
+    // showMore
+    (function () {
+        const dataRevew = [{
+            name: 'Anon',
+            date: '12-05-2021',
+            text: `Имеется спорная точка зрения, гласящая примерно
+            следующее: независимые государства представляют собой не что иное, как
+            квинтэссенцию победы маркетинга над разумом и должны быть превращены в
+            посмешище, хотя само их существование приносит несомненную пользу обществу. В
+            целом, конечно, внедрение современных методик обеспечивает актуальность форм
+            воздействия.`,
+        },
+        {
+            name: 'User',
+            date: '12-05-2021',
+            text: `Имеется спорная точка зрения, гласящая примерно
+            следующее: независимые государства представляют собой не что иное, как
+            квинтэссенцию победы маркетинга над разумом и должны быть превращены в
+            посмешище, хотя само их существование приносит несомненную пользу обществу. В
+            целом, конечно, внедрение современных методик обеспечивает актуальность форм
+            воздействия.`,
+        },
+        {
+            name: 'Person',
+            date: '12-05-2021',
+            text: `Имеется спорная точка зрения, гласящая примерно
+            следующее: независимые государства представляют собой не что иное, как
+            квинтэссенцию победы маркетинга над разумом и должны быть превращены в
+            посмешище, хотя само их существование приносит несомненную пользу обществу. В
+            целом, конечно, внедрение современных методик обеспечивает актуальность форм
+            воздействия.`,
+        }]
+        const renderMoreReviews = function ([...dataRevew]) {
+            dataRevew.forEach(el => {
+                const review = document.createElement('div');
+                review.className = 'all-reviews__item personal-review';
+                review.innerHTML = `
+                <div class="personal-review__header">
+                <div class="personal-review__left">
+                    <div class="personal-review__status personal-review__status--like">
+                        <svg class="">
+                            <use xlink:href="./img/icons/icons.svg#like"></use>
+                        </svg>
+                    </div>
+                    <div class="personal-review__person">
+                        <div class="personal-review__name">${el.name}</div>
+                        <div class="personal-review__date">${el.date}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="personal-review__body">
+                <p class="personal-review__text">${el.text}</p>
+            </div>
+                `;
+                $('.all-reviews__show-more').before(review);
+            })
+
+        }
+        $('.all-reviews__show-more').on('click', function () {
+            renderMoreReviews(dataRevew)
+        })
+    })();
+
+});
+
+
 
 

@@ -1,0 +1,177 @@
+.fixed-filter {
+    display: flex;
+    flex-direction: column;
+    background: #f2f2f2;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: -100%;
+    height: 100vh;
+    box-shadow: 0px 7px 40px -7px rgba(0, 0, 0, 0.3);
+    max-width: 358px;
+    width: 100%;
+    transition: all ease .5s;
+    z-index: 4;
+    overflow-y: auto;
+
+    &.show {
+        right: 0;
+    }
+
+    &__close {
+        width: 32px;
+        height: 32px;
+        background: #FFFFFF;
+        border-radius: 7px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+            background: $colorGrey;
+        }
+    }
+
+    &__scroll {
+        overflow: auto;
+    }
+
+    &__header {
+        padding: 19px 35px;
+        display: flex;
+        align-items: center;
+
+        justify-content: space-between;
+        background: rgba(0, 0, 0, 0.03);
+    }
+
+    &__label {
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 30px;
+    }
+
+    &__body {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        font-size: 14px;
+        line-height: 20px;
+        padding: 32px 35px 15px;
+    }
+
+    &__items {}
+
+    &__item {}
+
+    &__btns {}
+
+    &__btn {
+        width: 100%;
+
+        &:not(:last-child) {
+            margin-bottom: 10px;
+        }
+    }
+}
+
+.filter-item {
+    margin-bottom: 24px;
+
+    &__header {
+        position: relative;
+        background: #E6E6E6;
+        border: 1px solid rgba(0, 0, 0, 0.07);
+        border-radius: 7px;
+        padding: 10px 30px 10px 14px;
+        cursor: pointer;
+        transition: all ease .2s;
+
+        &:hover {
+            color: $colorGreen;
+            border: 1px solid #009974;
+        }
+
+        &.active {
+            color: $colorGreen;
+            border: 1px solid #009974;
+
+            &::after {
+                transform: translateY(-50%) rotate(180deg);
+            }
+        }
+
+        &::after {
+            content: url(../img/icon/accordion-arrow.svg);
+            position: absolute;
+            top: 50%;
+            right: 13px;
+            transform: translateY(-50%);
+            transition: all ease .2s;
+        }
+    }
+
+    &__body {
+        display: none;
+        margin-top: 14px;
+
+        .custom-select__categoryes {
+            max-height: 122px;
+        }
+
+        .custom-select__search {
+            margin-bottom: 14px;
+        }
+
+        .custom-select__input {
+            width: 100%;
+            display: block;
+        }
+
+        .custom-select__category__elem {
+            padding: 0 10px;
+            border: none;
+
+            &:not(:last-child) {
+                margin-bottom: 10px;
+            }
+        }
+
+        .costum-radio .control_indicator {
+            border-radius: 4px;
+        }
+    }
+
+    &__body-list {}
+}
+
+.custom-select {
+
+    &__current-elem {}
+
+    &__search {}
+
+    &__input {}
+
+    &__search-btn {}
+
+    &__category {}
+}
+
+.btn {}
+
+.control {
+
+    &_indicator {}
+}
+
+.control-radio {}
+
+.costum-radio {}
+
+.choosen-radio {}
+
+.btn-green {}
+
+.btn-transparent {}

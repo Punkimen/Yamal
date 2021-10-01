@@ -1,0 +1,235 @@
+.product-card {
+
+    &__annotation {
+        margin-bottom: 100px;
+    }
+
+
+    &__title {
+        margin-bottom: 10px;
+    }
+
+    &__info {
+        display: flex;
+        align-items: flex-end;
+        margin-bottom: 40px;
+    }
+
+    &__info-place {
+        color: $colorGreen;
+        margin-right: 24px;
+    }
+
+    &__info-price {
+        font-size: 16px;
+        line-height: 24px;
+        margin-right: 24px;
+    }
+
+    &__info-status {
+        color: #b3b3b3;
+    }
+
+    &__description {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 32px;
+        margin-bottom: 70px;
+
+        @media(max-width: $md5) {
+            display: block;
+        }
+    }
+
+    &__description-item {
+        &:not(:last-child) {
+            margin-bottom: 32px;
+        }
+    }
+
+    &__description-item--w100 {
+        grid-column: 1/3;
+    }
+
+    &__description-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        padding: 10px 14px 10px 14px;
+        font-size: 14px;
+        line-height: 20px;
+        background: #E6E6E6;
+        border: 1px solid rgba(0, 0, 0, 0.07);
+        border-radius: 7px;
+
+        @media(max-width: $md5) {
+            font-size: 12px;
+            line-height: 18px;
+        }
+    }
+
+    &__description-info {
+        padding: 12px 6px 0 14px;
+        color: #213A8F;
+
+        @media(max-width: $md5) {
+            font-size: 14px;
+            line-height: 20px;
+        }
+
+        span {
+            display: block;
+        }
+    }
+
+    &__text {}
+}
+
+.section-title {}
+
+.card-item {
+
+    &__price {}
+}
+
+.on-map {
+    font-size: 12px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+
+    svg {
+        display: block;
+        width: 14px;
+        height: 14px;
+        stroke: #000;
+        margin-left: 10px;
+    }
+}
+
+.product-card {
+
+    &__description-elem {
+        display: flex;
+        align-items: flex-end;
+
+        &:not(:last-child) {
+            margin-bottom: 14px;
+        }
+
+        &__num {
+            font-weight: bold;
+            color: $colorGreen;
+            margin-right: 14px;
+        }
+
+        &__name {
+            display: flex;
+            align-items: flex-end;
+            position: relative;
+            color: #000000;
+
+            &::after {
+                content: url(../img/icon/arrow.svg);
+                transform: rotate(180deg);
+                margin-left: 14px;
+            }
+        }
+    }
+}
+
+.product-card {
+
+    &__block {
+        &:not(:last-child) {
+            margin-bottom: 40px;
+        }
+    }
+
+    &__block-title {
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 32px;
+        margin-bottom: 22px;
+    }
+
+    &__block-list {
+        margin-bottom: 40px;
+    }
+
+    &__block-elem {
+        position: relative;
+        padding-left: 38px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 9px;
+            top: calc(50% - 3px);
+            display: block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: $colorGreen;
+        }
+    }
+
+    &__block-text {}
+}
+
+.product-card {
+
+    &__block {}
+
+    &__price-block {
+        background: #f2f2f2;
+        border-radius: 12px;
+        padding: 19px 32px 19px 37px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0px 7px 40px -7px rgba(0, 0, 0, 0.3);
+    }
+}
+
+.price-block {
+
+    &__left {
+        display: flex;
+        align-items: center;
+        font-size: 12px;
+        line-height: 18px;
+        color: #213A8F;
+
+        @media(max-width: $md5) {
+            display: block;
+
+            .price-block__small {
+                display: block;
+            }
+        }
+
+        .price-for-person {
+            font-weight: bold;
+            font-size: 24px;
+            line-height: 32px;
+            color: $colorGreen;
+            margin-right: 7px;
+
+            @media(max-width: $md5) {
+                font-size: 22px;
+                line-height: 28px;
+            }
+        }
+    }
+
+    &__right {}
+
+    &__btn {}
+}
+
+
+
+.btn {}
+
+.btn-green {}

@@ -1,0 +1,265 @@
+.catalog {
+    padding-bottom: 150px;
+
+    .container {
+        max-width: 1120px;
+
+        @media(max-width: $md5) {
+            padding: 0 10px;
+        }
+    }
+
+    .catalog__container {
+        max-width: 1168px;
+    }
+
+    &__header {
+        display: flex;
+        align-items: flex-end;
+        margin-bottom: 40px;
+
+
+
+        @media(max-width: $md3) {
+            margin-bottom: 30px;
+        }
+
+        @media(max-width: $md4) {
+            display: block;
+        }
+
+        @media(max-width: $md5) {
+            margin-bottom: 26px;
+        }
+    }
+
+    &__title {
+        margin-right: 24px;
+
+        @media(max-width: $md4) {
+            margin-bottom: 20px;
+        }
+    }
+
+    &__header-settings {
+        display: block;
+        flex: 1;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+
+        .custom-select__body {
+            left: 0;
+        }
+    }
+
+    &__wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-bottom: 30px;
+
+        @media(max-width: $md4) {
+            &:not(:last-child) {
+                justify-content: space-around;
+            }
+        }
+
+        .photo {
+            @media(max-width: $md3) {
+                &:not(:last-child) {
+                    margin-right: 0;
+                }
+            }
+        }
+
+        @media(max-width: $md3) {
+            margin-bottom: 8px;
+        }
+
+        @media(max-width: $md6) {
+            justify-content: center;
+        }
+    }
+
+    &__wrapper-item {}
+}
+
+.catalog-categories {
+    .playbill-category {
+        white-space: nowrap;
+
+        @media(max-width: $md3) {
+            font-size: 12px;
+            line-height: 18px;
+        }
+    }
+
+    .playbill-category:not(:last-child) {
+        margin-right: 30px;
+
+        @media(max-width: $md3) {
+            margin-right: 20px;
+        }
+    }
+}
+
+.playbill {
+
+    &__select-sort {
+        display: inline-block;
+
+        @media(max-width: $md3) {
+            font-size: 12px;
+            line-height: 18px;
+            margin-right: 10px;
+        }
+
+        &.custom-select {
+            .custom-select {
+
+                &__header {}
+
+                &__arrow {}
+
+                &__current-elem {}
+
+                &__body {}
+
+                &__elem {
+                    &:not(:last-child) {
+                        margin-bottom: 14px;
+                    }
+                }
+            }
+        }
+
+        .control {
+
+            &_indicator {
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: 4px;
+                    left: 4px;
+                    width: 10px;
+                    height: 10px;
+                    background: $colorGreen;
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+
+    &__categoryes {}
+}
+
+
+
+.catalog-filter {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 30px;
+
+    @media(max-width: $md5) {
+        margin-bottom: 0;
+    }
+
+    .playbill__categoryes {
+        margin-bottom: 0;
+    }
+
+    &__btn {
+        position: relative;
+        padding: 8px 25px 8px 30px;
+
+        @media(max-width: $md3) {
+            font-size: 12px;
+            line-height: 18px;
+        }
+
+        &:hover {
+            svg {
+                stroke: rgba($color: #000000, $alpha: .2);
+            }
+        }
+
+        span {
+            margin-right: 21px;
+        }
+
+        svg {
+            position: absolute;
+            right: 10px;
+            top: 2px;
+            transform: rotate(180deg);
+            width: 20px;
+            height: 30px;
+            stroke: #fff;
+            transition: all ease .2s;
+        }
+    }
+}
+
+.catalog-pagintaion {
+
+    &__list {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    &__elem {
+        width: 32px;
+        height: 32px;
+
+        &:not(:last-child) {
+            margin-right: 24px;
+        }
+    }
+
+    &__btn {
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 7px;
+        background: #E6E6E6;
+
+        &.current {
+            color: $colorGreen;
+        }
+    }
+
+    &__btn--arrow {
+        background: #FFFFFF;
+
+        &.next-pagin {
+            svg {
+                transform: rotate(180deg);
+            }
+        }
+
+        svg {
+            width: 14px;
+            height: 14px;
+            stroke: $colorGreen;
+        }
+    }
+
+    &__dotted {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        text-align: center;
+        padding-bottom: 5px;
+    }
+}

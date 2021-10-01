@@ -1,0 +1,353 @@
+<section class="catalog">
+    <div class="container">
+        <div class="catalog__header">
+            <h2 class="catalog__title section-title">Планирование поездки</h2>
+            <div class="catalog__header-settings">
+                <div class="playbill__select-sort custom-select">
+                    <div class="custom-select__header">
+                        <div class="custom-select__arrow">
+                            <img src="img/icon/select-arrow.svg" alt="">
+                        </div>
+                        <span class="custom-select__current-elem">Сортировать по</span>
+                    </div>
+                    <div class="custom-select__body">
+                        <ul class="custom-select-list">
+                            <li class="custom-select__elem">
+                                <label class="control control-radio costum-radio">
+                                    По умолчанию
+                                    <input class="choosen-radio" value="default" type="radio" name="sort" checked />
+                                    <div class="control_indicator"></div>
+                                </label>
+                            </li>
+                            <li class="custom-select__elem">
+                                <label class="control control-radio costum-radio">
+                                    По названию А-Я
+                                    <input class="choosen-radio" value="ascending" type="radio" name="sort" checked />
+                                    <div class="control_indicator"></div>
+                                </label>
+                            </li>
+                            <li class="custom-select__elem">
+                                <label class="control control-radio costum-radio">
+                                    По названию Я-А
+                                    <input class="choosen-radio" value="descending " type="radio" name="sort" checked />
+                                    <div class="control_indicator"></div>
+                                </label>
+                            </li>
+                            <li class="custom-select__elem">
+                                <label class="control control-radio costum-radio">
+                                    Сначала дешевле
+                                    <input class="choosen-radio" value="cheaper" type="radio" name="sort" checked />
+                                    <div class="control_indicator"></div>
+                                </label>
+                            </li>
+                            <li class="custom-select__elem">
+                                <label class="control control-radio costum-radio">
+                                    Сначала дороже
+                                    <input class="choosen-radio" value="expensive" type="radio" name="sort" checked />
+                                    <div class="control_indicator"></div>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="catalog-filter">
+            <div class="playbill__categoryes catalog-categories">
+                <button type="button" class="playbill-category btn current">Где провести мероприятие</button>
+                <button type="button" class="playbill-category btn">Где поесть</button>
+                <button type="button" class="playbill-category btn">Где остановиться</button>
+                <button type="button" class="playbill-category btn">Турфирмы</button>
+            </div>
+            <button class="catalog-filter__btn js-open-filter btn btn-green">
+                <span>Фильтр</span>
+                <svg class="">
+                    <use xlink:href="./img/icons/icons.svg#arrow-slide"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <div class="catalog__container container">
+        <div class="catalog__wrapper">
+            <a href="" class="catalog__wrapper-item card-item photo" data-status="Европейская">
+                <div class="card-item__img">
+                    <img src="img/cards/card-restor_1.png" alt="Ресторан «Ямбург»">
+                </div>
+                <div class="card-item__footer">
+                    <div class="card-item__name">Ресторан «Ямбург»</div>
+                    <div class="card-item__price" data-price="3">
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="catalog__wrapper-item card-item photo" data-status="Азиатская">
+                <div class="card-item__img">
+                    <img src="img/cards/card-restor_2.png" alt="Ресторан «Хмель и Соль»">
+                </div>
+                <div class="card-item__footer">
+                    <div class="card-item__name">Ресторан «Хмель и Соль»</div>
+                    <div class="card-item__price" data-price="1">
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="catalog__wrapper-item card-item photo" data-status="Украинская">
+                <div class="card-item__img">
+                    <img src="img/cards/card-restor_3.png" alt="Кафе «У Урсулы»">
+                </div>
+                <div class="card-item__footer">
+                    <div class="card-item__name">Кафе «У Урсулы»</div>
+                    <div class="card-item__price" data-price="5">
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="catalog__wrapper-item card-item photo" data-status="Японская">
+                <div class="card-item__img">
+                    <img src="img/cards/card-restor_4.png" alt="Ресторан «Сибирь»">
+                </div>
+                <div class="card-item__footer">
+                    <div class="card-item__name">Ресторан «Сибирь»</div>
+                    <div class="card-item__price" data-price="5">
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="catalog__wrapper-item card-item photo" data-status="Европейская">
+                <div class="card-item__img">
+                    <img src="img/cards/card-restor_1.png" alt="Ресторан «Ямбург»">
+                </div>
+                <div class="card-item__footer">
+                    <div class="card-item__name">Ресторан «Ямбург»</div>
+                    <div class="card-item__price" data-price="3">
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="catalog__wrapper-item card-item photo" data-status="Азиатская">
+                <div class="card-item__img">
+                    <img src="img/cards/card-restor_2.png" alt="Ресторан «Хмель и Соль»">
+                </div>
+                <div class="card-item__footer">
+                    <div class="card-item__name">Ресторан «Хмель и Соль»</div>
+                    <div class="card-item__price" data-price="1">
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="catalog__wrapper-item card-item photo" data-status="Украинская">
+                <div class="card-item__img">
+                    <img src="img/cards/card-restor_3.png" alt="Кафе «У Урсулы»">
+                </div>
+                <div class="card-item__footer">
+                    <div class="card-item__name">Кафе «У Урсулы»</div>
+                    <div class="card-item__price" data-price="5">
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="catalog__wrapper-item card-item photo" data-status="Японская">
+                <div class="card-item__img">
+                    <img src="img/cards/card-restor_4.png" alt="Ресторан «Сибирь»">
+                </div>
+                <div class="card-item__footer">
+                    <div class="card-item__name">Ресторан «Сибирь»</div>
+                    <div class="card-item__price" data-price="5">
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="catalog__wrapper-item card-item photo" data-status="Европейская">
+                <div class="card-item__img">
+                    <img src="img/cards/card-restor_1.png" alt="Ресторан «Ямбург»">
+                </div>
+                <div class="card-item__footer">
+                    <div class="card-item__name">Ресторан «Ямбург»</div>
+                    <div class="card-item__price" data-price="3">
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="catalog__wrapper-item card-item photo" data-status="Азиатская">
+                <div class="card-item__img">
+                    <img src="img/cards/card-restor_2.png" alt="Ресторан «Хмель и Соль»">
+                </div>
+                <div class="card-item__footer">
+                    <div class="card-item__name">Ресторан «Хмель и Соль»</div>
+                    <div class="card-item__price" data-price="1">
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="catalog__wrapper-item card-item photo" data-status="Украинская">
+                <div class="card-item__img">
+                    <img src="img/cards/card-restor_3.png" alt="Кафе «У Урсулы»">
+                </div>
+                <div class="card-item__footer">
+                    <div class="card-item__name">Кафе «У Урсулы»</div>
+                    <div class="card-item__price" data-price="5">
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="catalog__wrapper-item card-item photo" data-status="Японская">
+                <div class="card-item__img">
+                    <img src="img/cards/card-restor_4.png" alt="Ресторан «Сибирь»">
+                </div>
+                <div class="card-item__footer">
+                    <div class="card-item__name">Ресторан «Сибирь»</div>
+                    <div class="card-item__price" data-price="5">
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="catalog__wrapper-item card-item photo" data-status="Европейская">
+                <div class="card-item__img">
+                    <img src="img/cards/card-restor_1.png" alt="Ресторан «Ямбург»">
+                </div>
+                <div class="card-item__footer">
+                    <div class="card-item__name">Ресторан «Ямбург»</div>
+                    <div class="card-item__price" data-price="3">
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="catalog__wrapper-item card-item photo" data-status="Азиатская">
+                <div class="card-item__img">
+                    <img src="img/cards/card-restor_2.png" alt="Ресторан «Хмель и Соль»">
+                </div>
+                <div class="card-item__footer">
+                    <div class="card-item__name">Ресторан «Хмель и Соль»</div>
+                    <div class="card-item__price" data-price="1">
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="catalog__wrapper-item card-item photo" data-status="Украинская">
+                <div class="card-item__img">
+                    <img src="img/cards/card-restor_3.png" alt="Кафе «У Урсулы»">
+                </div>
+                <div class="card-item__footer">
+                    <div class="card-item__name">Кафе «У Урсулы»</div>
+                    <div class="card-item__price" data-price="5">
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                    </div>
+                </div>
+            </a>
+            <a href="" class="catalog__wrapper-item card-item photo" data-status="Японская">
+                <div class="card-item__img">
+                    <img src="img/cards/card-restor_4.png" alt="Ресторан «Сибирь»">
+                </div>
+                <div class="card-item__footer">
+                    <div class="card-item__name">Ресторан «Сибирь»</div>
+                    <div class="card-item__price" data-price="5">
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                        <span>$</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="catalog-pagintaion">
+            <ul class="catalog-pagintaion__list">
+                <li class="catalog-pagintaion__elem">
+                    <button class="catalog-pagintaion__btn catalog-pagintaion__btn--arrow prev-pagin btn">
+                        <svg class="">
+                            <use xlink:href="./img/icons/icons.svg#arrow-slide"></use>
+                        </svg>
+                    </button>
+                </li>
+                <li class="catalog-pagintaion__elem">
+                    <button class="catalog-pagintaion__btn btn current">1</button>
+                </li>
+                <!-- <li class="catalog-pagintaion__elem">
+                    <span class="catalog-pagintaion__dotted">...</span>
+                </li>
+                <li class="catalog-pagintaion__elem">
+                    <button class="catalog-pagintaion__btn btn">5</button>
+                </li>
+                <li class="catalog-pagintaion__elem">
+                    <button class="catalog-pagintaion__btn btn">6</button>
+                </li>
+                <li class="catalog-pagintaion__elem">
+                    <button class="catalog-pagintaion__btn btn">7</button>
+                </li>
+                <li class="catalog-pagintaion__elem">
+                    <span class="catalog-pagintaion__dotted">...</span>
+                </li> -->
+                <li class="catalog-pagintaion__elem">
+                    <button class="catalog-pagintaion__btn btn">2</button>
+                </li>
+                <li class="catalog-pagintaion__elem">
+                    <button class="catalog-pagintaion__btn catalog-pagintaion__btn--arrow next-pagin btn">
+                        <svg class="">
+                            <use xlink:href="./img/icons/icons.svg#arrow-slide"></use>
+                        </svg>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,58 @@
+<div class="popups">
+    <div class="popups__inner">
+        <div id="popup-enter" class="popup">
+            <div class="popup__header">
+                <div class="popup__name">Избранное</div>
+                <button class="fixed-filter__close popup-close btn js-close">
+                    <img src="img/icon/filter-close.svg" alt="">
+                </button>
+            </div>
+            <div class="popup__body">
+                <div class="popup__icon">
+                    <img src="img/icon/popup-error.svg">
+                </div>
+                <div class="popup__title">
+                    Необходимой войти в систему
+                </div>
+            </div>
+            <div class="popup__btns">
+                <div class="popup__btn-registr btn btn-green">Регистрация</div>
+                <div class="popup__btn-enter btn btn-transparent-green">Войти</div>
+            </div>
+        </div>
+        <div id="popup-delete-rewiew" class="popup">
+            <div class="popup__header">
+                <div class="popup__name">Избранное</div>
+                <button class="fixed-filter__close popup-close btn js-close">
+                    <img src="img/icon/filter-close.svg" alt="">
+                </button>
+            </div>
+            <div class="popup__body">
+                <div class="popup__icon">
+                    <img src="img/icon/popup-sucses.svg">
+                </div>
+                <div class="popup__title">
+                    Хотите удалить отзыв?
+                </div>
+            </div>
+            <div class="popup__btns">
+                <button type="button" class="popup__btn-cancel btn js-close btn-green js-close">Отменить</button>
+                <button type="button" class="popup__btn-delete btn btn-transparent-green" data-popup="#delete-rewiew">
+                    Удалить
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="delete-rewiew" class="notification">
+    <div class="notification__label">Отзыв успешно удален</div>
+    <button class="fixed-filter__close js-close btn">
+        <img src="img/icon/filter-close.svg" alt="">
+    </button>
+</div>
+<div id="add-rewiew" class="notification">
+    <div class="notification__label">Отзыв опубликован</div>
+    <button class="fixed-filter__close js-close  btn">
+        <img src="img/icon/filter-close.svg" alt="">
+    </button>
+</div>

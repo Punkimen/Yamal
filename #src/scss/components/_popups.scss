@@ -1,0 +1,132 @@
+.popups {
+    display: none;
+
+    &__inner {
+        display: grid;
+        position: fixed;
+        top: 0;
+        width: 100vw;
+        bottom: 0;
+        left: 0;
+        padding: 50px 10px;
+        overflow: auto;
+        z-index: 999;
+    }
+}
+
+.popup {
+    display: none;
+    max-width: 504px;
+    width: 100%;
+    align-self: center;
+    justify-self: center;
+    background: #f2f2f2;
+    border-radius: 7px;
+    overflow: hidden;
+    padding-bottom: 40px;
+    box-shadow: 0px 7px 40px -7px rgba(0, 0, 0, 0.3);
+    ;
+
+    &.show {
+        display: block;
+    }
+
+    &__header {
+        padding: 19px 32px;
+        background: rgba(0, 0, 0, 0.03);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        justify-content: space-between;
+    }
+
+    &__name {
+        font-size: 14px;
+        line-height: 20px;
+        color: #b2b2b2;
+    }
+
+    &__body {
+        padding: 40px 10px 24px;
+    }
+
+    &__icon {
+        img {
+            display: block;
+            margin: 0 auto;
+        }
+    }
+
+    &__title {
+        text-align: center;
+        font-weight: bold;
+    }
+
+    &__btns {
+        display: flex;
+        justify-content: center;
+
+        .btn:not(:last-child) {
+            margin-right: 24px;
+        }
+    }
+
+    &__btn-registr {}
+
+    &__btn-enter {}
+}
+
+.fixed-filter {
+
+    &__close {}
+}
+
+.popup-close {}
+
+.btn {}
+
+.btn-green {}
+
+.btn-transparent-green {}
+
+
+
+.notification {
+    padding: 20px 20px 20px 32px;
+    display: none;
+    position: fixed;
+    top: 40px;
+    right: 40px;
+    background: #F2F2F2;
+    box-shadow: 0px 7px 40px -7px rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    z-index: 99;
+
+    &.show {
+        display: flex;
+    }
+
+    &__label {
+        padding-left: 30px;
+        position: relative;
+        font-weight: bold;
+        margin-right: 32px;
+
+        &::before {
+            content: url(../img/icon/sucses-notifi.svg);
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+}
+
+.fixed-filter {
+
+    &__close {}
+}
+
+.notification-close {}
+
+.btn {}

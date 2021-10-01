@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yamal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/jquery.mcustomscrollbar/3.0.6/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body>
+    @@include('./components/_header.html')
+    <a href="#" class="banner-link">
+        <div class="container">
+            <span>Мои маршруты</span>
+            <img src="img/icon/arrow-right.svg" alt="">
+        </div>
+    </a>
+    <div class="bread-crumbs">
+        <div class="container">
+            <ul class="bread-crumbs__list">
+                <li class="bread-crumbs__elem">
+                    <a href="/" class="bread-crumbs__link bread-crumbs__link--arrow">Главная</a>
+                </li>
+                <li class="bread-crumbs__elem">
+                    <a href="#" class="bread-crumbs__link">Планирование поездки</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <section class="banners">
+        <div class="container">
+            <div class="playbill-events__inner">
+                <div class="playbill-events__slider playbill-events__slider--banner swiper">
+                    <div class="swiper-wrapper">
+                        <a href="#" class="banner-slide swiper-slide" data-status="Бесплатно"
+                            style="background-color: #009974; background-image: url(img/kolhoz.png);">
+                            <div class="banner-slide__content">
+                                <div class="banner-slide__title">В гоcтях
+                                    у Сэр Ни</div>
+                                <div class="banner-slide__date">1 ноября 12:00</div>
+                                <div class="banner-slide__place">Этнографический парк «Кочевник»</div>
+                            </div>
+                        </a>
+                        <a href="#" class="banner-slide swiper-slide" data-status="Бесплатно"
+                            style="background-color: #009974; background-image: url(img/kolhoz.png);">
+                            <div class="banner-slide__content">
+                                <div class="banner-slide__title">В гостях
+                                    у Сэр Ни</div>
+                                <div class="banner-slide__date">1 ноября 12:00</div>
+                                <div class="banner-slide__place">Этнографический парк «Кочевник»</div>
+                            </div>
+                        </a>
+                        <a href="#" class="banner-slide swiper-slide" data-status="Бесплатно"
+                            style="background-color: #009974; background-image: url(img/kolhoz.png);">
+                            <div class="banner-slide__content">
+                                <div class="banner-slide__title">В гостях
+                                    у Сэр Ни</div>
+                                <div class="banner-slide__date">1 ноября 12:00</div>
+                                <div class="banner-slide__place">Этнографический парк «Кочевник»</div>
+                            </div>
+                        </a>
+                        <a href="#" class="banner-slide swiper-slide" data-status="Бесплатно"
+                            style="background-color: #009974; background-image: url(img/kolhoz.png);">
+                            <div class="banner-slide__content">
+                                <div class="banner-slide__title">В гостях
+                                    у Сэр Ни</div>
+                                <div class="banner-slide__date">1 ноября 12:00</div>
+                                <div class="banner-slide__place">Этнографический парк «Кочевник»</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <button type="button" class="slick-arrow banner-arrow__prev btn">
+                    <svg class="">
+                        <use xlink:href="./img/icons/icons.svg#arrow-slide"></use>
+                    </svg>
+                </button>
+                <button type="button" class="slick-arrow banner-arrow__next btn">
+                    <svg class="">
+                        <use xlink:href="./img/icons/icons.svg#arrow-slide"></use>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+    @@include('./components/_catalog.html')
+    @@include('./components/_questions.html')
+    <section class="border-zones">
+        <div class="container">
+            <div class="flavor__wrapper">
+                <div class="flavor__content">
+                    <h2 class="banner__title section-title" data-aos="flip-left" data-aos-easing="ease"
+                        data-aos-duration="1000">Пограничные зоны</h2>
+                    <div class="banner__text" data-aos="flip-left" data-aos-easing="ease" data-aos-duration="1500">
+                        В регионе есть территории, которые требуют специального прокуска для нахождения там.</div>
+                    <button class="banner__create-acc btn btn-green" data-aos="flip-left" data-aos-easing="ease"
+                        data-aos-duration="2000">Пограничные зоны и ООПТ</button>
+                </div>
+                <div class="flavor__photos">
+                    <div class="flavor__photos-descr descr-block">
+                        <div class="descr-block__title">87 закрытых мест</div>
+                        <div class="descr-block__text">для которых нужен пропуск</div>
+                    </div>
+                    <div class="flavor__photo" data-aos="fade-down" data-aos-easing="ease" data-aos-duration="500">
+                        <img src="img/flavor-1.jpg" alt="">
+                    </div>
+                    <div class="flavor__photo" data-aos="fade-up" data-aos-easing="ease" data-aos-duration="500">
+                        <img src="img/flavor-2.jpg" alt="">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    @@include('./components/_footer.html')
+    @@include('./components/_fixed-menu-show.html')
+    @@include('./components/_fixed-filter.html')
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.js"
+        integrity="sha512-Yk47FuYNtuINE1w+t/KT4BQ7JaycTCcrvlSvdK/jry6Kcxqg5vN7/svVWCxZykVzzJHaxXk5T9jnFemZHSYgnw=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="js/script.min.js"></script>
+</body>
+
+</html>

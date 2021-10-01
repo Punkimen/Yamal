@@ -1,0 +1,301 @@
+.product-card {
+
+    &__review {}
+}
+
+.product-review {
+
+    &__header {
+        display: flex;
+        align-items: flex-end;
+        margin-bottom: 40px;
+    }
+
+    &__title {
+        margin-right: 24px;
+    }
+
+    &__stats {
+        margin-bottom: 40px;
+    }
+
+    &__stats-up {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        font-size: 14px;
+        line-height: 20px;
+        margin-bottom: 10px;
+    }
+
+    &__stats-quant {}
+
+    &__stats-progress {
+        position: relative;
+        height: 2px;
+        width: 100%;
+
+        .positive-line {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            height: 2px;
+            width: 70%;
+            background: $colorGreen;
+        }
+
+        .negative-line {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            height: 2px;
+            width: 30%;
+            background: #A71681;
+        }
+    }
+
+    &__new-review {
+        margin-bottom: 95px;
+        padding-bottom: 40px;
+        border-bottom: 2px solid #e6e6e6;
+    }
+
+    &__all-reviews {}
+}
+
+.new-review {
+
+    &__block {
+        display: none;
+    }
+
+    &__block--default {
+        display: flex;
+        justify-content: space-between;
+
+        @media(max-width: $md5) {
+            display: block;
+        }
+
+        .btn-positive {
+            svg {
+                stroke: #fff;
+            }
+        }
+
+        .btn-negative {
+            &:hover {
+                svg {
+                    stroke: #fff;
+                }
+            }
+
+            svg {
+                transform: rotate(180deg);
+                stroke: #A71681;
+            }
+        }
+    }
+
+    &__btns {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__btn {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:not(:last-child) {
+            margin-right: 24px;
+        }
+
+        svg {
+            display: block;
+            width: 20px;
+            height: 20px;
+            transition: all .2s;
+        }
+    }
+
+    &__block--auth {
+        .new-review__input {
+            position: relative;
+            margin-bottom: 20px;
+
+            input {
+                font-family: "PT-Root", sans-serif;
+                font-size: 14px;
+                line-height: 20px;
+                padding: 10px 10px 10px 38px;
+                display: block;
+                width: 100%;
+                background: #FFFFFF;
+                border: 1px solid #E6E6E6;
+                border-radius: 7px;
+
+                &::placeholder {
+                    color: #000;
+                }
+            }
+
+            .new-review__input-icon {
+                position: absolute;
+                top: 14px;
+                left: 14px;
+
+                &.like {
+                    svg {
+                        stroke: $colorGreen;
+                    }
+                }
+
+                &.dislike {
+                    svg {
+                        stroke: #A71681;
+                        transform: rotate(180deg);
+                    }
+                }
+
+                svg {
+                    display: block;
+                    width: 14px;
+                    height: 14px;
+                }
+            }
+        }
+
+        .new-review__btn {
+            width: auto;
+        }
+    }
+
+
+
+    &__input {}
+
+    &__input-icon {}
+
+    &__block--noAuth {
+        .new-review__btn {
+            display: flex;
+            align-items: flex-end;
+
+            svg {
+                margin-left: 14px;
+                stroke: #fff;
+            }
+        }
+    }
+
+    &__block--old {}
+}
+
+.all-reviews {
+
+    &__item {}
+
+    &__show-more {
+        margin: 0 auto;
+    }
+}
+
+.personal-review {
+    margin-bottom: 32px;
+
+    &__header {
+        padding-left: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+
+        @media(max-width: $md5) {
+            padding-left: 0;
+        }
+    }
+
+    &__left {
+        display: flex;
+        align-items: center;
+    }
+
+    &__status {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: #fff;
+        border-radius: 50%;
+        margin-right: 24px;
+
+        svg {
+            display: block;
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    &__status--like {
+        svg {
+            stroke: $colorGreen;
+        }
+    }
+
+    &__status--dislike {
+        svg {
+            stroke: #A71681;
+            transform: rotate(180deg);
+        }
+    }
+
+    &__person {}
+
+    &__name {
+        font-weight: bold;
+
+        @media(max-width: $md5) {
+            font-size: 14px;
+            line-height: 18px;
+        }
+    }
+
+    &__date {
+        font-size: 12px;
+        line-height: 18px;
+
+        @media(max-width: $md5) {
+            font-size: 10px;
+            line-height: 14px;
+        }
+    }
+
+    &__delete {
+        @media(max-width: $md5) {
+            font-size: 12px;
+            line-height: 18px;
+        }
+    }
+
+    &__body {
+        padding: 14px 32px 14px 32px;
+        border: 1px solid #E6E6E6;
+        border-radius: 12px;
+
+        @media(max-width: $md5) {
+            padding: 0;
+            border: none;
+        }
+    }
+
+    &__text {}
+
+    &__status--dislike {}
+}
+
+.btn-transparent-blue {}

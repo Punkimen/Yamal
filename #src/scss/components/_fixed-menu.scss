@@ -20,6 +20,10 @@
         display: none !important;
     }
 
+    &.fixed-menu--alwaysShow {
+        display: flex;
+    }
+
     &.show-leftMenu {
         display: flex;
     }

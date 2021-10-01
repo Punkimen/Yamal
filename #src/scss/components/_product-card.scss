@@ -1,0 +1,46 @@
+.product-card {
+    .container {
+        max-width: 1127px;
+
+        @media(max-width: $md5) {
+            padding: 0 10px;
+        }
+    }
+
+    &__wrapper {
+        padding-top: 7px;
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 210px;
+
+        @media(max-width: $md2) {
+            display: block;
+        }
+
+        @media(max-width: $md4) {
+            padding-bottom: 110px;
+        }
+    }
+
+    &__left {
+        max-width: 480px;
+        width: 100%;
+        margin-right: 60px;
+
+        @media(max-width: $md2) {
+            max-width: 100%;
+            margin-right: 0;
+        }
+    }
+
+    &__right {
+        max-width: 540px;
+        width: 100%;
+
+        @media(max-width: $md2) {
+            max-width: 718px;
+            margin: 0 auto 70px;
+        }
+    }
+
+}

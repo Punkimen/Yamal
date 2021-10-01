@@ -52,6 +52,15 @@ body {
     line-height: 24px;
     overflow-x: hidden;
 
+    &.overlay {
+        margin-right: 17px;
+        overflow: hidden;
+
+        @media(max-width: $md2) {
+            margin-right: 0;
+        }
+    }
+
     @media(max-width: $md3) {
         font-size: 14px;
         line-height: 20px;
@@ -104,6 +113,81 @@ li {
     }
 }
 
+.btn-blue {
+    font-size: 14px;
+    line-height: 20px;
+    padding: 10px 32px;
+    background: $colorBlue;
+    border: 2px solid $colorBlue;
+    color: #fff;
+    border-radius: 7px;
+
+    &:hover {
+        border: 2px solid rgba($color: #000000, $alpha: 0.2);
+        color: rgba($color: #000000, $alpha: .2);
+    }
+}
+
+.btn-transparent {
+    font-size: 14px;
+    line-height: 20px;
+    padding: 10px 32px;
+    color: $colorGreen;
+    border: 1px solid #E6E6E6;
+    border-radius: 7px;
+
+    &:hover {
+        background: $colorGreen;
+        border: 1px solid $colorGreen;
+        color: #fff;
+    }
+}
+
+.btn-transparent-green {
+    font-size: 14px;
+    line-height: 20px;
+    padding: 10px 32px;
+    color: $colorGreen;
+    border: 1px solid $colorGreen;
+    border-radius: 7px;
+
+    &:hover {
+        background: $colorGreen;
+        border: 1px solid $colorGreen;
+        color: #fff;
+    }
+}
+
+.btn-transparent-blue {
+    font-size: 14px;
+    line-height: 20px;
+    padding: 10px 32px;
+    color: $colorBlue;
+    border: 1px solid $colorBlue;
+    border-radius: 7px;
+
+    &:hover {
+        background: $colorBlue;
+        border: 1px solid $colorBlue;
+        color: #fff;
+    }
+}
+
+.btn-transparent-red {
+    font-size: 14px;
+    line-height: 20px;
+    padding: 10px 32px;
+    color: #A71681;
+    border: 1px solid #A71681;
+    border-radius: 7px;
+
+    &:hover {
+        background: #A71681;
+        border: 1px solid #A71681;
+        color: #fff;
+    }
+}
+
 .input-reset {
     font-family: inherit;
     font-size: inherit;
@@ -144,6 +228,7 @@ li {
     z-index: 3;
 
     svg {
+        stroke: $colorGreen;
         width: 14px;
         height: 14px;
         display: block;
@@ -224,4 +309,49 @@ li {
 
 .rellax {
     z-index: 2;
+}
+
+.banner-link {
+    font-size: 14px;
+    line-height: 20px;
+    display: block;
+    color: #fff;
+
+    @media(max-width: $md3) {
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    @media(max-width: $md5) {
+        display: none;
+    }
+
+    .container {
+        max-width: 1200px;
+        padding: 10px 0;
+        background: #213A8F;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    span {
+        margin-right: 21px;
+
+        @media(max-width: $md3) {
+            margin-right: 10px;
+        }
+    }
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.hide {
+    display: none;
+}
+
+.green {
+    color: $colorGreen;
 }

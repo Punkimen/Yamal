@@ -1,10 +1,6 @@
 .playbill {
     padding-bottom: 200px;
 
-    &__select-city {
-        top: 18px;
-    }
-
     &__container {
         max-width: 1180px;
         padding: 0 50px;
@@ -135,6 +131,7 @@
     }
 
     &__inner {
+        border-radius: 12px;
         position: relative;
     }
 
@@ -148,7 +145,7 @@
 
     &__calendar-slider {
         box-shadow: 0 7px 17px -12px rgba(0, 0, 0, 0.15);
-        border-radius: 12px;
+
         background: #fff;
     }
 

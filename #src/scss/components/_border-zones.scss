@@ -1,0 +1,25 @@
+.border-zones {
+    padding-bottom: 150px;
+
+    @media(max-width: $md3) {
+        padding-bottom: 165px;
+    }
+
+    @media(max-width: $md5) {
+        padding-bottom: 80px;
+    }
+
+    .container {
+        @media(max-width: $md5) {
+            padding: 0 10px;
+        }
+    }
+}
+
+.flavor__wrapper {
+    padding-left: 60px;
+
+    @media(max-width: $md3) {
+        padding-left: 0;
+    }
+}

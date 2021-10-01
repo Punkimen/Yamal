@@ -1,0 +1,150 @@
+.product-card {
+
+    &__photos {
+
+
+        @media(min-height: 550px) {
+            position: sticky;
+            top: 20px;
+        }
+    }
+}
+
+.card-photos {
+
+
+    &__big-photo {
+        margin-bottom: 32px;
+
+        @media(max-width: $md2) {}
+
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+
+            @media(max-width: $md2) {
+                object-fit: contain;
+                max-height: 405px;
+            }
+        }
+    }
+
+    &__small-inner {
+        position: relative;
+
+        @media(max-width: $md2) {
+            max-width: 540px;
+            margin: 0 auto;
+        }
+    }
+
+    &__slider {}
+
+    &__slide {
+        max-width: 111px;
+        cursor: pointer;
+        opacity: 0.5;
+
+        &.active {
+            opacity: 1;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+    }
+}
+
+.swiper {}
+
+.swiper-wrapper {}
+
+.swiper-slide {}
+
+.slick-arrow {}
+
+.card-photos-arrow {
+
+    &__prev {
+        top: 50%;
+        transform: translateY(-50%);
+        left: -16px;
+
+        @media(max-width: $md5) {
+            display: none;
+        }
+    }
+
+    &__next {
+        top: 50%;
+        transform: translateY(-50%) rotate(180deg);
+        right: -16px;
+
+        @media(max-width: $md5) {
+            display: none;
+        }
+    }
+}
+
+.btn {}
+
+.add-to-favorite {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 20px;
+    right: 19px;
+    white-space: nowrap;
+    background: #fff;
+    border: 1px solid #fff;
+    padding: 9px 13px 9px 32px;
+
+    @media(max-width: $md5) {
+        position: relative;
+        top: 0;
+        right: 0;
+        margin: 0 auto 32px;
+    }
+
+    &.active {
+        background: $colorGreen;
+        border-color: $colorGreen;
+        color: #fff;
+
+        svg {
+            stroke: #fff;
+
+            &.add-to-heart {
+                display: none;
+            }
+
+            &.added-to-heart {
+                display: block;
+            }
+        }
+    }
+
+    &:hover {
+        svg {
+            stroke: #fff;
+        }
+    }
+
+    svg {
+        stroke: $colorGreen;
+        display: block;
+        width: 20px;
+        height: 20px;
+        margin-left: 14px;
+        transition: all ease .2s;
+
+        &.added-to-heart {
+            display: none;
+        }
+    }
+}
+
+.btn-transparent-green {}
