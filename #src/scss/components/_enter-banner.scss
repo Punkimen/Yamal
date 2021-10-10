@@ -177,7 +177,7 @@
 
         &--calendar {
             .custom-date__calendar-wrapper {
-                font-size: 12px;
+                font-size: 14px;
                 line-height: 18px;
                 font-weight: bold;
             }
@@ -192,7 +192,7 @@
     &__from {
         &.custom-select {
             font-weight: bold;
-            font-size: 12px;
+            font-size: 14px;
             line-height: 18px;
         }
     }
@@ -250,6 +250,10 @@
     }
 
     .custom-select {
+        &.filed {
+            font-size: 12px;
+            font-weight: bold;
+        }
 
         &__header {
             &.active {
@@ -259,25 +263,6 @@
         }
     }
 }
-
-
-
-.section-title {}
-
-
-
-.btn {}
-
-.control {
-
-    &_indicator {}
-}
-
-.control-radio {}
-
-.costum-radio {}
-
-.choosen-radio {}
 
 .custom-date {
 
@@ -374,12 +359,3 @@
         color: #000;
     }
 }
-
-.today {}
-
-.current {}
-
-.range {}
-
-
-.btn-green {}

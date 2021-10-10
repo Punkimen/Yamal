@@ -392,6 +392,8 @@ li {
 .costum-input.filed .costum-calendar {
   border-color: #009974;
   color: #009974;
+  font-size: 12px;
+  line-height: 18px;
 }
 
 .costum-input.error .costum-calendar {
@@ -3227,10 +3229,11 @@ body[data-aos-easing=ease-in-out-quart] [data-aos] {
 }
 
 .playbill-category {
-  padding: 10px 29px 6px 32px;
+  padding: 8px 29px 8px 32px;
   color: #009974;
   font-size: 14px;
   line-height: 20px;
+  font-weight: 500;
   border: 2px solid #e6e6e6;
   box-sizing: border-box;
   border-radius: 7px;
@@ -5174,7 +5177,7 @@ body[data-aos-easing=ease-in-out-quart] [data-aos] {
 }
 
 .enter-banner__input--calendar .custom-date__calendar-wrapper {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 18px;
   font-weight: bold;
 }
@@ -5186,7 +5189,7 @@ body[data-aos-easing=ease-in-out-quart] [data-aos] {
 
 .enter-banner__from.custom-select {
   font-weight: bold;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 18px;
 }
 
@@ -5220,6 +5223,11 @@ body[data-aos-easing=ease-in-out-quart] [data-aos] {
 
 .enter-banner__btn span {
   margin-right: 15px;
+}
+
+.enter-banner .custom-select.filed {
+  font-size: 12px;
+  font-weight: bold;
 }
 
 .enter-banner .custom-select__header.active {
@@ -5680,7 +5688,7 @@ body[data-aos-easing=ease-in-out-quart] [data-aos] {
 
 .catalog-choose__type-search .btn {
   position: relative;
-  padding: 10px 45px 6px 32px;
+  padding: 8px 45px 8px 32px;
 }
 
 .catalog-choose__type-search .btn svg {

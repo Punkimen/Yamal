@@ -1941,6 +1941,7 @@ $(document).ready(function () {
                     </button>
                     `
                     mapContainer.append(cardElem)
+
                 }
                 function removeCard() {
                     const mapContainer = document.querySelector('.catalog-choose__map-cards');
@@ -2095,25 +2096,54 @@ $(document).ready(function () {
                 $('.catalog-choose__map').show()
             }
         })
-        $('.choose-btn').on('click', function () {
-            if ($(this).attr('data-type') === "only") {
-                if ($(this).hasClass('current')) {
-                    $(this).removeClass('current');
-                    $('.choose-btn').prop('disabled', false);
-                    $(this).prop('disabled', false);
+        document.addEventListener('click', function (e) {
+            const btnsOnly = document.querySelectorAll('.choose-btn[data-type="only"]')
+            if (e.target.closest('.choose-btn')) {
+                let btnChoose = e.target.closest('.choose-btn')
+                if (btnChoose.getAttribute('data-type') === "only") {
+                    if (btnChoose.closest('.current')) {
+                        btnChoose.classList.remove('current')
+                        btnsOnly.forEach(el => {
+                            if (!el.closest('.current')) {
+                                el.disabled = false;
+                            }
+                        })
+                    } else {
+                        btnChoose.classList.add('current');
+                        btnsOnly.forEach(el => {
+                            if (!el.closest('.current')) {
+                                el.disabled = true;
+                            }
+                        })
+                    }
                 } else {
-                    $(this).addClass('current');
-                    $('.choose-btn[data-type="only"]').prop('disabled', true);
-                    $(this).prop('disabled', false);
-                }
-            } else {
-                if ($(this).hasClass('current')) {
-                    $(this).removeClass('current');
-                } else {
-                    $(this).addClass('current');
+                    if (btnChoose.closest('.current')) {
+                        btnChoose.classList.remove('current')
+                    } else {
+                        btnChoose.classList.add('current');
+                    }
                 }
             }
         })
+        // $('.choose-btn').on('click', function () {
+        //     if ($(this).attr('data-type') === "only") {
+        //         if ($(this).hasClass('current')) {
+        //             $(this).removeClass('current');
+        //             $('.choose-btn').prop('disabled', false);
+        //             $(this).prop('disabled', false);
+        //         } else {
+        //             $(this).addClass('current');
+        //             $('.choose-btn[data-type="only"]').prop('disabled', true);
+        //             $(this).prop('disabled', false);
+        //         }
+        //     } else {
+        //         if ($(this).hasClass('current')) {
+        //             $(this).removeClass('current');
+        //         } else {
+        //             $(this).addClass('current');
+        //         }
+        //     }
+        // })
         // choose btn end
     })();
     // drag list
