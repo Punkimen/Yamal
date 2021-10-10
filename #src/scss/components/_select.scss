@@ -4,7 +4,6 @@
 }
 
 .custom-select {
-
     cursor: pointer;
     font-weight: 500;
     font-size: 14px;
@@ -12,6 +11,34 @@
     min-width: 154px;
     position: relative;
     overflow: visible;
+
+    &.filed {
+        .custom-select__header {
+            color: $colorGreen;
+            border-color: $colorGreen;
+        }
+    }
+
+    &.error {
+        &::after {
+            content: attr(data-error);
+            display: block;
+            position: absolute;
+            left: 0;
+            bottom: -15px;
+            font-size: 10px;
+            color: $colorPurple;
+
+            @media (max-width: $md5) {
+                bottom: -3px;
+                left: 15px;
+            }
+        }
+
+        .custom-select__header {
+            border-color: $colorPurple;
+        }
+    }
 
     &__header {
         background: #fff;

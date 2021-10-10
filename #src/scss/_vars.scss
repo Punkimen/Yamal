@@ -7,6 +7,7 @@ $md6: 412px;
 $colorGreen: #009974;
 $colorGrey: #E6E6E6;
 $colorBlue: #213A8F;
+$colorPurple: #a71681;
 
 html,
 body {
@@ -354,4 +355,90 @@ li {
 
 .green {
     color: $colorGreen;
+}
+
+.enter-banner__inputs .custom-select__header.active .custom-select__arrow {
+    transform: rotate(0deg);
+}
+
+.color-purple {
+    color: #A71681;
+}
+
+.color-green {
+    color: $colorGreen;
+}
+
+.costum-input {
+    position: relative;
+
+    &.filed {
+        .costum-calendar {
+            border-color: $colorGreen;
+            color: $colorGreen;
+        }
+    }
+
+    &.error {
+        .costum-calendar {
+            border-color: $colorPurple;
+        }
+    }
+
+    input {
+        font-family: "PT-Root", sans-serif;
+        padding: 10px 10px 10px 38px;
+        display: block;
+        background: #FFFFFF;
+        border: 1px solid #E6E6E6;
+        border-radius: 7px;
+        transition: all ease .2s;
+        outline: none;
+        font-size: 14px;
+        line-height: 20px;
+        display: block;
+        width: 100%;
+
+        &.costum-calendar {
+            font-weight: 500 !important;
+            font-size: 14px;
+            line-height: 20px;
+            color: #000;
+
+            &::placeholder {
+                color: #b3b3b3 !important;
+            }
+        }
+
+        &:hover {
+            border-color: $colorGreen;
+        }
+
+        &:focus {
+            border-color: $colorGreen;
+        }
+
+        &.error {
+            border-color: $colorPurple;
+        }
+    }
+
+    &__icon {
+        top: 13px;
+        left: 14px;
+        position: absolute;
+
+    }
+}
+
+custom-select.error {
+    .costum-calendar {
+        border-color: $colorPurple;
+    }
+}
+
+label.error {
+    display: block;
+    font-size: 10px;
+    color: $colorPurple;
 }

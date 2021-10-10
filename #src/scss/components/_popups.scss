@@ -11,10 +11,12 @@
         padding: 50px 10px;
         overflow: auto;
         z-index: 999;
+        background: rgba(#000, 0.5);
     }
 }
 
 .popup {
+    position: relative;
     display: none;
     max-width: 504px;
     width: 100%;
@@ -62,12 +64,33 @@
         font-weight: bold;
     }
 
+    &__text {
+        text-align: center;
+    }
+
     &__btns {
+        padding: 0 15px;
         display: flex;
         justify-content: center;
 
         .btn:not(:last-child) {
             margin-right: 24px;
+
+            @media(max-width: $md5) {
+                margin-right: auto;
+            }
+        }
+
+        @media(max-width: $md5) {
+            display: block;
+
+            .btn {
+                margin: 0 auto;
+
+                &:not(:last-child) {
+                    margin-bottom: 20px;
+                }
+            }
         }
     }
 
@@ -79,6 +102,12 @@
 .fixed-filter {
 
     &__close {}
+
+    &__close--only {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
 }
 
 .popup-close {}
@@ -89,7 +118,19 @@
 
 .btn-transparent-green {}
 
+.popup__way-generate-link {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+.popup__way-link {
+    font-size: 14px;
+    line-height: 20px;
+    margin-right: 10px;
+    color: $colorGreen;
+}
 
 .notification {
     padding: 20px 20px 20px 32px;
@@ -101,12 +142,6 @@
     box-shadow: 0px 7px 40px -7px rgba(0, 0, 0, 0.3);
     border-radius: 12px;
     z-index: 99;
-
-    @media(max-width: $md6) {
-        // right: auto;
-        // left: 50%;
-        // transform: translateX(-50%);
-    }
 
     &.show {
         display: flex;
@@ -128,11 +163,19 @@
     }
 }
 
-.fixed-filter {
+.popup {
 
-    &__close {}
+    &__input-inner {
+        max-width: 240px;
+        margin: 0 auto;
+
+        margin-bottom: 5px;
+        margin-bottom: 24px;
+    }
+
+    &__input-label {
+        font-size: 12px;
+        line-height: 18px;
+        color: #000;
+    }
 }
-
-.notification-close {}
-
-.btn {}

@@ -65,7 +65,10 @@
 
     &__item {}
 
-    &__btns {}
+    &__btns {
+        display: flex;
+        justify-content: center;
+    }
 
     &__btn {
         width: 100%;
@@ -73,6 +76,27 @@
         &:not(:last-child) {
             margin-bottom: 10px;
         }
+    }
+}
+
+.fixed-pay {
+    display: flex;
+    flex-direction: column;
+    background: #f2f2f2;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: -100%;
+    height: 100vh;
+    box-shadow: 0px 7px 40px -7px rgba(0, 0, 0, 0.3);
+    max-width: 358px;
+    width: 100%;
+    transition: all ease .5s;
+    z-index: 4;
+    overflow-y: auto;
+
+    &.show {
+        right: 0;
     }
 }
 
@@ -146,32 +170,80 @@
     &__body-list {}
 }
 
-.custom-select {
+.fixed-pay {
 
-    &__current-elem {}
+    &__plan-items {
+        margin-bottom: 25px;
+    }
 
-    &__search {}
+    &__plan-item {
+        &:not(:last-child) {
+            margin-bottom: 32px;
+        }
+    }
 
-    &__input {}
+    &__plan-inner {
+        display: flex;
+        align-items: center;
+    }
 
-    &__search-btn {}
+    &__plan-img {
+        margin-right: 20px;
+    }
 
-    &__category {}
+    &__plan-descr {}
+
+    &__plan-form {}
+
+    &__form {}
+
+    &__form-inputs {
+        padding: 25px 0;
+        border-top: 2px solid #E6E6E6;
+        border-bottom: 2px solid #E6E6E6;
+        margin-bottom: 25px;
+    }
+
+    &__form-checkboxes {
+        margin-bottom: 24px;
+    }
+
+    &__form-checkbox {
+        &:not(:last-child) {
+            margin-bottom: 24px;
+        }
+
+        .costum-radio {
+            padding-right: 0;
+            padding-left: 30px;
+        }
+
+        .costum-radio .control_indicator {
+            left: 0;
+            right: auto;
+            border-radius: 4px;
+        }
+
+        a {
+            display: inline;
+        }
+    }
+
+    .price-block {
+        margin-top: 24px;
+    }
+
+    .mCSB_inside>.mCSB_container {
+        margin-right: 0;
+    }
+
+    .mCSB_scrollTools {
+        opacity: 0;
+    }
+
+    .mCSB_scrollTools .mCSB_draggerContainer {
+        opacity: 0;
+    }
+
+    &__btn {}
 }
-
-.btn {}
-
-.control {
-
-    &_indicator {}
-}
-
-.control-radio {}
-
-.costum-radio {}
-
-.choosen-radio {}
-
-.btn-green {}
-
-.btn-transparent {}

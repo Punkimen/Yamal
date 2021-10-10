@@ -42,6 +42,108 @@
                 </button>
             </div>
         </div>
+        <div id="popup-create-way" class="popup">
+            <div class="popup__header">
+                <div class="popup__name">Мои маршруты</div>
+                <button class="fixed-filter__close popup-close btn js-close">
+                    <img src="img/icon/filter-close.svg" alt="">
+                </button>
+            </div>
+            <div class="popup__body">
+                <div class="popup__icon">
+                    <img src="img/icon/popup-sucses.svg">
+                </div>
+                <div class="popup__title">
+                    Маршрут успешно создан
+                </div>
+                <div class="popup__text">
+                    <p>Он будет доступен по ссылки в течении <span class="color-purple">7 дней.</span></p>
+                    <p>Добавьте в личный кабинет, чтобы сохранить надолго.</p>
+                </div>
+                <div class="popup__way-generate-link">
+                    <a class="popup__way-link">https://visityamal.ru/route?id=23159348</a>
+                    <button type="button" class="btn btn-copy">
+                        <img src="img/icon/copy.svg" alt="copy">
+                    </button>
+                </div>
+
+            </div>
+            <div class="popup__btns">
+                <button type="button" class="popup__btn-sms btn btn-green js-close"
+                    data-popup="#phone-for-sms">Отправить ссылку по
+                    СМС</button>
+                <button id="add-acc-btn" type="button" class="popup__btn-delete  js-close btn btn-transparent-green"
+                    data-popup="#add-acc">
+                    Добавить в ЛК
+                </button>
+            </div>
+        </div>
+        <div id="phone-for-sms" class="popup">
+            <form id="sms-send" action="">
+                <div class="popup__header">
+                    <div class="popup__name">Мои маршруты</div>
+                    <button class="fixed-filter__close popup-close btn js-close">
+                        <img src="img/icon/filter-close.svg" alt="">
+                    </button>
+                </div>
+                <div class="popup__body">
+                    <div class="popup__input-inner">
+                        <div class="popup__input-label">Телефон</div>
+                        <div class="costum-input">
+                            <input type="tel" name="phone" class="input-phone" placeholder="+7 000 000 00 00"
+                                required></input>
+                            <div class="costum-input__icon">
+                                <img src="img/icon/call.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="popup__title">
+                        Можно отправить 1 раз
+                    </div>
+                </div>
+                <div class="popup__btns">
+                    <button type="submit" class="popup__btn-enter btn btn-green">Отправить</button>
+                </div>
+            </form>
+        </div>
+        <div id="sucsess-pay" class="popup">
+            <button class="fixed-filter__close popup-close fixed-filter__close--only btn js-close">
+                <img src="img/icon/filter-close.svg" alt="">
+            </button>
+            <div class="popup__body">
+                <div class="popup__icon">
+                    <img src="img/icon/popup-sucses.svg">
+                </div>
+                <div class="popup__title">
+                    Оплата прошла успешно
+                </div>
+                <div class="popup__text">
+                    Маршрут уже добавлен в ваш кабинет
+                </div>
+            </div>
+            <div class="popup__btns">
+                <div class="popup__btn-registr btn btn-green">Мои маршруты</div>
+            </div>
+        </div>
+        <div id="error-pay" class="popup">
+            <button class="fixed-filter__close fixed-filter__close--only popup-close btn js-close">
+                <img src="img/icon/filter-close.svg" alt="">
+            </button>
+            <div class="popup__body">
+                <div class="popup__icon">
+                    <img src="img/icon/popup-error.svg">
+                </div>
+                <div class="popup__title">
+                    Что-то пошло не так. Попробуйте еще раз
+                </div>
+                <div class="popup__text">
+                    Мы добавили маршрут в ваш личный кабинеит
+                </div>
+            </div>
+            <div class="popup__btns">
+                <div class="popup__btn-registr btn btn-green">Мои маршруты</div>
+            </div>
+        </div>
     </div>
 </div>
 <div id="delete-rewiew" class="notification">
@@ -52,6 +154,12 @@
 </div>
 <div id="add-rewiew" class="notification">
     <div class="notification__label">Отзыв опубликован</div>
+    <button class="fixed-filter__close js-close  btn">
+        <img src="img/icon/filter-close.svg" alt="">
+    </button>
+</div>
+<div id="add-acc" class="notification">
+    <div class="notification__label">Маршрут добавлен в ЛК</div>
     <button class="fixed-filter__close js-close  btn">
         <img src="img/icon/filter-close.svg" alt="">
     </button>

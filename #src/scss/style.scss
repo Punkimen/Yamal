@@ -2,6 +2,7 @@
 @import 'fonts';
 @import 'vars';
 @import 'aos';
+@import './vendor';
 @import './components/header';
 @import './components/weather-block';
 @import './components/quote';
@@ -25,4 +26,9 @@
 @import './components/product-card-description';
 @import './components/product-card-photo';
 @import './components/product-card-reviews';
+@import './components/enter-banner';
 @import './components/popups';
+@import './components/map';
+@import './components/step-2';
+@import './components/build-way';
+@import './components/calendar';

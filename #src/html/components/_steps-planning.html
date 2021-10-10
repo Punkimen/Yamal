@@ -1,0 +1,993 @@
+<section class="steps-planning">
+    <div class="bread-crumbs">
+        <div class="container">
+            <ul class="bread-crumbs__list">
+                <li class="bread-crumbs__elem">
+                    <a href="/" class="bread-crumbs__link bread-crumbs__link--arrow">Главная</a>
+                </li>
+                <li class="bread-crumbs__elem">
+                    <a href="#" class="bread-crumbs__link">Индивидуальный маршрут</a>
+                </li>
+                <li class="bread-crumbs__elem">
+                    <a href="#" class="bread-crumbs__link">Где остановиться</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container enter-banner__container">
+        <div class="steps-planning__enter enter-banner">
+            <div class="enter-banner__inner">
+                <h2 class="enter-banner__title section-title">Планирование маршрута</h2>
+                <div class="enter-banner__form">
+                    <form id="planning-form" action="#">
+                        <div class="enter-banner__inputs">
+                            <div class="enter-banner__input" data-title="Откуда">
+                                <div class="enter-banner__from custom-select" data-error='Заполните поле'>
+                                    <div class="custom-select__header">
+                                        <div class="custom-select__arrow">
+                                            <img src="img/icon/send.svg" alt="">
+                                        </div>
+                                        <span id="city-from-value" class="custom-select__current-elem"
+                                            data-title="Откуда">Откуда</span>
+                                    </div>
+                                    <div class="custom-select__body">
+                                        <div class="custom-select__search">
+                                            <input type="text" class="custom-select__input" placeholder="Поиск">
+                                            <button type="button" class="custom-select__search-btn btn">
+                                                <img src="img/icon/search.svg" alt="lope">
+                                            </button>
+                                        </div>
+                                        <div class="custom-select__categoryes">
+                                            <div class="custom-select__category">
+                                                <div class="custom-select__category-letter">A</div>
+                                                <ul class="custom-select__category-list">
+                                                    <li class="custom-select__category__elem">
+                                                        <label class="control control-radio costum-radio">
+                                                            Москва
+                                                            <input class="choosen-radio choosen-radio-from" value="0"
+                                                                type="radio" name="0" />
+                                                            <div class="control_indicator"></div>
+                                                        </label>
+                                                    </li>
+                                                    <li class="custom-select__category__elem">
+                                                        <label class="control control-radio costum-radio">
+                                                            Санкт-Петербург
+                                                            <input class="choosen-radio choosen-radio-from" value="1"
+                                                                type="radio" name="0" />
+                                                            <div class="control_indicator"></div>
+                                                        </label>
+                                                    </li>
+                                                    <li class="custom-select__category__elem">
+                                                        <label class="control control-radio costum-radio">
+                                                            Краснодар
+                                                            <input class="choosen-radio choosen-radio-from" value="2"
+                                                                type="radio" name="0" />
+                                                            <div class="control_indicator"></div>
+                                                        </label>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="custom-select__category">
+                                                <div class="custom-select__category-letter">A</div>
+                                                <ul class="custom-select__category-list">
+                                                    <li class="custom-select__category__elem">
+                                                        <label class="control control-radio costum-radio">
+                                                            Москва
+                                                            <input class="choosen-radio choosen-radio-from" value="0"
+                                                                type="radio" name="0" />
+                                                            <div class="control_indicator"></div>
+                                                        </label>
+                                                    </li>
+                                                    <li class="custom-select__category__elem">
+                                                        <label class="control control-radio costum-radio">
+                                                            Санкт-Петербург
+                                                            <input class="choosen-radio choosen-radio-from" value="1"
+                                                                type="radio" name="0" />
+                                                            <div class="control_indicator"></div>
+                                                        </label>
+                                                    </li>
+                                                    <li class="custom-select__category__elem">
+                                                        <label class="control control-radio costum-radio">
+                                                            Краснодар
+                                                            <input class="choosen-radio choosen-radio-from" value="2"
+                                                                type="radio" name="0" />
+                                                            <div class="control_indicator"></div>
+                                                        </label>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="enter-banner__input" data-title="Куда">
+                                <div class="enter-banner__where custom-select" data-error='Заполните поле'>
+                                    <div class="custom-select__header">
+                                        <div class="custom-select__arrow">
+                                            <img src="img/icon/received.svg" alt="">
+                                        </div>
+                                        <span id="city-to-value" class="custom-select__current-elem"
+                                            data-title="Куда">Куда</span>
+                                    </div>
+                                    <div class="custom-select__body">
+                                        <div class="custom-select__search">
+                                            <input type="text" class="custom-select__input" placeholder="Поиск">
+                                            <button type="button" class="custom-select__search-btn btn">
+                                                <img src="img/icon/search.svg" alt="lope">
+                                            </button>
+                                        </div>
+                                        <div class="custom-select__categoryes">
+                                            <div class="custom-select__category">
+                                                <ul class="custom-select__category-list">
+                                                    <li class="custom-select__category__elem">
+                                                        <label
+                                                            class="control control-radio costum-radio"><span>Яр-Сале</span><input
+                                                                class="choosen-radio choosen-radio-to" value="Яр-Сале"
+                                                                type="radio" name="1" />
+                                                            <div class="control_indicator"></div>
+                                                        </label>
+                                                    </li>
+                                                    <li class="custom-select__category__elem">
+                                                        <label class="control control-radio costum-radio">
+                                                            <span>Тазовский</span>
+                                                            <input class="choosen-radio choosen-radio-to"
+                                                                value="Тазовский" type="radio" name="1" />
+                                                            <div class="control_indicator"></div>
+                                                        </label>
+                                                    </li>
+                                                    <li class="custom-select__category__elem">
+                                                        <label class="control control-radio costum-radio">
+                                                            <span>Салехард</span>
+                                                            <input class="choosen-radio choosen-radio-to"
+                                                                value="Салехард" type="radio" name="1" />
+                                                            <div class="control_indicator"></div>
+                                                        </label>
+                                                    </li>
+                                                    <li class="custom-select__category__elem">
+                                                        <label class="control control-radio costum-radio">
+                                                            <span>Новый Уренгой</span>
+                                                            <input class="choosen-radio choosen-radio-to"
+                                                                value="Новый Уренгой" type="radio" name="1" />
+                                                            <div class="control_indicator"></div>
+                                                        </label>
+                                                    </li>
+                                                    <li class="custom-select__category__elem">
+                                                        <label class="control control-radio costum-radio">
+                                                            <span>Надым</span>
+                                                            <input class="choosen-radio choosen-radio-to" value="Надым"
+                                                                type="radio" name="1" />
+                                                            <div class="control_indicator"></div>
+                                                        </label>
+                                                    </li>
+                                                    <li class="custom-select__category__elem">
+                                                        <label class="control control-radio costum-radio">
+                                                            <span>Сабетта</span>
+                                                            <input class="choosen-radio choosen-radio-to"
+                                                                value="Сабетта" type="radio" name="1" />
+                                                            <div class="control_indicator"></div>
+                                                        </label>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="enter-banner__input enter-banner__input--calendar" data-title="Когда">
+                                <div class="costum-input custom-select" data-error='Заполните поле'>
+                                    <input type="text" class="costum-calendar" name="daterange" placeholder="Когда"
+                                        required value="" />
+                                    <img class="costum-input__icon" src="img/icon/calendar-icon.svg" alt="calendar">
+                                </div>
+                            </div>
+                            <div class="enter-banner__input" data-title="Вид отдыха">
+                                <div class="enter-banner__recreation custom-select" data-error='Заполните поле'>
+                                    <div class="custom-select__header">
+                                        <div class="custom-select__arrow">
+                                            <img src="img/icon/airplane-icon.svg" alt="">
+                                        </div>
+                                        <span id="type-of-recreation" class="custom-select__current-elem" data-title="Вид
+                                        отдыха">Вид отдыха</span>
+                                    </div>
+                                    <div class="custom-select__body">
+                                        <div class="custom-select__categoryes">
+                                            <div class="custom-select__category">
+                                                <ul class="custom-select__category-list">
+                                                    <li class="custom-select__category__elem">
+                                                        <label class="control control-radio costum-radio">
+                                                            Активный
+                                                            <input class="choosen-radio" value="city" type="radio"
+                                                                name="1" />
+                                                            <div class="control_indicator"></div>
+                                                        </label>
+                                                    </li>
+                                                    <li class="custom-select__category__elem">
+                                                        <label class="control control-radio costum-radio">
+                                                            Пассивный
+                                                            <input class="choosen-radio" value="city" type="radio"
+                                                                name="1" />
+                                                            <div class="control_indicator"></div>
+                                                        </label>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button id="next-step-btn" type="button" class="enter-banner__btn show btn btn-green">
+                                <span>Далее</span>
+                                <img src="img/icon/arrow-right.svg" alt="">
+                            </button>
+                            <button id="repeat-step-btn" type="button" class="enter-banner__btn btn btn-green">
+                                <span>Заново</span>
+                                <img src="img/icon/undo.svg" alt="">
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div id="organizerContainer"></div>
+            </div>
+        </div>
+    </div>
+    <div id="step_1" class="steps-planning__step steps-planning__step--1 show">
+        <div class="container container-map">
+            <div class="steps-planning__map custom-map">
+                <div class="custom-map__text custom-map__description">
+                    <img src="img/icon/map-description.svg" alt="">
+                    <span>Выберете точку на карте или впишите в графу «Куда» </span>
+                </div>
+                <div id="add-light-map" class="custom-map__text custom-map__north-light">
+                    <img src="img/icon/map-north-light.svg" alt="">
+                    <span>Северное сияние</span>
+                </div>
+                <div id="map"></div>
+            </div>
+        </div>
+    </div>
+    <div id="step_2" class="steps-planning__step steps-planning__step--2 ">
+        <div class="container catalog-choose__container">
+            <div class="catalog-choose">
+                <div class="catalog-choose__header">
+                    <h2 class="catalog-choose__title section-title">Где остановиться</h2>
+                    <div class="catalog-choose__hendler">
+                        <button type="button" class="catalog-choose__btn btn btn-transparent-green btn-back">
+                            <svg class="">
+                                <use xlink:href="./img/icons/icons.svg#arrow-right"></use>
+                            </svg>
+                            <span>Назад</span>
+                        </button>
+                        <button type="button" class="catalog-choose__btn btn btn-green btn-next">
+                            <span>Далее</span>
+                            <svg class="">
+                                <use xlink:href="./img/icons/icons.svg#arrow-right"></use>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="catalog-choose__filtres">
+                    <div class="catalog-choose__type-search catalog-categories">
+                        <button type="button" class="playbill-category btn current" data-value="list-search">
+                            <span>Список</span>
+                            <svg class="">
+                                <use xlink:href="./img/icons/icons.svg#color-swatch"></use>
+                            </svg>
+                        </button>
+                        <button type="button" class="playbill-category btn" data-value="map-search">
+                            <span>Карта</span>
+                            <svg class="">
+                                <use xlink:href="./img/icons/icons.svg#map"></use>
+                            </svg>
+                        </button>
+                    </div>
+                    <button class="catalog-filter__btn js-open-filter btn btn-green">
+                        <span>Фильтр</span>
+                        <svg class="">
+                            <use xlink:href="./img/icons/icons.svg#arrow-slide"></use>
+                        </svg>
+                    </button>
+                </div>
+                <div class="catalog-choose__catalog">
+                    <div class="catalog__container container">
+                        <div class="catalog__wrapper">
+                            <div class="catalog__wrapper-item card-item photo">
+                                <a href="">
+                                    <div class="card-item__img">
+                                        <img src="img/cards/card-restor_1.png" alt="Отель «Ямбург»">
+                                    </div>
+                                    <div class="card-item__footer">
+                                        <div class="card-item__name">Отель «Ямбург»</div>
+                                        <div class="descr-block__text">
+                                            10:00 - 22:00 для регистрации
+                                        </div>
+                                    </div>
+                                </a>
+                                <button type="button" data-type="only"
+                                    class="choose-btn btn btn-transparent choose-btn--hostel">
+                                    <span class="choose-btn__status">Выбрать</span>
+                                    <div class="choose-btn__icon">
+                                        +
+                                    </div>
+                                </button>
+                            </div>
+                            <div class="catalog__wrapper-item card-item photo">
+                                <a href="">
+                                    <div class="card-item__img">
+                                        <img src="img/cards/card-restor_1.png" alt="Отель «Ямбург»">
+                                    </div>
+                                    <div class="card-item__footer">
+                                        <div class="card-item__name">Отель «Ямбург»</div>
+                                        <div class="descr-block__text">
+                                            10:00 - 22:00 для регистрации
+                                        </div>
+                                    </div>
+                                </a>
+                                <button type="button" data-type="only"
+                                    class="choose-btn btn btn-transparent choose-btn--hostel ">
+                                    <span class="choose-btn__status">Выбрать</span>
+                                    <div class="choose-btn__icon">
+                                        +
+                                    </div>
+                                </button>
+                            </div>
+                            <div class="catalog__wrapper-item card-item photo">
+                                <a href="">
+                                    <div class="card-item__img">
+                                        <img src="img/cards/card-restor_1.png" alt="Отель «Ямбург»">
+                                    </div>
+                                    <div class="card-item__footer">
+                                        <div class="card-item__name">Отель «Ямбург»</div>
+                                        <div class="descr-block__text">
+                                            10:00 - 22:00 для регистрации
+                                        </div>
+                                    </div>
+                                </a>
+                                <button type="button" data-type="only"
+                                    class="choose-btn btn btn-transparent choose-btn--hostel ">
+                                    <span class="choose-btn__status">Выбрать</span>
+                                    <div class="choose-btn__icon">
+                                        +
+                                    </div>
+                                </button>
+                            </div>
+                            <div class="catalog__wrapper-item card-item photo">
+                                <a href="">
+                                    <div class="card-item__img">
+                                        <img src="img/cards/card-restor_1.png" alt="Отель «Ямбург»">
+                                    </div>
+                                    <div class="card-item__footer">
+                                        <div class="card-item__name">Отель «Ямбург»</div>
+                                        <div class="descr-block__text">
+                                            10:00 - 22:00 для регистрации
+                                        </div>
+                                    </div>
+                                </a>
+                                <button data-type="only" type="button"
+                                    class="choose-btn btn btn-transparent choose-btn--hostel">
+                                    <span class="choose-btn__status">Выбрать</span>
+                                    <div class="choose-btn__icon">
+                                        +
+                                    </div>
+                                </button>
+                            </div>
+                            <div class="catalog__wrapper-item card-item photo">
+                                <a href="">
+                                    <div class="card-item__img">
+                                        <img src="img/cards/card-restor_1.png" alt="Отель «Ямбург»">
+                                    </div>
+                                    <div class="card-item__footer">
+                                        <div class="card-item__name">Отель «Ямбург»</div>
+                                        <div class="descr-block__text">
+                                            10:00 - 22:00 для регистрации
+                                        </div>
+                                    </div>
+                                </a>
+                                <button data-type="only" type="button"
+                                    class="choose-btn btn btn-transparent choose-btn--hostel">
+                                    <span class="choose-btn__status">Выбрать</span>
+                                    <div class="choose-btn__icon">
+                                        +
+                                    </div>
+                                </button>
+                            </div>
+                            <div class="catalog__wrapper-item card-item photo">
+                                <a href="">
+                                    <div class="card-item__img">
+                                        <img src="img/cards/card-restor_1.png" alt="Отель «Ямбург»">
+                                    </div>
+                                    <div class="card-item__footer">
+                                        <div class="card-item__name">Отель «Ямбург»</div>
+                                        <div class="descr-block__text">
+                                            10:00 - 22:00 для регистрации
+                                        </div>
+                                    </div>
+                                </a>
+                                <button data-type="only" type="button"
+                                    class="choose-btn btn btn-transparent choose-btn--hostel">
+                                    <span class="choose-btn__status">Выбрать</span>
+                                    <div class="choose-btn__icon">
+                                        +
+                                    </div>
+                                </button>
+                            </div>
+                            <div class="catalog__wrapper-item card-item photo">
+                                <a href="">
+                                    <div class="card-item__img">
+                                        <img src="img/cards/card-restor_1.png" alt="Отель «Ямбург»">
+                                    </div>
+                                    <div class="card-item__footer">
+                                        <div class="card-item__name">Отель «Ямбург»</div>
+                                        <div class="descr-block__text">
+                                            10:00 - 22:00 для регистрации
+                                        </div>
+                                    </div>
+                                </a>
+                                <button type="button" data-type="only"
+                                    class="choose-btn btn btn-transparent choose-btn--hostel ">
+                                    <span class="choose-btn__status">Выбрать</span>
+                                    <div class="choose-btn__icon">
+                                        +
+                                    </div>
+                                </button>
+                            </div>
+                            <div class="catalog__wrapper-item card-item photo">
+                                <a href="">
+                                    <div class="card-item__img">
+                                        <img src="img/cards/card-restor_1.png" alt="Отель «Ямбург»">
+                                    </div>
+                                    <div class="card-item__footer">
+                                        <div class="card-item__name">Отель «Ямбург»</div>
+                                        <div class="descr-block__text">
+                                            10:00 - 22:00 для регистрации
+                                        </div>
+                                    </div>
+                                </a>
+                                <button type="button" data-type="only"
+                                    class="choose-btn btn btn-transparent choose-btn--hostel ">
+                                    <span class="choose-btn__status">Выбрать</span>
+                                    <div class="choose-btn__icon">
+                                        +
+                                    </div>
+                                </button>
+                            </div>
+                            <div class="catalog__wrapper-item card-item photo">
+                                <a href="">
+                                    <div class="card-item__img">
+                                        <img src="img/cards/card-restor_1.png" alt="Отель «Ямбург»">
+                                    </div>
+                                    <div class="card-item__footer">
+                                        <div class="card-item__name">Отель «Ямбург»</div>
+                                        <div class="descr-block__text">
+                                            10:00 - 22:00 для регистрации
+                                        </div>
+                                    </div>
+                                </a>
+                                <button type="button" data-type="only"
+                                    class="choose-btn btn btn-transparent choose-btn--hostel ">
+                                    <span class="choose-btn__status">Выбрать</span>
+                                    <div class="choose-btn__icon">
+                                        +
+                                    </div>
+                                </button>
+                            </div>
+                            <div class="catalog__wrapper-item card-item photo">
+                                <a href="">
+                                    <div class="card-item__img">
+                                        <img src="img/cards/card-restor_1.png" alt="Отель «Ямбург»">
+                                    </div>
+                                    <div class="card-item__footer">
+                                        <div class="card-item__name">Отель «Ямбург»</div>
+                                        <div class="descr-block__text">
+                                            10:00 - 22:00 для регистрации
+                                        </div>
+                                    </div>
+                                </a>
+                                <button data-type="only" type="button"
+                                    class="choose-btn btn btn-transparent choose-btn--hostel">
+                                    <span class="choose-btn__status">Выбрать</span>
+                                    <div class="choose-btn__icon">
+                                        +
+                                    </div>
+                                </button>
+                            </div>
+                            <div class="catalog__wrapper-item card-item photo">
+                                <a href="">
+                                    <div class="card-item__img">
+                                        <img src="img/cards/card-restor_1.png" alt="Отель «Ямбург»">
+                                    </div>
+                                    <div class="card-item__footer">
+                                        <div class="card-item__name">Отель «Ямбург»</div>
+                                        <div class="descr-block__text">
+                                            10:00 - 22:00 для регистрации
+                                        </div>
+                                    </div>
+                                </a>
+                                <button data-type="only" type="button"
+                                    class="choose-btn btn btn-transparent choose-btn--hostel">
+                                    <span class="choose-btn__status">Выбрать</span>
+                                    <div class="choose-btn__icon">
+                                        +
+                                    </div>
+                                </button>
+                            </div>
+                            <div class="catalog__wrapper-item card-item photo">
+                                <a href="">
+                                    <div class="card-item__img">
+                                        <img src="img/cards/card-restor_1.png" alt="Отель «Ямбург»">
+                                    </div>
+                                    <div class="card-item__footer">
+                                        <div class="card-item__name">Отель «Ямбург»</div>
+                                        <div class="descr-block__text">
+                                            10:00 - 22:00 для регистрации
+                                        </div>
+                                    </div>
+                                </a>
+                                <button data-type="only" type="button"
+                                    class="choose-btn btn btn-transparent choose-btn--hostel">
+                                    <span class="choose-btn__status">Выбрать</span>
+                                    <div class="choose-btn__icon">
+                                        +
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                        <button class="catalog-choose__show-more btn btn-green">Показать еще</button>
+                    </div>
+                </div>
+                <div class="catalog-choose__map">
+                    <div class="catalog-choose__map-cards"></div>
+                    <div id="catalog-choose__map" class="catalog-choose__map"></div>
+                </div>
+            </div>
+        </div>
+        @@include('../components/_questions.html')
+    </div>
+    <div id="step_3" class="steps-planning__step steps-planning__step--3 ">
+        <div class="container catalog-choose__container">
+            <div class="catalog-choose">
+                <div class="catalog-choose__header">
+                    <h2 class="catalog-choose__title section-title">Чем заняться</h2>
+                    <div class="catalog-choose__hendler">
+                        <button type="button" class="catalog-choose__btn btn btn-transparent-green btn-back">
+                            <svg class="">
+                                <use xlink:href="./img/icons/icons.svg#arrow-right"></use>
+                            </svg>
+                            <span>Назад</span>
+                        </button>
+                        <button type="button" class="catalog-choose__btn btn btn-green btn-next">
+                            <span>Далее</span>
+                            <svg class="">
+                                <use xlink:href="./img/icons/icons.svg#arrow-right"></use>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="catalog-choose__filtres">
+                    <div class="catalog-choose__categories catalog-categories">
+                        <button type="button" class="playbill-category btn current" data-value="list-search">
+                            Рекомендации
+                        </button>
+                        <button type="button" class="playbill-category btn" data-value="map-search">
+                            Мероприятия
+                        </button>
+                        <button type="button" class="playbill-category btn" data-value="map-search">
+                            Туры
+                        </button>
+                        <button type="button" class="playbill-category btn" data-value="map-search">
+                            Маршруты
+                        </button>
+                        <button type="button" class="playbill-category btn" data-value="map-search">
+                            Экскурсии
+                        </button>
+                    </div>
+                    <button class="catalog-filter__btn js-open-filter btn btn-green">
+                        <span>Фильтр</span>
+                        <svg class="">
+                            <use xlink:href="./img/icons/icons.svg#arrow-slide"></use>
+                        </svg>
+                    </button>
+                </div>
+                <div class="catalog-choose__catalog choose-entertainments__catalog">
+                    <div class="catalog__container container">
+                        <div class="catalog__wrapper">
+                            <div class="catalog__wrapper-item card-item photo">
+                                <a href="">
+                                    <div class="card-item__img">
+                                        <img src="img/cards/card-restor_1.png" alt="Отель «Ямбург»">
+                                    </div>
+                                    <div class="card-item__footer">
+                                        <div class="card-item__name">Отель «Ямбург»</div>
+                                        <div class="descr-block__text">
+                                            10:00 - 22:00 для регистрации
+                                        </div>
+                                    </div>
+                                </a>
+                                <button type="button" class="choose-btn choose-btn--etertainment btn btn-transparent">
+                                    <span class="choose-btn__status">Выбрать</span>
+                                    <div class="choose-btn__icon">
+                                        +
+                                    </div>
+                                </button>
+                            </div>
+                            <div class="catalog__wrapper-item card-item photo">
+                                <a href="">
+                                    <div class="card-item__img">
+                                        <img src="img/cards/card-restor_1.png" alt="Отель «Ямбург»">
+                                    </div>
+                                    <div class="card-item__footer">
+                                        <div class="card-item__name">Отель «Ямбург»</div>
+                                        <div class="descr-block__text">
+                                            10:00 - 22:00 для регистрации
+                                        </div>
+                                    </div>
+                                </a>
+                                <button type="button" class="choose-btn choose-btn--etertainment btn btn-transparent">
+                                    <span class="choose-btn__status">Выбрать</span>
+                                    <div class="choose-btn__icon">
+                                        +
+                                    </div>
+                                </button>
+                            </div>
+                            <div class="catalog__wrapper-item card-item photo">
+                                <a href="">
+                                    <div class="card-item__img">
+                                        <img src="img/cards/card-restor_1.png" alt="Отель «Ямбург»">
+                                    </div>
+                                    <div class="card-item__footer">
+                                        <div class="card-item__name">Отель «Ямбург»</div>
+                                        <div class="descr-block__text">
+                                            10:00 - 22:00 для регистрации
+                                        </div>
+                                    </div>
+                                </a>
+                                <button type="button" class="choose-btn choose-btn--etertainment btn btn-transparent">
+                                    <span class="choose-btn__status">Выбрать</span>
+                                    <div class="choose-btn__icon">
+                                        +
+                                    </div>
+                                </button>
+                            </div>
+                            <div class="catalog__wrapper-item card-item photo">
+                                <a href="">
+                                    <div class="card-item__img">
+                                        <img src="img/cards/card-restor_1.png" alt="Отель «Ямбург»">
+                                    </div>
+                                    <div class="card-item__footer">
+                                        <div class="card-item__name">Отель «Ямбург»</div>
+                                        <div class="descr-block__text">
+                                            10:00 - 22:00 для регистрации
+                                        </div>
+                                    </div>
+                                </a>
+                                <button type="button" class="choose-btn choose-btn--etertainment btn btn-transparent">
+                                    <span class="choose-btn__status">Выбрать</span>
+                                    <div class="choose-btn__icon">
+                                        +
+                                    </div>
+                                </button>
+                            </div>
+                            <div class="catalog__wrapper-item card-item photo">
+                                <a href="">
+                                    <div class="card-item__img">
+                                        <img src="img/cards/card-restor_1.png" alt="Отель «Ямбург»">
+                                    </div>
+                                    <div class="card-item__footer">
+                                        <div class="card-item__name">Отель «Ямбург»</div>
+                                        <div class="descr-block__text">
+                                            10:00 - 22:00 для регистрации
+                                        </div>
+                                    </div>
+                                </a>
+                                <button type="button" class="choose-btn choose-btn--etertainment btn btn-transparent">
+                                    <span class="choose-btn__status">Выбрать</span>
+                                    <div class="choose-btn__icon">
+                                        +
+                                    </div>
+                                </button>
+                            </div>
+                            <div class="catalog__wrapper-item card-item photo">
+                                <a href="">
+                                    <div class="card-item__img">
+                                        <img src="img/cards/card-restor_1.png" alt="Отель «Ямбург»">
+                                    </div>
+                                    <div class="card-item__footer">
+                                        <div class="card-item__name">Отель «Ямбург»</div>
+                                        <div class="descr-block__text">
+                                            10:00 - 22:00 для регистрации
+                                        </div>
+                                    </div>
+                                </a>
+                                <button type="button" class="choose-btn choose-btn--etertainment btn btn-transparent">
+                                    <span class="choose-btn__status">Выбрать</span>
+                                    <div class="choose-btn__icon">
+                                        +
+                                    </div>
+                                </button>
+                            </div>
+                            <div class="catalog__wrapper-item card-item photo">
+                                <a href="">
+                                    <div class="card-item__img">
+                                        <img src="img/cards/card-restor_1.png" alt="Отель «Ямбург»">
+                                    </div>
+                                    <div class="card-item__footer">
+                                        <div class="card-item__name">Отель «Ямбург»</div>
+                                        <div class="descr-block__text">
+                                            10:00 - 22:00 для регистрации
+                                        </div>
+                                    </div>
+                                </a>
+                                <button type="button" class="choose-btn choose-btn--etertainment btn btn-transparent">
+                                    <span class="choose-btn__status">Выбрать</span>
+                                    <div class="choose-btn__icon">
+                                        +
+                                    </div>
+                                </button>
+                            </div>
+                            <div class="catalog__wrapper-item card-item photo">
+                                <a href="">
+                                    <div class="card-item__img">
+                                        <img src="img/cards/card-restor_1.png" alt="Отель «Ямбург»">
+                                    </div>
+                                    <div class="card-item__footer">
+                                        <div class="card-item__name">Отель «Ямбург»</div>
+                                        <div class="descr-block__text">
+                                            10:00 - 22:00 для регистрации
+                                        </div>
+                                    </div>
+                                </a>
+                                <button type="button" class="choose-btn choose-btn--etertainment btn btn-transparent">
+                                    <span class="choose-btn__status">Выбрать</span>
+                                    <div class="choose-btn__icon">
+                                        +
+                                    </div>
+                                </button>
+                            </div>
+                            <div class="catalog__wrapper-item card-item photo">
+                                <a href="">
+                                    <div class="card-item__img">
+                                        <img src="img/cards/card-restor_1.png" alt="Отель «Ямбург»">
+                                    </div>
+                                    <div class="card-item__footer">
+                                        <div class="card-item__name">Отель «Ямбург»</div>
+                                        <div class="descr-block__text">
+                                            10:00 - 22:00 для регистрации
+                                        </div>
+                                    </div>
+                                </a>
+                                <button type="button" class="choose-btn choose-btn--etertainment btn btn-transparent">
+                                    <span class="choose-btn__status">Выбрать</span>
+                                    <div class="choose-btn__icon">
+                                        +
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                        <button class="choose-entertainments__show-more btn btn-green">Показать еще</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @@include('../components/_questions.html')
+    </div>
+    <div id="step_4" class="steps-planning__step steps-planning__step--4 ">
+        <div class="container build-way__container">
+            <div class="build-way">
+                <div class="build-way__header">
+                    <h2 class="build-way__title section-title">Построение маршрута</h2>
+                    <div class="build-way__hendler">
+                        <button type="button" class="build-way__btn btn btn-transparent-green btn-back">
+                            <svg class="">
+                                <use xlink:href="./img/icons/icons.svg#arrow-right"></use>
+                            </svg>
+                            <span>Назад</span>
+                        </button>
+                        <button type="button" class="build-way__btn btn btn-green btn-end"
+                            data-popup="#popup-create-way">
+                            <span>Завершить</span>
+                            <svg class="">
+                                <use xlink:href="./img/icons/icons.svg#arrow-right"></use>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="build-way__hendler build-way__hendler--done">
+                        <button id="download-way-btn" type="button" class="build-way__btn btn btn-transparent-green">
+                            <span>Скачать PDF</span>
+                        </button>
+                        <button id="get-sms-way" type="button" class="build-way__btn btn btn-transparent-green"
+                            data-popup="#phone-for-sms">
+                            <span>Оправить ссылку по СМС</span>
+                        </button>
+                        <button id="add-way-acc" type="button" class="build-way__btn btn btn-green"
+                            data-popup="#add-acc">
+                            <span>Добавить в ЛК</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="build-way__wrapper">
+                    <div class="steps-planning__map custom-map build-way__map">
+                        <div class="custom-map__text custom-map__description">
+                            <img src="img/icon/calendar-icon.svg" alt="">
+                            <span class="current-date-way">23.11.2021</span>
+                        </div>
+                        <div id="build-way__map" class="build-way__map"></div>
+                    </div>
+                    <div class="build-way__plan build-plan">
+                        <div class="build-plan__checkbox">
+                            <label class="control control-radio costum-radio">
+                                Разделить по дням
+                                <input class="choosen-radio" value="city" type="checkbox" name="1" />
+                                <div class="control_indicator"></div>
+                            </label>
+                        </div>
+
+                        <div id="drag_1" class="build-plan__list">
+                            <!-- <div class="build-plan__elem no-drag" data-pos="1">
+                                <div class="build-plan__icon-drag build-plan__icon-drag--home disabled">
+                                    <svg class="">
+                                        <use xlink:href="./img/icons/icons.svg#home"></use>
+                                    </svg>
+                                </div>
+                                <div class="build-plan__photo">
+                                    <img src="img/plan-photo.png" alt="Ваш отель">
+                                </div>
+                                <div class="build-plan__descr">
+                                    <div class="descr-block__title">Отель «Сибирь»</div>
+                                    <div class="descr-block__text">10:00 - 22:00 для регистрации</div>
+                                </div>
+                                <button type="button" class="pay-btn btn disabled">
+                                    <svg class="">
+                                        <use xlink:href="./img/icons/icons.svg#ticket"></use>
+                                    </svg>
+                                    <svg class="payed-icon">
+                                        <use xlink:href="./img/icons/icons.svg#tick-pay"></use>
+                                    </svg>
+                                </button>
+
+                            </div>
+                            <div class="build-plan__elem" data-pos="2">
+                                <div class="build-plan__icon-drag">
+                                    <svg class="">
+                                        <use xlink:href="./img/icons/icons.svg#arrows"></use>
+                                    </svg>
+                                </div>
+                                <div class="build-plan__photo">
+                                    <img src="img/plan-photo.png" alt="Ваш отель">
+                                </div>
+                                <div class="build-plan__descr">
+                                    <div class="descr-block__title">Отель «Сибирь»</div>
+                                    <div class="descr-block__text">10:00 - 22:00 для регистрации</div>
+                                </div>
+                                <button type="button" class="pay-btn btn payed">
+                                    <svg class="">
+                                        <use xlink:href="./img/icons/icons.svg#ticket"></use>
+                                    </svg>
+                                    <svg class="payed-icon">
+                                        <use xlink:href="./img/icons/icons.svg#tick-pay"></use>
+                                    </svg>
+                                </button> <button class="btn btn-delete">+</button>
+                                <button type="btn" class="btn add-new-elem">
+                                    <span>Добавить</span>
+                                </button>
+                            </div>
+                            <div class="build-plan__elem" data-pos="3">
+                                <div class="build-plan__icon-drag">
+                                    <svg class="">
+                                        <use xlink:href="./img/icons/icons.svg#arrows"></use>
+                                    </svg>
+                                </div>
+                                <div class="build-plan__photo">
+                                    <img src="img/plan-photo.png" alt="Ваш отель">
+                                </div>
+                                <div class="build-plan__descr">
+                                    <div class="descr-block__title">Отель «Сибирь»</div>
+                                    <div class="descr-block__text">10:00 - 22:00 для регистрации</div>
+                                </div>
+                                <button type="button" class="pay-btn btn no-pay">
+                                    <svg class="">
+                                        <use xlink:href="./img/icons/icons.svg#ticket"></use>
+                                    </svg>
+                                    <svg class="payed-icon">
+                                        <use xlink:href="./img/icons/icons.svg#tick-pay"></use>
+                                    </svg>
+                                </button> <button class="btn btn-delete">+</button>
+                            </div>
+                            <div class="build-plan__elem" data-pos="4">
+                                <div class="build-plan__icon-drag">
+                                    <svg class="">
+                                        <use xlink:href="./img/icons/icons.svg#arrows"></use>
+                                    </svg>
+                                </div>
+                                <div class="build-plan__photo">
+                                    <img src="img/plan-photo.png" alt="Ваш отель">
+                                </div>
+                                <div class="build-plan__descr">
+                                    <div class="descr-block__title">Отель «Сибирь»</div>
+                                    <div class="descr-block__text">10:00 - 22:00 для регистрации</div>
+                                </div>
+                                <button type="button" class="pay-btn btn disabled">
+                                    <svg class="">
+                                        <use xlink:href="./img/icons/icons.svg#ticket"></use>
+                                    </svg>
+                                    <svg class="payed-icon">
+                                        <use xlink:href="./img/icons/icons.svg#tick-pay"></use>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="build-plan__elem" data-pos="5">
+                                <div class="build-plan__icon-drag">
+                                    <svg class="">
+                                        <use xlink:href="./img/icons/icons.svg#arrows"></use>
+                                    </svg>
+                                </div>
+                                <div class="build-plan__photo">
+                                    <img src="img/plan-photo.png" alt="Ваш отель">
+                                </div>
+                                <div class="build-plan__descr">
+                                    <div class="descr-block__title">Отель «Сибирь»</div>
+                                    <div class="descr-block__text">10:00 - 22:00 для регистрации</div>
+                                </div>
+                                <button type="button" class="pay-btn btn payed">
+                                    <svg class="">
+                                        <use xlink:href="./img/icons/icons.svg#ticket"></use>
+                                    </svg>
+                                    <svg class="payed-icon">
+                                        <use xlink:href="./img/icons/icons.svg#tick-pay"></use>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="build-plan__elem" data-pos="6">
+                                <div class="build-plan__icon-drag">
+                                    <svg class="">
+                                        <use xlink:href="./img/icons/icons.svg#arrows"></use>
+                                    </svg>
+                                </div>
+                                <div class="build-plan__photo">
+                                    <img src="img/plan-photo.png" alt="Ваш отель">
+                                </div>
+                                <div class="build-plan__descr">
+                                    <div class="descr-block__title">Отель «Сибирь»</div>
+                                    <div class="descr-block__text">10:00 - 22:00 для регистрации</div>
+                                </div>
+                                <button type="button" class="pay-btn btn no-pay">
+                                    <svg class="">
+                                        <use xlink:href="./img/icons/icons.svg#ticket"></use>
+                                    </svg>
+                                    <svg class="payed-icon">
+                                        <use xlink:href="./img/icons/icons.svg#tick-pay"></use>
+                                    </svg>
+                                </button>
+                            </div> -->
+                        </div>
+                        <div class="build-plan__list-date build-list">
+
+                        </div>
+                        <div class="build-plan__prices">
+                            <div class="build-plan__price price-block">
+                                <div class="price-block__inner">
+                                    <div class="price-block__info">
+                                        <div class="price-block__title">Примерная стоимость:</div>
+                                        <div class="price-block__text">без учета транспорта</div>
+                                    </div>
+                                    <div class="price-block__price">74600₽</div>
+                                </div>
+                            </div>
+                            <div class="build-plan__price price-block">
+                                <div class="price-block__inner">
+                                    <div class="price-block__info">
+                                        <div class="price-block__title">Цена событий:</div>
+                                        <div class="price-block__text">известная фиксированная стоимость </div>
+                                    </div>
+                                    <div class="price-block__price">7000₽</div>
+                                </div>
+                                <button type="button" class="price-block__btn btn btn-green js-buy-btn">
+                                    Оплатить
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @@include('../components/_questions.html')
+    </div>
+</section>

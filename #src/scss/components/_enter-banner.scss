@@ -1,0 +1,385 @@
+.steps-planning {
+
+
+    &__enter {}
+
+    &__step {
+        display: none;
+
+        &.show {
+            display: block;
+        }
+    }
+}
+
+.steps-planning__step--1 {
+    padding-bottom: 150px;
+
+    @media(max-width: $md5) {
+        padding-bottom: 0;
+    }
+
+    .container {
+        @media(max-width: $md3) {
+            padding: 0;
+        }
+    }
+}
+
+
+.enter-banner {
+    background-color: $colorGreen;
+    padding: 50px 24px 70px;
+    background-image: url(../img/Illustration.png);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+
+    @media(max-width: $md3) {
+        padding: 24px 24px 50px;
+    }
+
+    @media(max-width: $md5) {
+        display: flex;
+        flex-direction: column;
+        // height: calc(100vh - 50px);
+        padding: 68px 10px 30px;
+        // min-height: 430px;
+    }
+
+    &__container {
+        @media(max-width: $md3) {
+            padding: 0;
+        }
+    }
+
+    &__inner {
+        max-width: 952px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    &__title {
+        color: #fff;
+        margin-bottom: 70px;
+
+        @media(max-width: $md3) {
+            margin-bottom: 30px;
+        }
+    }
+
+    &__form {
+        position: relative;
+        border-radius: 12px;
+        background: #f2f2f2;
+        padding: 12px 24px 12px 24px;
+
+        @media(max-width: $md3) {
+            padding: 20px 30px 16px 30px;
+        }
+
+        @media(max-width: $md5) {
+            padding: 20px;
+        }
+
+        &.only-btn {
+            @media(max-width: $md5) {
+                .enter-banner__input {
+                    display: none;
+                }
+
+                .enter-banner__btn {
+                    justify-content: center;
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    &__inputs {
+        display: flex;
+        justify-content: space-between;
+
+        @media(max-width: $md3) {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            grid-gap: 10px 20px;
+        }
+
+        @media(max-width: $md4) {
+            grid-gap: 10px;
+        }
+
+        @media(max-width: $md5) {
+            display: block;
+        }
+    }
+
+    &__input {
+        position: relative;
+        flex: 1;
+        margin-right: 24px;
+
+        .custom-select__header {
+            color: #b3b3b3;
+        }
+
+        &::before {
+            display: none;
+            content: attr(data-title);
+            position: absolute;
+            top: -40px;
+            left: 0px;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 20px;
+            color: #FFFFFF;
+
+            @media(max-width: $md3) {
+                display: none !important;
+            }
+        }
+
+        &.show-title {
+            &::before {
+                display: block;
+            }
+        }
+
+        @media(max-width: $md3) {
+            margin-right: 0;
+
+            &:nth-child(2n+1) {
+                grid-column: 1/4;
+            }
+
+            &:nth-child(2) {
+                grid-column: 4/7;
+            }
+
+            &:nth-child(4) {
+                grid-column: 4/6;
+
+                @media(max-width: $md4) {
+                    grid-column: 4/7;
+                }
+            }
+
+            &:nth-child(5) {
+                grid-column: 6/6;
+            }
+        }
+
+        @media(max-width: $md5) {
+            &:not(:last-child) {
+                margin-bottom: 5px;
+            }
+        }
+
+        &--calendar {
+            .custom-date__calendar-wrapper {
+                font-size: 12px;
+                line-height: 18px;
+                font-weight: bold;
+            }
+
+            .calendar-value__start,
+            .calendar-value__finish {
+                font-weight: bold;
+            }
+        }
+    }
+
+    &__from {
+        &.custom-select {
+            font-weight: bold;
+            font-size: 12px;
+            line-height: 18px;
+        }
+    }
+
+    &__where {}
+
+    &__when {
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 20px;
+        color: #b3b3b3;
+
+        &.active {
+            color: $colorGreen;
+        }
+    }
+
+    &__recreation {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    &__btn {
+
+        align-items: center;
+        font-size: 14px;
+        line-height: 20px;
+        padding: 7px 13px 6px 28px;
+        display: none;
+
+        &.show {
+            display: flex;
+        }
+
+        @media(max-width: $md3) {
+            font-size: 12px;
+            line-height: 18px;
+            padding: 0px 10px 5px 28px;
+        }
+
+        @media(max-width: $md4) {
+            grid-column: 1/7;
+            justify-self: center;
+            padding: 7px 10px 7px 28px;
+        }
+
+        @media(max-width: $md5) {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        span {
+            margin-right: 15px;
+        }
+    }
+
+    .custom-select {
+
+        &__header {
+            &.active {
+                border-color: $colorGreen;
+                color: $colorGreen;
+            }
+        }
+    }
+}
+
+
+
+.section-title {}
+
+
+
+.btn {}
+
+.control {
+
+    &_indicator {}
+}
+
+.control-radio {}
+
+.costum-radio {}
+
+.choosen-radio {}
+
+.custom-date {
+
+    &__calendar {
+        width: auto;
+        padding-top: 40px;
+
+        @media(max-width: $md4) {
+            left: 0;
+            right: auto;
+        }
+    }
+
+    &__calendar-wrapper {
+        display: flex;
+
+        @media(max-width: $md5) {
+            display: block;
+        }
+
+        &>div {
+            &:not(:last-child) {
+                margin-right: 14px;
+
+                @media(max-width: $md5) {
+                    margin-right: 0;
+                    margin-bottom: 30px;
+                }
+            }
+        }
+    }
+}
+
+.calendar-description {
+    margin-top: 20px;
+    display: flex;
+
+    @media(max-width: $md5) {
+        display: block;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+
+        &:not(:last-child) {
+            margin-right: 10px;
+
+            @media(max-width: $md5) {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    &__block {
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+    }
+
+    &__block-example {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-self: center;
+        justify-content: center;
+
+        span {
+            margin-top: 4px;
+        }
+
+        &.today {
+            border: 1px solid #D8D8D8;
+            border-radius: 7px;
+            border-radius: 7px;
+            color: #000;
+        }
+
+        &.current {
+            background: $colorGreen;
+            color: #fff;
+        }
+
+        &.range {
+            background: rgba($colorGreen, 0.07);
+            color: #000;
+        }
+    }
+
+    &__text {
+        font-size: 14px;
+        line-height: 20px;
+        color: #000;
+    }
+}
+
+.today {}
+
+.current {}
+
+.range {}
+
+
+.btn-green {}

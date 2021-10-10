@@ -1,0 +1,164 @@
+.custom-map {
+    margin-top: 32px;
+    position: relative;
+
+    @media(max-width: $md5) {
+        display: none;
+    }
+
+    &__text {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 18px;
+        left: 32px;
+        padding: 8px 17px 8px 17px;
+        background: #FFFFFF;
+        border-radius: 7px;
+        z-index: 3;
+
+        img {
+            display: block;
+            margin-right: 10px;
+        }
+    }
+
+    &__description {
+        top: 24px;
+    }
+
+    &__north-light {
+        bottom: 24px;
+    }
+}
+
+#map {
+    height: 372px;
+
+    @media(max-width: $md3) {
+        height: 732px;
+    }
+
+
+}
+
+.gm-style {
+    .gm-style-iw-a {}
+
+    .gm-style-iw-t {
+        bottom: -50px !important;
+
+        &::after {
+            display: none;
+        }
+    }
+}
+
+
+
+.map-label {
+    position: absolute;
+    top: 45px;
+    left: 25px;
+    width: 150px !important;
+    text-align: left;
+    overflow: visible;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 18px;
+    color: #213A8F;
+    text-shadow: 0px 1px 0 rgb(255, 255, 255), 0px -1px 0 rgb(255, 255, 255), 1px 0px 0 rgb(255, 255, 255), -1px 0px 0 rgb(255, 255, 255), 1px 1px 0 rgb(255, 255, 255), 1px -1px 0 rgb(255, 255, 255), -1px 1px 0 rgb(255, 255, 255), -1px -1px 0 rgb(255, 255, 255), 0px 2px 0 rgb(255, 255, 255), 0px -2px 0 rgb(255, 255, 255), 2px 0px 0 rgb(255, 255, 255), -2px 0px 0 rgb(255, 255, 255), 2px 2px 0 rgb(255, 255, 255), 2px -2px 0 rgb(255, 255, 255), -2px 2px 0 rgb(255, 255, 255), -2px -2px 0 rgb(255, 255, 255);
+}
+
+.gm-ui-hover-effect {
+    display: none !important;
+}
+
+.catalog-choose__map {
+    position: relative;
+}
+
+.catalog-choose__map-cards {
+    position: relative;
+    z-index: 2;
+    top: 50%;
+
+
+
+    .map-card {
+        position: absolute;
+        right: 24px;
+        transform: translateY(-50%);
+        padding: 20px;
+
+        .choose-btn {
+            display: flex;
+            position: absolute;
+            bottom: 105px;
+            left: -15px;
+            background: #fff;
+            border: none;
+            padding: 10px 39px 10px 32px;
+
+            &:disabled {
+                background: #E4E4E4;
+                color: #B3B3B3;
+
+                &:hover {
+                    background: #E4E4E4;
+                    color: #B3B3B3;
+                }
+            }
+
+            &.current {
+                background: $colorGreen;
+                color: #fff;
+
+                .choose-btn__icon {
+                    color: #fff;
+                    transform: rotate(45deg);
+                }
+            }
+
+            @media(max-width: $md3) {
+                font-size: 12px;
+                line-height: 18px;
+                bottom: 62px;
+                left: -10px;
+                padding: 10px 39px 10px 32px;
+            }
+
+            &:hover {
+                background: $colorGreen;
+            }
+
+            span {
+                margin-right: 10px;
+            }
+
+            .choose-btn__icon {
+                position: absolute;
+                font-size: 25px;
+                top: 9px;
+                right: 17px;
+                transition: all ease .2s;
+            }
+        }
+
+        &::before {
+            display: none;
+        }
+    }
+}
+
+#add-light-map {
+    cursor: pointer;
+    transition: all ease .2s;
+
+    &:hover {
+        background: $colorGreen;
+        color: #fff;
+    }
+}

@@ -1338,6 +1338,108 @@
                 </button>
             </div>
         </div>
+        <div id="popup-create-way" class="popup">
+            <div class="popup__header">
+                <div class="popup__name">Мои маршруты</div>
+                <button class="fixed-filter__close popup-close btn js-close">
+                    <img src="img/icon/filter-close.svg" alt="">
+                </button>
+            </div>
+            <div class="popup__body">
+                <div class="popup__icon">
+                    <img src="img/icon/popup-sucses.svg">
+                </div>
+                <div class="popup__title">
+                    Маршрут успешно создан
+                </div>
+                <div class="popup__text">
+                    <p>Он будет доступен по ссылки в течении <span class="color-purple">7 дней.</span></p>
+                    <p>Добавьте в личный кабинет, чтобы сохранить надолго.</p>
+                </div>
+                <div class="popup__way-generate-link">
+                    <a class="popup__way-link">https://visityamal.ru/route?id=23159348</a>
+                    <button type="button" class="btn btn-copy">
+                        <img src="img/icon/copy.svg" alt="copy">
+                    </button>
+                </div>
+
+            </div>
+            <div class="popup__btns">
+                <button type="button" class="popup__btn-sms btn btn-green js-close"
+                    data-popup="#phone-for-sms">Отправить ссылку по
+                    СМС</button>
+                <button id="add-acc-btn" type="button" class="popup__btn-delete  js-close btn btn-transparent-green"
+                    data-popup="#add-acc">
+                    Добавить в ЛК
+                </button>
+            </div>
+        </div>
+        <div id="phone-for-sms" class="popup">
+            <form id="sms-send" action="">
+                <div class="popup__header">
+                    <div class="popup__name">Мои маршруты</div>
+                    <button class="fixed-filter__close popup-close btn js-close">
+                        <img src="img/icon/filter-close.svg" alt="">
+                    </button>
+                </div>
+                <div class="popup__body">
+                    <div class="popup__input-inner">
+                        <div class="popup__input-label">Телефон</div>
+                        <div class="costum-input">
+                            <input type="tel" name="phone" class="input-phone" placeholder="+7 000 000 00 00"
+                                required></input>
+                            <div class="costum-input__icon">
+                                <img src="img/icon/call.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="popup__title">
+                        Можно отправить 1 раз
+                    </div>
+                </div>
+                <div class="popup__btns">
+                    <button type="submit" class="popup__btn-enter btn btn-green">Отправить</button>
+                </div>
+            </form>
+        </div>
+        <div id="sucsess-pay" class="popup">
+            <button class="fixed-filter__close popup-close fixed-filter__close--only btn js-close">
+                <img src="img/icon/filter-close.svg" alt="">
+            </button>
+            <div class="popup__body">
+                <div class="popup__icon">
+                    <img src="img/icon/popup-sucses.svg">
+                </div>
+                <div class="popup__title">
+                    Оплата прошла успешно
+                </div>
+                <div class="popup__text">
+                    Маршрут уже добавлен в ваш кабинет
+                </div>
+            </div>
+            <div class="popup__btns">
+                <div class="popup__btn-registr btn btn-green">Мои маршруты</div>
+            </div>
+        </div>
+        <div id="error-pay" class="popup">
+            <button class="fixed-filter__close fixed-filter__close--only popup-close btn js-close">
+                <img src="img/icon/filter-close.svg" alt="">
+            </button>
+            <div class="popup__body">
+                <div class="popup__icon">
+                    <img src="img/icon/popup-error.svg">
+                </div>
+                <div class="popup__title">
+                    Что-то пошло не так. Попробуйте еще раз
+                </div>
+                <div class="popup__text">
+                    Мы добавили маршрут в ваш личный кабинеит
+                </div>
+            </div>
+            <div class="popup__btns">
+                <div class="popup__btn-registr btn btn-green">Мои маршруты</div>
+            </div>
+        </div>
     </div>
 </div>
 <div id="delete-rewiew" class="notification">
@@ -1352,16 +1454,29 @@
         <img src="img/icon/filter-close.svg" alt="">
     </button>
 </div>
+<div id="add-acc" class="notification">
+    <div class="notification__label">Маршрут добавлен в ЛК</div>
+    <button class="fixed-filter__close js-close  btn">
+        <img src="img/icon/filter-close.svg" alt="">
+    </button>
+</div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.js"
-        integrity="sha512-Yk47FuYNtuINE1w+t/KT4BQ7JaycTCcrvlSvdK/jry6Kcxqg5vN7/svVWCxZykVzzJHaxXk5T9jnFemZHSYgnw=="
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js"></script>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="js/script.min.js"></script>
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.js"
+    integrity="sha512-Yk47FuYNtuINE1w+t/KT4BQ7JaycTCcrvlSvdK/jry6Kcxqg5vN7/svVWCxZykVzzJHaxXk5T9jnFemZHSYgnw=="
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js"></script>
+<script src="https://cdn.rawgit.com/nizarmah/calendar-javascript-lib/master/calendarorganizer.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAn4lOodBWISBVdVsAchtPd8eRRPgycYco&language=ru">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"
+    integrity="sha512-zYXldzJsDrNKV+odAwFYiDXV2Cy37cwizT+NkuiPGsa9X1dOz04eHvUWVuxaJ299GvcJT31ug2zO4itXBjFx4w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<script src="js/script.js"></script>
 </body>
 
 </html>

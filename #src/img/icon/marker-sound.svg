@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW 2020 (64-Bit) -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="9.9mm" height="9.9mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 990 990"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .str0 {stroke:white;stroke-width:39.69;stroke-miterlimit:22.9256}
+    .str1 {stroke:#213A8F;stroke-width:39.69;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:22.9256}
+    .fil2 {fill:none}
+    .fil1 {fill:none;fill-rule:nonzero}
+    .fil0 {fill:#009974;fill-rule:nonzero}
+   ]]>
+  </style>
+ </defs>
+ <g id="Слой_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_2841541343088">
+   <path class="fil0" d="M537.28 124l0 0c233.76,0 423.33,189.57 423.33,423.33l0 0c0,233.75 -189.57,423.32 -423.33,423.32l0 0.01c-233.75,-0.01 -423.32,-189.58 -423.32,-423.33l-0.01 0c0.01,-233.76 189.58,-423.33 423.33,-423.33z"/>
+   <path class="fil1 str0" d="M537.27 569.4c26.6,0 48.16,-21.56 48.16,-48.15 0,-26.6 -21.56,-48.16 -48.16,-48.16 -26.59,0 -48.15,21.56 -48.15,48.16 0,26.59 21.56,48.15 48.15,48.15z"/>
+   <path class="fil1 str0" d="M407.93 493.16c30.41,-133.66 228.43,-133.51 258.68,0.15 17.75,78.41 -31.02,144.77 -73.78,185.83 -31.02,29.94 -80.1,29.94 -111.28,0 -42.59,-41.06 -91.37,-107.58 -73.62,-185.98z"/>
+   <g>
+    <line class="fil2 str1" x1="29.38" y1="117.96" x2="29.38" y2= "233.72" />
+    <line class="fil2 str1" x1="98.84" y1="79.38" x2="98.84" y2= "272.3" />
+    <line class="fil2 str1" x1="168.29" y1="40.79" x2="168.29" y2= "310.89" />
+    <line class="fil2 str1" x1="237.74" y1="79.38" x2="237.74" y2= "272.3" />
+    <line class="fil2 str1" x1="307.2" y1="117.96" x2="307.2" y2= "233.72" />
+   </g>
+  </g>
+ </g>
+</svg>
