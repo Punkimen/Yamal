@@ -100,7 +100,7 @@ a {
 body {
   font-family: "PT-Root", sans-serif;
   background: #f2f2f2;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 16px;
   line-height: 24px;
   overflow-x: hidden;
@@ -4291,6 +4291,7 @@ body[data-aos-easing=ease-in-out-quart] [data-aos] {
 }
 
 .card-item__name {
+  font-weight: 500;
   color: #009974;
 }
 
@@ -5188,7 +5189,6 @@ body[data-aos-easing=ease-in-out-quart] [data-aos] {
 }
 
 .enter-banner__from.custom-select {
-  font-weight: bold;
   font-size: 14px;
   line-height: 18px;
 }
