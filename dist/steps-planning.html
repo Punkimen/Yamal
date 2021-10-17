@@ -2379,7 +2379,7 @@
         </div>
     </div>
 </div>
-    <div id="new-pay" class="fixed-pay">
+    <div id="new-pay" class="fixed-pay ">
     <div class="fixed-filter__header">
         <div class="fixed-filter__label">
             Оплата
@@ -2463,8 +2463,8 @@
                     </div>
                 </div>
                 <div class="fixed-filter__btns">
-                    <button id="fixed-pay__submit" type="submit" class="fixed-pay__btn buy-btn btn btn-green"
-                        data-popup="#sucsess-pay">Оплатить</button>
+                    <button id="fixed-pay__submit" type="submit"
+                        class="fixed-pay__btn buy-btn btn btn-green">Оплатить</button>
                 </div>
             </form>
         </div>
@@ -2479,7 +2479,7 @@
 
     </div>
 </div>
-<div id="history-pay" class="fixed-pay ">
+<div id="history-pay" class="fixed-pay">
     <div class="fixed-filter__header">
         <div class="fixed-filter__label">
             История покупок
@@ -2651,7 +2651,7 @@
                 </div>
             </form>
         </div>
-        <div id="sucsess-pay" class="popup">
+        <!-- <div id="sucsess-pay" class="popup">
             <button class="fixed-filter__close popup-close fixed-filter__close--only btn js-close">
                 <img src="img/icon/filter-close.svg" alt="">
             </button>
@@ -2667,7 +2667,7 @@
                 </div>
             </div>
             <div class="popup__btns">
-                <div class="popup__btn-registr btn btn-green">Мои маршруты</div>
+                <a href="#" class="popup__btn-registr btn btn-green">Мои маршруты</a>
             </div>
         </div>
         <div id="error-pay" class="popup">
@@ -2688,6 +2688,14 @@
             <div class="popup__btns">
                 <div class="popup__btn-registr btn btn-green">Мои маршруты</div>
             </div>
+        </div> -->
+        <div id="preloader" class="preloader-loading">
+            <div class="preloader-loading__inner">
+                <svg class="">
+                    <use xlink:href="./img/icons/icons.svg#preloader-Illustration"></use>
+                </svg>
+            </div>
+
         </div>
     </div>
 </div>
@@ -2709,6 +2717,9 @@
         <img src="img/icon/filter-close.svg" alt="">
     </button>
 </div>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAn4lOodBWISBVdVsAchtPd8eRRPgycYco&language=ru">
+    </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.js"
@@ -2716,8 +2727,6 @@
     crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js"></script>
 <script src="https://cdn.rawgit.com/nizarmah/calendar-javascript-lib/master/calendarorganizer.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAn4lOodBWISBVdVsAchtPd8eRRPgycYco&language=ru">
-</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"
     integrity="sha512-zYXldzJsDrNKV+odAwFYiDXV2Cy37cwizT+NkuiPGsa9X1dOz04eHvUWVuxaJ299GvcJT31ug2zO4itXBjFx4w=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -2725,6 +2734,9 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vivus/0.4.6/vivus.min.js"
+    integrity="sha512-oUUeA7VTcWBqUJD/VYCBB4VeIE0g1pg5aRMiSUOMGnNNeCLRS39OlkcyyeJ0hYx2h3zxmIWhyKiUXKkfZ5Wryg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="js/script.js"></script>
 </body>
 

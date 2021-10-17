@@ -1,0 +1,66 @@
+.cabinet-history {
+    .mCustomScrollbar.mCS_no_scrollbar {
+        margin-bottom: 0 !important;
+    }
+
+    .playbill__categoryes {
+        display: block;
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+    .mCustomScrollbar.mCS_no_scrollbar {
+        margin-bottom: 0 !important;
+    }
+
+    .mCSB_horizontal>.mCSB_container {
+        align-items: center;
+    }
+
+    #mCSB_2_container {
+        margin-bottom: 0 !important;
+    }
+
+    .mCSB_horizontal>.mCSB_container.mCS_no_scrollbar_x.mCS_x_hidden {
+        margin-bottom: 0 !important;
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 40px;
+
+        @media(max-width: $md4) {
+            display: block;
+        }
+    }
+
+    &__catalog {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-gap: 24px;
+
+        @media(max-width: $md4) {
+            grid-template-columns: 1fr 1fr 1fr;
+            justify-content: center;
+        }
+
+        @media(max-width: $md5) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    .photo {
+        width: 100%;
+    }
+
+    &__btn {
+        @media(max-width: $md4) {
+            display: inline-block;
+            margin-top: 24px;
+        }
+    }
+}

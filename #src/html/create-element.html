@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yamal</title>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/jquery.mcustomscrollbar/3.0.6/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body>
+    @@include('./components/_header.html')
+    <div class="bread-crumbs">
+        <div class="container">
+            <ul class="bread-crumbs__list">
+                <li class="bread-crumbs__elem">
+                    <a href="/" class="bread-crumbs__link bread-crumbs__link--arrow">Главная</a>
+                </li>
+                <li class="bread-crumbs__elem">
+                    <a href="#" class="bread-crumbs__link">Личный кабинет</a>
+                </li>
+                <li class="bread-crumbs__elem">
+                    <a href="#" class="bread-crumbs__link">Профиль</a>
+                </li>
+                <li class="bread-crumbs__elem">
+                    <a href="#" class="bread-crumbs__link">Создание элемента</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <section class="personal-cabinet">
+        <div class="container">
+            <h2 class="personal-cabinet__title section-title">
+                Создание элемента
+            </h2>
+        </div>
+        <div class="personal-cabinet__inner">
+            <div class="container">
+                <div id="first-step-create" class="cabinet-window">
+                    <form id="start-elem" action="">
+                        <div class="cabinet-window__body">
+                            <div class="cabinet-window__row">
+                                <a href="elements-partner.html" type="button"
+                                    class="cabinet-window__btn-back btn btn-transparent-green">
+                                    <svg class="">
+                                        <use xlink:href="./img/icons/icons.svg#arrow-right"></use>
+                                    </svg>
+                                    <span>Назад</span>
+                                </a>
+                            </div>
+                            <div class="cabinet-window__row">
+                                <div class="input-label__header">
+                                    <label for="">Категория</label>
+                                </div>
+                                <div class="input-select custom-select">
+                                    <div class="custom-select__header">
+                                        <div class="custom-select__arrow">
+                                            <img src="img/icon/select-arrow.svg" alt="">
+                                        </div>
+                                        <span class="custom-select__current-elem">Где остановиться</span>
+                                    </div>
+                                    <div class="custom-select__body">
+                                        <ul class="custom-select-list">
+                                            <li class="custom-select__elem">
+                                                <label class="control control-radio costum-radio">
+                                                    Где остановиться
+                                                    <input class="choosen-radio" value="default" type="radio"
+                                                        name="sort-where" checked />
+                                                    <div class="control_indicator"></div>
+                                                </label>
+                                            </li>
+                                            <li class="custom-select__elem">
+                                                <label class="control control-radio costum-radio">
+                                                    Где поесть
+                                                    <input class="choosen-radio" value="expensive" type="radio"
+                                                        name="sort-where" />
+                                                    <div class="control_indicator"></div>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cabinet-window__row">
+                                <div class="input-label__header">
+                                    <label for="">Подкатегория</label>
+                                </div>
+                                <div class="input-select custom-select">
+                                    <div class="custom-select__header">
+                                        <div class="custom-select__arrow">
+                                            <img src="img/icon/select-arrow.svg" alt="">
+                                        </div>
+                                        <span class="custom-select__current-elem"> Где остановиться</span>
+                                    </div>
+                                    <div class="custom-select__body">
+                                        <ul class="custom-select-list">
+                                            <li class="custom-select__elem">
+                                                <label class="control control-radio costum-radio">
+                                                    Где остановиться
+                                                    <input class="choosen-radio" value="default" type="radio"
+                                                        name="sort" checked />
+                                                    <div class="control_indicator"></div>
+                                                </label>
+                                            </li>
+                                            <li class="custom-select__elem">
+                                                <label class="control control-radio costum-radio">
+                                                    Где поесть
+                                                    <input class="choosen-radio" value="expensive" type="radio"
+                                                        name="sort" />
+                                                    <div class="control_indicator"></div>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cabinet-window__row">
+                                <button id="" type="button" class="btn-icon-right btn btn-green btn-open-window"
+                                    data-open="second-step-create">
+                                    <span>Далее</span>
+                                    <img src="img/icon/arrow-right.svg" alt="">
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div id="second-step-create" class="cabinet-window hide">
+                    <form id="create-data-elem" action="">
+                        <div class="cabinet-window__body">
+                            <div class="cabinet-window__row">
+                                <button type="button"
+                                    class="cabinet-window__btn-back btn btn-transparent-green btn-open-window"
+                                    data-open="first-step-create">
+                                    <svg class="">
+                                        <use xlink:href="./img/icons/icons.svg#arrow-right"></use>
+                                    </svg>
+                                    <span>Назад</span>
+                                </button>
+                            </div>
+                            <div class="cabinet-window__row">
+                                <div class="input-label__header">
+                                    <label for="">Выберите сезон для посещения</label>
+                                </div>
+                                <div class="input-select custom-select">
+                                    <div class="custom-select__header">
+                                        <div class="custom-select__arrow">
+                                            <img src="img/icon/select-arrow.svg" alt="">
+                                        </div>
+                                        <span class="custom-select__current-elem">Круглогодично</span>
+                                    </div>
+                                    <div class="custom-select__body">
+                                        <ul class="custom-select-list">
+                                            <li class="custom-select__elem">
+                                                <label class="control control-radio costum-radio">
+                                                    Круглогодично
+                                                    <input class="choosen-radio" value="default" type="radio"
+                                                        name="sort-season" checked />
+                                                    <div class="control_indicator"></div>
+                                                </label>
+                                            </li>
+                                            <li class="custom-select__elem">
+                                                <label class="control control-radio costum-radio">
+                                                    Лето
+                                                    <input class="choosen-radio" value="expensive" type="radio"
+                                                        name="sort-season" />
+                                                    <div class="control_indicator"></div>
+                                                </label>
+                                            </li>
+                                            <li class="custom-select__elem">
+                                                <label class="control control-radio costum-radio">
+                                                    Зима
+                                                    <input class="choosen-radio" value="expensive" type="radio"
+                                                        name="sort-season" />
+                                                    <div class="control_indicator"></div>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cabinet-window__row">
+                                <div class="input-label__header">
+                                    <label for="">Средний чек, руб</label>
+                                </div>
+                                <div class="input-select custom-select">
+                                    <div class="custom-select__header">
+                                        <div class="custom-select__arrow">
+                                            <img src="img/icon/select-arrow.svg" alt="">
+                                        </div>
+                                        <span class="custom-select__current-elem">от 500</span>
+                                    </div>
+                                    <div class="custom-select__body">
+                                        <ul class="custom-select-list">
+                                            <li class="custom-select__elem">
+                                                <label class="control control-radio costum-radio">
+                                                    от 500
+                                                    <input class="choosen-radio" value="default" type="radio"
+                                                        name="sort-price" checked />
+                                                    <div class="control_indicator"></div>
+                                                </label>
+                                            </li>
+                                            <li class="custom-select__elem">
+                                                <label class="control control-radio costum-radio">
+                                                    от 1000
+                                                    <input class="choosen-radio" value="expensive" type="radio"
+                                                        name="sort-price" />
+                                                    <div class="control_indicator"></div>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cabinet-window__row">
+                                <div class="input-label__header">
+                                    <label for="">Беспрырывное посещение</label>
+                                    <div class="icon-quest">
+                                        <img src="img/icon/message-question.svg" alt="">
+                                    </div>
+                                </div>
+                                <div class="input-select custom-select">
+                                    <div class="custom-select__header">
+                                        <div class="custom-select__arrow">
+                                            <img src="img/icon/select-arrow.svg" alt="">
+                                        </div>
+                                        <span class="custom-select__current-elem">1 день</span>
+                                    </div>
+                                    <div class="custom-select__body">
+                                        <ul class="custom-select-list">
+                                            <li class="custom-select__elem">
+                                                <label class="control control-radio costum-radio">
+                                                    2 дня
+                                                    <input class="choosen-radio" value="default" type="radio"
+                                                        name="sort-day" checked />
+                                                    <div class="control_indicator"></div>
+                                                </label>
+                                            </li>
+                                            <li class="custom-select__elem">
+                                                <label class="control control-radio costum-radio">
+                                                    3 дня
+                                                    <input class="choosen-radio" value="expensive" type="radio"
+                                                        name="sort-day" />
+                                                    <div class="control_indicator"></div>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cabinet-window__row">
+                                <div class="input-label__header">
+                                    <label for="">Вид отдыха</label>
+                                </div>
+                                <div class="input-select custom-select">
+                                    <div class="custom-select__header">
+                                        <div class="custom-select__arrow">
+                                            <img src="img/icon/select-arrow.svg" alt="">
+                                        </div>
+                                        <span class="custom-select__current-elem">Спокойный</span>
+                                    </div>
+                                    <div class="custom-select__body">
+                                        <ul class="custom-select-list">
+                                            <li class="custom-select__elem">
+                                                <label class="control control-radio costum-radio">
+                                                    Спокойный
+                                                    <input class="choosen-radio" value="default" type="radio"
+                                                        name="sort-relax" checked />
+                                                    <div class="control_indicator"></div>
+                                                </label>
+                                            </li>
+                                            <li class="custom-select__elem">
+                                                <label class="control control-radio costum-radio">
+                                                    Спокойный
+                                                    <input class="choosen-radio" value="expensive" type="radio"
+                                                        name="sort-relax" />
+                                                    <div class="control_indicator"></div>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cabinet-window__row">
+                                <a href="create-element-from.html" id="" class="btn-icon-right btn btn-green">
+                                    <span>Далее</span>
+                                    <img src="img/icon/arrow-right.svg" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    @@include('./components/_footer.html')
+    @@include('./components/_fixed-menu-show.html')
+    @@include('./components/_popups.html')
+    @@include('./components/_scripts.html')
+</body>
+
+</html>

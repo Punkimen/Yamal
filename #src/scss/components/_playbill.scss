@@ -134,6 +134,10 @@
     &__inner {
         border-radius: 12px;
         position: relative;
+
+        &-empty {
+            min-height: 213px;
+        }
     }
 
     &__calendar {
@@ -177,9 +181,25 @@
     }
 
     &__calendar-item {
+        position: relative;
         cursor: pointer;
         text-align: center;
         padding: 9px 6px 4px 6px;
+
+        &.hasEvent {
+            &::before {
+                content: '';
+                display: block;
+                background: #009974;
+                opacity: 0.5;
+                width: 4px;
+                height: 4px;
+                border-radius: 50%;
+                position: absolute;
+                top: 0;
+                left: calc(50% - 2px);
+            }
+        }
 
         &:not(:last-child) {
             margin-right: 30px;
@@ -303,19 +323,9 @@
     display: flex;
     justify-content: flex-end;
     border-radius: 12px;
-    background-position: 38px bottom;
+    background-position: right bottom;
     background-repeat: no-repeat;
-
-    @media(max-width: $md3) {
-        max-width: 640px;
-        background-size: 65%;
-        background-position: 30px bottom;
-    }
-
-    @media(max-width: $md5) {
-        background-size: 150%;
-        background-position: 195%;
-    }
+    background-size: cover;
 
     &::after {
         content: attr(data-status);
@@ -343,9 +353,6 @@
         max-width: 220px;
         width: 100%;
         color: #fff;
-        background-image: url(../img/Illustration.png);
-        background-repeat: no-repeat;
-        background-position: center right;
 
         @media(max-width: $md3) {
             padding: 17px 48px 25px 0;

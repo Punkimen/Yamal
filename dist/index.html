@@ -729,17 +729,98 @@
                             </svg>
                         </button>
                     </div>
-                    <div class="quiz-routes__progress-item">
+                    <!-- <div class="quiz-routes__progress-item">
                         <div class="quiz-routes__progress-num"><img src="img/icon/calendar.svg" alt="календарь"></div>
                         <button type="button" class="quiz-routes__progress-btn btn btn-return">
                             <svg class="">
                                 <use xlink:href="./img/icons/icons.svg#redo"></use>
                             </svg>
                         </button>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
+    </div>
+    <div class="container container-goods recomended-route">
+        <div class="recomended-route__header">
+            <h2 class="recomended-route__title section-title">Рекомендованные машруты</h2>
+            <button id="repeatQuiz" type="button" class="recomended-route__btn btn btn-green">
+                <svg class="">
+                    <use xlink:href="./img/icons/icons.svg#arrow-slide"></use>
+                </svg>
+                Пройти опрос заново
+            </button>
+        </div>
+        <div class="photos__wrapper routes-wrapper swiper">
+            <div class="swiper-wrapper">
+                <a href="" class="catalog__wrapper-item card-item photo swiper-slide" data-status="Европейская">
+                    <div class="card-item__img">
+                        <img src="img/cards/card-restor_1.png" alt="Ресторан «Ямбург»">
+                    </div>
+                    <div class="card-item__footer">
+                        <div class="card-item__name">Ресторан «Ямбург»</div>
+                        <div class="card-item__price" data-price="3">
+                            Ср. чек до 500₽
+                        </div>
+                    </div>
+                </a><a href="" class="catalog__wrapper-item card-item photo swiper-slide" data-status="Европейская">
+                    <div class="card-item__img">
+                        <img src="img/cards/card-restor_1.png" alt="Ресторан «Ямбург»">
+                    </div>
+                    <div class="card-item__footer">
+                        <div class="card-item__name">Ресторан «Ямбург»</div>
+                        <div class="card-item__price" data-price="3">
+                            Ср. чек до 500₽
+                        </div>
+                    </div>
+                </a><a href="" class="catalog__wrapper-item card-item photo swiper-slide" data-status="Европейская">
+                    <div class="card-item__img">
+                        <img src="img/cards/card-restor_1.png" alt="Ресторан «Ямбург»">
+                    </div>
+                    <div class="card-item__footer">
+                        <div class="card-item__name">Ресторан «Ямбург»</div>
+                        <div class="card-item__price" data-price="3">
+                            Ср. чек до 500₽
+                        </div>
+                    </div>
+                </a><a href="" class="catalog__wrapper-item card-item photo swiper-slide" data-status="Европейская">
+                    <div class="card-item__img">
+                        <img src="img/cards/card-restor_1.png" alt="Ресторан «Ямбург»">
+                    </div>
+                    <div class="card-item__footer">
+                        <div class="card-item__name">Ресторан «Ямбург»</div>
+                        <div class="card-item__price" data-price="3">
+                            Ср. чек до 500₽
+                        </div>
+                    </div>
+                </a><a href="" class="catalog__wrapper-item card-item photo swiper-slide" data-status="Европейская">
+                    <div class="card-item__img">
+                        <img src="img/cards/card-restor_1.png" alt="Ресторан «Ямбург»">
+                    </div>
+                    <div class="card-item__footer">
+                        <div class="card-item__name">Ресторан «Ямбург»</div>
+                        <div class="card-item__price" data-price="3">
+                            Ср. чек до 500₽
+                        </div>
+                    </div>
+                </a><a href="" class="catalog__wrapper-item card-item photo swiper-slide" data-status="Европейская">
+                    <div class="card-item__img">
+                        <img src="img/cards/card-restor_1.png" alt="Ресторан «Ямбург»">
+                    </div>
+                    <div class="card-item__footer">
+                        <div class="card-item__name">Ресторан «Ямбург»</div>
+                        <div class="card-item__price" data-price="3">
+                            Ср. чек до 500₽
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <button type="button" class="slick-arrow routes-arrow__next btn">
+            <svg class="">
+                <use xlink:href="./img/icons/icons.svg#arrow-slide"></use>
+            </svg>
+        </button>
     </div>
     <div class="quiz-individual">
         <div class="quiz-individual__wrapper">
@@ -956,11 +1037,11 @@
                             <div class="playbill-events__calendar-slide swiper-slide">
                                 <div class="playbill-events__calendar-mounth">Сентябрь</div>
                                 <div class="playbill-events__calendar-wrapper">
-                                    <div class="playbill-events__calendar-item active">
+                                    <div class="playbill-events__calendar-item hasEvent active">
                                         <span class="day">13</span>
                                         <span class="week-day">ПН</span>
                                     </div>
-                                    <div class="playbill-events__calendar-item">
+                                    <div class="playbill-events__calendar-item hasEvent">
                                         <span class="day">14</span>
                                         <span class="week-day">ПН</span>
                                     </div>
@@ -968,7 +1049,7 @@
                                         <span class="day">15</span>
                                         <span class="week-day">ПН</span>
                                     </div>
-                                    <div class="playbill-events__calendar-item">
+                                    <div class="playbill-events__calendar-item hasEvent">
                                         <span class="day">16</span>
                                         <span class="week-day">ПН</span>
                                     </div>
@@ -976,11 +1057,11 @@
                                         <span class="day">17</span>
                                         <span class="week-day">ПН</span>
                                     </div>
-                                    <div class="playbill-events__calendar-item">
+                                    <div class="playbill-events__calendar-item hasEvent">
                                         <span class="day">18</span>
                                         <span class="week-day">ПН</span>
                                     </div>
-                                    <div class="playbill-events__calendar-item">
+                                    <div class="playbill-events__calendar-item hasEvent">
                                         <span class="day">19</span>
                                         <span class="week-day">ПН</span>
                                     </div>
@@ -996,11 +1077,11 @@
                                         <span class="day">22</span>
                                         <span class="week-day">ПН</span>
                                     </div>
-                                    <div class="playbill-events__calendar-item">
+                                    <div class="playbill-events__calendar-item hasEvent">
                                         <span class="day">23</span>
                                         <span class="week-day">ПН</span>
                                     </div>
-                                    <div class="playbill-events__calendar-item">
+                                    <div class="playbill-events__calendar-item hasEvent">
                                         <span class="day">24</span>
                                         <span class="week-day">ПН</span>
                                     </div>
@@ -1119,102 +1200,109 @@
         </div>
         <div class="playbill__container--p0 playbill__container container">
             <div class="playbill-events__inner">
-                <div class="playbill-events__slider playbill-events__slider--event swiper">
-                    <div class="swiper-wrapper">
-                        <a href="#" class="playbill-events__event swiper-slide">
-                            <div class="playbill-events__event-img" data-status="Бесплатно">
-                                <img src="img/event-1.jpg" alt="">
-                            </div>
-                            <div class="playbill-events__event-descr">
-                                <div class="descr-block__title">День оленевода</div>
-                                <div class="descr-block__text">Праздник</div>
-                            </div>
-                        </a>
-                        <a href="#" class="playbill-events__event swiper-slide">
-                            <div class="playbill-events__event-img" data-status="Бесплатно">
-                                <img src="img/event-1.jpg" alt="">
-                            </div>
-                            <div class="playbill-events__event-descr">
-                                <div class="descr-block__title">День оленевода</div>
-                                <div class="descr-block__text">Праздник</div>
-                            </div>
-                        </a>
-                        <a href="#" class="playbill-events__event swiper-slide">
-                            <div class="playbill-events__event-img" data-status="Бесплатно">
-                                <img src="img/event-1.jpg" alt="">
-                            </div>
-                            <div class="playbill-events__event-descr">
-                                <div class="descr-block__title">День оленевода</div>
-                                <div class="descr-block__text">Праздник</div>
-                            </div>
-                        </a>
-                        <a href="#" class="playbill-events__event swiper-slide">
-                            <div class="playbill-events__event-img" data-status="Бесплатно">
-                                <img src="img/event-1.jpg" alt="">
-                            </div>
-                            <div class="playbill-events__event-descr">
-                                <div class="descr-block__title">День оленевода</div>
-                                <div class="descr-block__text">Праздник</div>
-                            </div>
-                        </a>
-                        <a href="#" class="playbill-events__event swiper-slide">
-                            <div class="playbill-events__event-img" data-status="Бесплатно">
-                                <img src="img/event-1.jpg" alt="">
-                            </div>
-                            <div class="playbill-events__event-descr">
-                                <div class="descr-block__title">День оленевода</div>
-                                <div class="descr-block__text">Праздник</div>
-                            </div>
-                        </a>
-                        <a href="#" class="playbill-events__event swiper-slide">
-                            <div class="playbill-events__event-img" data-status="Бесплатно">
-                                <img src="img/event-1.jpg" alt="">
-                            </div>
-                            <div class="playbill-events__event-descr">
-                                <div class="descr-block__title">День оленевода</div>
-                                <div class="descr-block__text">Праздник</div>
-                            </div>
-                        </a>
-                        <a href="#" class="playbill-events__event swiper-slide">
-                            <div class="playbill-events__event-img" data-status="Бесплатно">
-                                <img src="img/event-1.jpg" alt="">
-                            </div>
-                            <div class="playbill-events__event-descr">
-                                <div class="descr-block__title">День оленевода</div>
-                                <div class="descr-block__text">Праздник</div>
-                            </div>
-                        </a>
-                        <a href="#" class="playbill-events__event swiper-slide">
-                            <div class="playbill-events__event-img" data-status="Бесплатно">
-                                <img src="img/event-1.jpg" alt="">
-                            </div>
-                            <div class="playbill-events__event-descr">
-                                <div class="descr-block__title">День оленевода</div>
-                                <div class="descr-block__text">Праздник</div>
-                            </div>
-                        </a>
-                        <a href="#" class="playbill-events__event swiper-slide">
-                            <div class="playbill-events__event-img" data-status="Бесплатно">
-                                <img src="img/event-1.jpg" alt="">
-                            </div>
-                            <div class="playbill-events__event-descr">
-                                <div class="descr-block__title">День оленевода</div>
-                                <div class="descr-block__text">Праздник</div>
-                            </div>
-                        </a>
+                <div class="playbill-events__inner-slider">
+                    <div class="playbill-events__slider playbill-events__slider--event swiper">
+                        <div class="swiper-wrapper">
+                            <a href="#" class="playbill-events__event swiper-slide">
+                                <div class="playbill-events__event-img" data-status="Бесплатно">
+                                    <img src="img/event-1.jpg" alt="">
+                                </div>
+                                <div class="playbill-events__event-descr">
+                                    <div class="descr-block__title">День оленевода</div>
+                                    <div class="descr-block__text">Праздник</div>
+                                </div>
+                            </a>
+                            <a href="#" class="playbill-events__event swiper-slide">
+                                <div class="playbill-events__event-img" data-status="Бесплатно">
+                                    <img src="img/event-1.jpg" alt="">
+                                </div>
+                                <div class="playbill-events__event-descr">
+                                    <div class="descr-block__title">День оленевода</div>
+                                    <div class="descr-block__text">Праздник</div>
+                                </div>
+                            </a>
+                            <a href="#" class="playbill-events__event swiper-slide">
+                                <div class="playbill-events__event-img" data-status="Бесплатно">
+                                    <img src="img/event-1.jpg" alt="">
+                                </div>
+                                <div class="playbill-events__event-descr">
+                                    <div class="descr-block__title">День оленевода</div>
+                                    <div class="descr-block__text">Праздник</div>
+                                </div>
+                            </a>
+                            <a href="#" class="playbill-events__event swiper-slide">
+                                <div class="playbill-events__event-img" data-status="Бесплатно">
+                                    <img src="img/event-1.jpg" alt="">
+                                </div>
+                                <div class="playbill-events__event-descr">
+                                    <div class="descr-block__title">День оленевода</div>
+                                    <div class="descr-block__text">Праздник</div>
+                                </div>
+                            </a>
+                            <a href="#" class="playbill-events__event swiper-slide">
+                                <div class="playbill-events__event-img" data-status="Бесплатно">
+                                    <img src="img/event-1.jpg" alt="">
+                                </div>
+                                <div class="playbill-events__event-descr">
+                                    <div class="descr-block__title">День оленевода</div>
+                                    <div class="descr-block__text">Праздник</div>
+                                </div>
+                            </a>
+                            <a href="#" class="playbill-events__event swiper-slide">
+                                <div class="playbill-events__event-img" data-status="Бесплатно">
+                                    <img src="img/event-1.jpg" alt="">
+                                </div>
+                                <div class="playbill-events__event-descr">
+                                    <div class="descr-block__title">День оленевода</div>
+                                    <div class="descr-block__text">Праздник</div>
+                                </div>
+                            </a>
+                            <a href="#" class="playbill-events__event swiper-slide">
+                                <div class="playbill-events__event-img" data-status="Бесплатно">
+                                    <img src="img/event-1.jpg" alt="">
+                                </div>
+                                <div class="playbill-events__event-descr">
+                                    <div class="descr-block__title">День оленевода</div>
+                                    <div class="descr-block__text">Праздник</div>
+                                </div>
+                            </a>
+                            <a href="#" class="playbill-events__event swiper-slide">
+                                <div class="playbill-events__event-img" data-status="Бесплатно">
+                                    <img src="img/event-1.jpg" alt="">
+                                </div>
+                                <div class="playbill-events__event-descr">
+                                    <div class="descr-block__title">День оленевода</div>
+                                    <div class="descr-block__text">Праздник</div>
+                                </div>
+                            </a>
+                            <a href="#" class="playbill-events__event swiper-slide">
+                                <div class="playbill-events__event-img" data-status="Бесплатно">
+                                    <img src="img/event-1.jpg" alt="">
+                                </div>
+                                <div class="playbill-events__event-descr">
+                                    <div class="descr-block__title">День оленевода</div>
+                                    <div class="descr-block__text">Праздник</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <button type="button" class="slick-arrow event-arrow__next btn">
+                        <svg class="">
+                            <use xlink:href="./img/icons/icons.svg#arrow-slide"></use>
+                        </svg>
+                    </button>
+                </div>
+                <div class="playbill-events__inner-empty playbill-events__inner-empty empty-notification">
+                    <div class="empty-notification__icon popup__icon"><img src="img/icon/sucsess-icon.svg"></div>
+                    <div class="empty-notification__text popup__title">Нет запланированных событий на выбранную дату
                     </div>
                 </div>
-                <button type="button" class="slick-arrow event-arrow__next btn">
-                    <svg class="">
-                        <use xlink:href="./img/icons/icons.svg#arrow-slide"></use>
-                    </svg>
-                </button>
             </div>
             <div class="playbill-events__inner">
                 <div class="playbill-events__slider playbill-events__slider--banner swiper">
                     <div class="swiper-wrapper">
                         <a href="#" class="banner-slide swiper-slide" data-status="Бесплатно"
-                            style="background-color: #009974; background-image: url(img/kolhoz.png);">
+                            style="background-image: url(img/banner.png);">
                             <div class="banner-slide__content">
                                 <div class="banner-slide__title">В гоcтях
                                     у Сэр Ни</div>
@@ -1223,7 +1311,7 @@
                             </div>
                         </a>
                         <a href="#" class="banner-slide swiper-slide" data-status="Бесплатно"
-                            style="background-color: #009974; background-image: url(img/kolhoz.png);">
+                            style="background-image: url(img/banner.png);">
                             <div class="banner-slide__content">
                                 <div class="banner-slide__title">В гостях
                                     у Сэр Ни</div>
@@ -1232,7 +1320,7 @@
                             </div>
                         </a>
                         <a href="#" class="banner-slide swiper-slide" data-status="Бесплатно"
-                            style="background-color: #009974; background-image: url(img/kolhoz.png);">
+                            style=" background-image: url(img/banner.png);">
                             <div class="banner-slide__content">
                                 <div class="banner-slide__title">В гостях
                                     у Сэр Ни</div>
@@ -1241,7 +1329,7 @@
                             </div>
                         </a>
                         <a href="#" class="banner-slide swiper-slide" data-status="Бесплатно"
-                            style="background-color: #009974; background-image: url(img/kolhoz.png);">
+                            style=" background-image: url(img/banner.png);">
                             <div class="banner-slide__content">
                                 <div class="banner-slide__title">В гостях
                                     у Сэр Ни</div>
@@ -1997,7 +2085,180 @@
     </div>
 
 </div>
+    <div class="popups">
+    <div class="popups__inner">
+        <div id="popup-enter" class="popup">
+            <div class="popup__header">
+                <div class="popup__name">Избранное</div>
+                <button class="fixed-filter__close popup-close btn js-close">
+                    <img src="img/icon/filter-close.svg" alt="">
+                </button>
+            </div>
+            <div class="popup__body">
+                <div class="popup__icon">
+                    <img src="img/icon/popup-error.svg">
+                </div>
+                <div class="popup__title">
+                    Необходимой войти в систему
+                </div>
+            </div>
+            <div class="popup__btns">
+                <div class="popup__btn-registr btn btn-green">Регистрация</div>
+                <div class="popup__btn-enter btn btn-transparent-green">Войти</div>
+            </div>
+        </div>
+        <div id="popup-delete-rewiew" class="popup">
+            <div class="popup__header">
+                <div class="popup__name">Избранное</div>
+                <button class="fixed-filter__close popup-close btn js-close">
+                    <img src="img/icon/filter-close.svg" alt="">
+                </button>
+            </div>
+            <div class="popup__body">
+                <div class="popup__icon">
+                    <img src="img/icon/popup-sucses.svg">
+                </div>
+                <div class="popup__title">
+                    Хотите удалить отзыв?
+                </div>
+            </div>
+            <div class="popup__btns">
+                <button type="button" class="popup__btn-cancel btn js-close btn-green js-close">Отменить</button>
+                <button type="button" class="popup__btn-delete btn btn-transparent-green" data-popup="#delete-rewiew">
+                    Удалить
+                </button>
+            </div>
+        </div>
+        <div id="popup-create-way" class="popup">
+            <div class="popup__header">
+                <div class="popup__name">Мои маршруты</div>
+                <button class="fixed-filter__close popup-close btn js-close">
+                    <img src="img/icon/filter-close.svg" alt="">
+                </button>
+            </div>
+            <div class="popup__body">
+                <div class="popup__icon">
+                    <img src="img/icon/popup-sucses.svg">
+                </div>
+                <div class="popup__title">
+                    Маршрут успешно создан
+                </div>
+                <div class="popup__text">
+                    <p>Он будет доступен по ссылки в течении <span class="color-purple">7 дней.</span></p>
+                    <p>Добавьте в личный кабинет, чтобы сохранить надолго.</p>
+                </div>
+                <div class="popup__way-generate-link">
+                    <a class="popup__way-link">https://visityamal.ru/route?id=23159348</a>
+                    <button type="button" class="btn btn-copy">
+                        <img src="img/icon/copy.svg" alt="copy">
+                    </button>
+                </div>
 
+            </div>
+            <div class="popup__btns">
+                <button type="button" class="popup__btn-sms btn btn-green js-close"
+                    data-popup="#phone-for-sms">Отправить ссылку по
+                    СМС</button>
+                <button id="add-acc-btn" type="button" class="popup__btn-delete  js-close btn btn-transparent-green"
+                    data-popup="#add-acc">
+                    Добавить в ЛК
+                </button>
+            </div>
+        </div>
+        <div id="phone-for-sms" class="popup">
+            <form id="sms-send" action="">
+                <div class="popup__header">
+                    <div class="popup__name">Мои маршруты</div>
+                    <button class="fixed-filter__close popup-close btn js-close">
+                        <img src="img/icon/filter-close.svg" alt="">
+                    </button>
+                </div>
+                <div class="popup__body">
+                    <div class="popup__input-inner">
+                        <div class="popup__input-label">Телефон</div>
+                        <div class="costum-input">
+                            <input type="tel" name="phone" class="input-phone" placeholder="+7 000 000 00 00"
+                                required></input>
+                            <div class="costum-input__icon">
+                                <img src="img/icon/call.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="popup__title">
+                        Можно отправить 1 раз
+                    </div>
+                </div>
+                <div class="popup__btns">
+                    <button type="submit" class="popup__btn-enter btn btn-green">Отправить</button>
+                </div>
+            </form>
+        </div>
+        <!-- <div id="sucsess-pay" class="popup">
+            <button class="fixed-filter__close popup-close fixed-filter__close--only btn js-close">
+                <img src="img/icon/filter-close.svg" alt="">
+            </button>
+            <div class="popup__body">
+                <div class="popup__icon">
+                    <img src="img/icon/popup-sucses.svg">
+                </div>
+                <div class="popup__title">
+                    Оплата прошла успешно
+                </div>
+                <div class="popup__text">
+                    Маршрут уже добавлен в ваш кабинет
+                </div>
+            </div>
+            <div class="popup__btns">
+                <a href="#" class="popup__btn-registr btn btn-green">Мои маршруты</a>
+            </div>
+        </div>
+        <div id="error-pay" class="popup">
+            <button class="fixed-filter__close fixed-filter__close--only popup-close btn js-close">
+                <img src="img/icon/filter-close.svg" alt="">
+            </button>
+            <div class="popup__body">
+                <div class="popup__icon">
+                    <img src="img/icon/popup-error.svg">
+                </div>
+                <div class="popup__title">
+                    Что-то пошло не так. Попробуйте еще раз
+                </div>
+                <div class="popup__text">
+                    Мы добавили маршрут в ваш личный кабинеит
+                </div>
+            </div>
+            <div class="popup__btns">
+                <div class="popup__btn-registr btn btn-green">Мои маршруты</div>
+            </div>
+        </div> -->
+        <div id="preloader" class="preloader-loading">
+            <div class="preloader-loading__inner">
+                <svg class="">
+                    <use xlink:href="./img/icons/icons.svg#preloader-Illustration"></use>
+                </svg>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div id="delete-rewiew" class="notification">
+    <div class="notification__label">Отзыв успешно удален</div>
+    <button class="fixed-filter__close js-close btn">
+        <img src="img/icon/filter-close.svg" alt="">
+    </button>
+</div>
+<div id="add-rewiew" class="notification">
+    <div class="notification__label">Отзыв опубликован</div>
+    <button class="fixed-filter__close js-close  btn">
+        <img src="img/icon/filter-close.svg" alt="">
+    </button>
+</div>
+<div id="add-acc" class="notification">
+    <div class="notification__label">Маршрут добавлен в ЛК</div>
+    <button class="fixed-filter__close js-close  btn">
+        <img src="img/icon/filter-close.svg" alt="">
+    </button>
+</div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.js"
@@ -2005,8 +2266,6 @@
     crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js"></script>
 <script src="https://cdn.rawgit.com/nizarmah/calendar-javascript-lib/master/calendarorganizer.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAn4lOodBWISBVdVsAchtPd8eRRPgycYco&language=ru">
-</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"
     integrity="sha512-zYXldzJsDrNKV+odAwFYiDXV2Cy37cwizT+NkuiPGsa9X1dOz04eHvUWVuxaJ299GvcJT31ug2zO4itXBjFx4w=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -2014,6 +2273,9 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vivus/0.4.6/vivus.min.js"
+    integrity="sha512-oUUeA7VTcWBqUJD/VYCBB4VeIE0g1pg5aRMiSUOMGnNNeCLRS39OlkcyyeJ0hYx2h3zxmIWhyKiUXKkfZ5Wryg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="js/script.js"></script>
 </body>
 

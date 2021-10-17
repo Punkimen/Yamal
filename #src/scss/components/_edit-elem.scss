@@ -1,0 +1,32 @@
+.edit-element__btn {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 105px;
+    left: -15px;
+    background: #fff;
+    color: $colorGreen;
+
+    span {
+        margin-right: 10px;
+    }
+
+    svg {
+        width: 20px;
+        height: 20px;
+        stroke: $colorGreen;
+        transition: all ease .2s;
+    }
+
+    &:hover {
+        svg {
+            stroke: #fff;
+        }
+    }
+}
+
+.elements-partner {
+    .card-item::before {
+        display: none;
+    }
+}

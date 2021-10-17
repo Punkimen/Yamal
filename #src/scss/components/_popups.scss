@@ -119,10 +119,20 @@
 .btn-transparent-green {}
 
 .popup__way-generate-link {
+    position: relative;
     margin-top: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
+    max-width: 344px;
+    margin: 0 auto 20px;
+
+    .btn-copy {
+        position: absolute;
+        top: 0;
+        right: -20px;
+    }
 }
 
 .popup__way-link {
@@ -130,6 +140,7 @@
     line-height: 20px;
     margin-right: 10px;
     color: $colorGreen;
+    text-align: center;
 }
 
 .notification {

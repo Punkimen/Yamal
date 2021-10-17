@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yamal</title>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/jquery.mcustomscrollbar/3.0.6/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body>
+    @@include('./components/_header.html')
+    <div class="bread-crumbs">
+        <div class="container">
+            <ul class="bread-crumbs__list">
+                <li class="bread-crumbs__elem">
+                    <a href="/" class="bread-crumbs__link bread-crumbs__link--arrow">Главная</a>
+                </li>
+                <li class="bread-crumbs__elem">
+                    <a href="#" class="bread-crumbs__link">Личный кабинет</a>
+                </li>
+                <li class="bread-crumbs__elem">
+                    <a href="#" class="bread-crumbs__link">Авторизация</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <section class="personal-cabinet">
+        <div class="container">
+            <h2 class="personal-cabinet__title section-title">
+                Личный кабинет
+            </h2>
+        </div>
+        <div class="personal-cabinet__inner">
+            <div class="container">
+                <div id="window-phone-enter" class="cabinet-window">
+                    <form id="enter-phone" action="">
+                        <div class="cabinet-window__body">
+                            <div class="cabinet-window__row">
+                                <button type="button" class="cabinet-window__full-btn btn btn-green btn-open-window"
+                                    data-open="window-email-enter">Войти через
+                                    почту</button>
+                            </div>
+                            <div class="cabinet-window__row">
+                                <div class="popup__input-label">Телефон</div>
+                                <div class="costum-input">
+                                    <input type="tel" name="phone" class="input-phone" placeholder="+7 000 000 00 00"
+                                        required></input>
+                                    <div class="costum-input__icon">
+                                        <img src="img/icon/call.svg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cabinet-window__row cabinet-window__row--flex">
+                                <button class="cabinet-window__next-btn btn btn-green enter-next-btn">Далее</button>
+                                <div class="cabinet-window__social-icon cabinet-window__social-icon--desctop">
+                                    <a href="#" class="social-icon">
+                                        <img src="img/icon/vk-blue.svg" alt="">
+                                    </a>
+                                    <a href="#" class="social-icon">
+                                        <img src="img/icon/facebook-blue.svg" alt="">
+                                    </a>
+                                    <a href="#" class="social-icon">
+                                        <img src="img/icon/twitter-blue.svg" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="cabinet-window__row">
+                                <a href="reg-cabinet.html" style="display: inline-block" type="button"
+                                    class="cabinet-window__btn btn btn-transparent-green reg-link">Регистрация</a>
+                            </div>
+                            <div class="cabinet-window__row cabinet-window__row--mobile">
+                                <div class="cabinet-window__social-icon cabinet-window__social-icon--center">
+                                    <a href="#" class="social-icon">
+                                        <img src="img/icon/vk-blue.svg" alt="">
+                                    </a>
+                                    <a href="#" class="social-icon">
+                                        <img src="img/icon/facebook-blue.svg" alt="">
+                                    </a>
+                                    <a href="#" class="social-icon">
+                                        <img src="img/icon/twitter-blue.svg" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div id="window-sms-code" class="cabinet-window hide">
+                    <form id="get-sms" action="">
+                        <div class="cabinet-window__body">
+                            <div class="cabinet-window__row">
+                                <button type="button"
+                                    class="cabinet-window__btn-back btn btn-transparent-green btn-open-window"
+                                    data-open="window-phone-enter">
+                                    <svg class="">
+                                        <use xlink:href="./img/icons/icons.svg#arrow-right"></use>
+                                    </svg>
+                                    <span>Назад</span>
+                                </button>
+                            </div>
+                            <div class="cabinet-window__row">
+                                <div class="input-label__header">
+                                    <label for="">Телефон</label>
+                                    <button type="btn" class="btn btn-input">Отправить повторно</button>
+                                </div>
+                                <div class="costum-input">
+                                    <input type="text" name="sms-code" class="input-code" placeholder="0000"
+                                        required></input>
+                                    <div class="costum-input__icon">
+                                        <img src="img/icon/user.svg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cabinet-window__row">
+                                <button class="cabinet-window__next-btn btn btn-green">Войти</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div id="window-email-enter" class="cabinet-window hide">
+                    <form id="enter-email" action="">
+                        <div class="cabinet-window__body">
+                            <div class="cabinet-window__row">
+                                <button type="button" class="cabinet-window__full-btn btn btn-green btn-open-window"
+                                    data-open="window-phone-enter">Войти через
+                                    СМС</button>
+                            </div>
+                            <div class="cabinet-window__row">
+                                <div class="popup__input-label">Логин</div>
+                                <div class="costum-input">
+                                    <input type="email" name="email" class="input-emaul" placeholder="ex@mail.com"
+                                        required></input>
+                                    <div class="costum-input__icon">
+                                        <img src="img/icon/user.svg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cabinet-window__row">
+                                <div class="input-label__header">
+                                    <label for="">Пароль</label>
+                                    <button type="btn" class="btn btn-input">Забыли пароль?</button>
+                                </div>
+                                <div class="costum-input">
+                                    <input type="password" name="password" class="" placeholder="Пароль"
+                                        required></input>
+                                    <div class="costum-input__icon">
+                                        <img src="img/icon/password-check.svg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="cabinet-window__row cabinet-window__row--flex">
+                                <button class="cabinet-window__next-btn btn btn-green">Далее</button>
+                                <div class="cabinet-window__social-icon cabinet-window__social-icon--desctop">
+                                    <a href="#" class="social-icon">
+                                        <img src="img/icon/vk-blue.svg" alt="">
+                                    </a>
+                                    <a href="#" class="social-icon">
+                                        <img src="img/icon/facebook-blue.svg" alt="">
+                                    </a>
+                                    <a href="#" class="social-icon">
+                                        <img src="img/icon/twitter-blue.svg" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="cabinet-window__row">
+                                <a href="reg-cabinet.html" style="display: inline-block" type="button"
+                                    class="cabinet-window__btn btn btn-transparent-green reg-link">Регистрация</a>
+                            </div>
+                            <div class="cabinet-window__row cabinet-window__row--mobile">
+                                <div class="cabinet-window__social-icon cabinet-window__social-icon--center">
+                                    <a href="#" class="social-icon">
+                                        <img src="img/icon/vk-blue.svg" alt="">
+                                    </a>
+                                    <a href="#" class="social-icon">
+                                        <img src="img/icon/facebook-blue.svg" alt="">
+                                    </a>
+                                    <a href="#" class="social-icon">
+                                        <img src="img/icon/twitter-blue.svg" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    @@include('./components/_footer.html')
+    @@include('./components/_fixed-menu-show.html')
+    @@include('./components/_popups.html')
+    @@include('./components/_scripts.html')
+</body>
+
+</html>

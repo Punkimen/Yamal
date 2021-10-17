@@ -1,0 +1,34 @@
+.personal-cabinet {
+
+    &__header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+
+    &__title {}
+
+    &__inner {
+        background-image: url(../img/decor.png);
+        background-position: center;
+        background-repeat: repeat-x;
+        background-size: contain;
+        padding: 70px 0 157px;
+
+        @media(max-width:$md5) {
+            padding: 40px 0 100px;
+        }
+    }
+
+    .btn-registration {
+        display: none;
+
+        &.show {
+            display: block;
+        }
+    }
+}
+
+.reg-link {
+    display: inline-block;
+}

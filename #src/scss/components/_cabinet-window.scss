@@ -1,0 +1,137 @@
+.cabinet-window {
+    padding: 50px 50px 25px 50px;
+    max-width: 504px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #f2f2f2;
+    box-shadow: 0px 7px 40px -7px rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+
+    @media(max-width:$md5) {
+        padding: 0;
+        box-shadow: none;
+        border-radius: none;
+        max-width: 340px;
+    }
+
+    &__body {
+        max-width: 240px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+
+        @media(max-width:$md5) {
+            max-width: 300px;
+        }
+    }
+
+    &__row {
+        margin-bottom: 24px;
+
+        &>div {
+            margin-bottom: 0;
+        }
+
+        &--mobile {
+            display: none;
+
+            @media(max-width: $md5) {
+                display: block;
+            }
+        }
+
+        &--bordered {
+            padding-bottom: 24px;
+            border-bottom: 2px solid #E6E6E6;
+        }
+    }
+
+    &__row--flex {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @media(max-width:$md5) {
+            display: block;
+        }
+    }
+
+    &__row--center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__full-btn {
+        width: 100%;
+    }
+
+    &__next-btn {
+        @media(max-width:$md5) {
+            width: 100%;
+        }
+    }
+
+    &__social-icon {
+        display: flex;
+
+        &--center {
+            justify-content: center;
+        }
+
+        &--desctop {
+            @media(max-width:$md5) {
+                display: none;
+            }
+        }
+
+        .social-icon {
+            &:not(:last-child) {
+                margin-right: 14px;
+            }
+        }
+    }
+
+    &__btn {
+        text-align: center;
+
+        @media(max-width:$md5) {
+            width: 100%;
+        }
+    }
+}
+
+.cabinet-window__btn-back {
+    display: flex;
+    align-items: center;
+    padding-left: 14px;
+
+    svg {
+        transform: rotate(180deg);
+        stroke: $colorGreen;
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        transition: all ease .2s;
+    }
+
+    &:hover {
+        svg {
+            stroke: #fff;
+        }
+    }
+}
+
+.input-label__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.btn-input {
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 18px;
+    color: #213A8F;
+    text-decoration: underline;
+}

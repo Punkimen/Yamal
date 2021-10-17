@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yamal</title>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/jquery.mcustomscrollbar/3.0.6/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body>
+    @@include('./components/_header.html')
+    <div class="bread-crumbs">
+        <div class="container">
+            <ul class="bread-crumbs__list">
+                <li class="bread-crumbs__elem">
+                    <a href="/" class="bread-crumbs__link bread-crumbs__link--arrow">Главная</a>
+                </li>
+                <li class="bread-crumbs__elem">
+                    <a href="#" class="bread-crumbs__link">Личный кабинет</a>
+                </li>
+                <li class="bread-crumbs__elem">
+                    <a href="#" class="bread-crumbs__link">Регистрация</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <section class="personal-cabinet">
+        <div class="container">
+            <div class="personal-cabinet__header">
+                <h2 class="personal-cabinet__title section-title">
+                    Оплата
+                </h2>
+            </div>
+        </div>
+        <div class="personal-cabinet__inner">
+            <div class="container">
+                <div class="cabinet-window">
+                    <div class="popup__icon">
+                        <div class="shadow-icon">
+                            <img src="img/icon/sucsess-check.svg">
+                        </div>
+                    </div>
+                    <div class="cabinet-window__row">
+                        <div class="popup__title">
+                            Оплата прошла успешно
+                        </div>
+                        <div class="popup__text">
+                            Маршрут уже добавлен в ваш кабинет
+                        </div>
+                    </div>
+                    <div class="cabinet-window__row cabinet-window__row--center">
+                        <a href="#" class="cabinet-window__btn btn btn-green">Мои маршруты</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    @@include('./components/_footer.html')
+    @@include('./components/_fixed-menu-show.html')
+    @@include('./components/_popups.html')
+    @@include('./components/_scripts.html')
+</body>
+
+</html>

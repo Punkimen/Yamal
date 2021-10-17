@@ -80,10 +80,19 @@ li {
     max-width: 1248px;
     width: 100%;
     margin: 0 auto;
+
+
+    @media (min-width: $md3) and (max-width: $md1) {
+        padding-left: 64px;
+    }
 }
 
 .stroke-white {
     stroke: #fff;
+}
+
+a.btn {
+    display: inline-flex;
 }
 
 .btn {
@@ -111,6 +120,22 @@ li {
     &:hover {
         border: 2px solid rgba($color: #000000, $alpha: 0.2);
         color: rgba($color: #000000, $alpha: .2);
+    }
+}
+
+.btn-white {
+    font-size: 14px;
+    line-height: 20px;
+    padding: 10px 32px;
+    background: #fff;
+    border: 2px solid transparent;
+    color: $colorGreen;
+    border-radius: 7px;
+
+    &:hover {
+        border: 2px solid$colorGreen;
+        background: $colorGreen;
+        color: #fff;
     }
 }
 
@@ -387,7 +412,8 @@ li {
         }
     }
 
-    input {
+    input,
+    textarea {
         font-family: "PT-Root", sans-serif;
         padding: 10px 10px 10px 38px;
         display: block;
@@ -400,6 +426,7 @@ li {
         line-height: 20px;
         display: block;
         width: 100%;
+        resize: none;
 
         &.costum-calendar {
             font-weight: 500 !important;
@@ -433,6 +460,23 @@ li {
     }
 }
 
+.shadow-icon {
+    margin: 0 auto 24px;
+    position: relative;
+    width: 66px;
+    height: 66px;
+    background: rgba(242, 242, 242, 0.9);
+    box-shadow: 0px 7px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+
+    img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
 custom-select.error {
     .costum-calendar {
         border-color: $colorPurple;
@@ -441,6 +485,43 @@ custom-select.error {
 
 label.error {
     display: block;
-    font-size: 10px;
     color: $colorPurple;
+    position: absolute;
+    bottom: -21px;
+    left: 0;
+    font-size: 12px;
+}
+
+.custom-file {
+    position: relative;
+    margin-right: 20px;
+    background: #fff;
+    color: $colorGreen;
+    border: 1px solid transparent;
+    padding-right: 10px;
+
+    &:hover {
+        background: $colorGreen;
+        color: #fff;
+    }
+
+    &__text {
+        margin-right: 14px;
+    }
+
+    &__icon {
+        font-size: 22px;
+    }
+
+    input {
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+    }
 }

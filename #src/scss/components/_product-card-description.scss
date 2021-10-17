@@ -42,6 +42,12 @@
     }
 
     &__description-item {
+        &--phone {
+            @media(max-width: $md5) {
+                display: none;
+            }
+        }
+
         &:not(:last-child) {
             margin-bottom: 32px;
         }
@@ -92,11 +98,33 @@
     &__price {}
 }
 
+.product-card__description-btn {
+    &#reserve-btn {
+        display: none;
+
+        @media(max-width: $md5) {
+            display: block;
+        }
+    }
+
+    @media(max-width: $md5) {
+        width: 100%;
+        margin-bottom: 15px;
+
+        &#download-PDF {
+            background: transparent;
+            border: 1px solid #008D6B;
+            color: $colorGreen;
+        }
+    }
+}
+
 .on-map {
-    font-size: 12px;
+    font-size: 14px;
     line-height: 18px;
     display: flex;
     align-items: center;
+    color: $colorGreen;
 
     svg {
         display: block;

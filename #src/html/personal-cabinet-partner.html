@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yamal</title>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/jquery.mcustomscrollbar/3.0.6/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body>
+    @@include('./components/_header.html')
+    <a href="#" class="banner-link">
+        <div class="container">
+            <span>Скидочная карта гостя</span>
+            <img src="img/icon/arrow-right.svg" alt="">
+        </div>
+    </a>
+    <div class="bread-crumbs">
+        <div class="container">
+            <ul class="bread-crumbs__list">
+                <li class="bread-crumbs__elem">
+                    <a href="/" class="bread-crumbs__link bread-crumbs__link--arrow">Главная</a>
+                </li>
+                <li class="bread-crumbs__elem">
+                    <a href="#" class="bread-crumbs__link">Линый кабинет</a>
+                </li>
+                <li class="bread-crumbs__elem">
+                    <a href="#" class="bread-crumbs__link">Профиль</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <section id="personal-profile" class="personal-cabinet ">
+        <div class="container">
+            <h2 class="personal-cabinet__title section-title">
+                Личный кабинет
+            </h2>
+        </div>
+        <div class="personal-cabinet__body">
+            <div class="contaoner-nav container">
+                <div class="personal-cabinet__navigation">
+                    <div class="playbill__categoryes">
+                        <a href="personal-cabinet-partner.html" class="playbill-category btn  current">Профиль</a>
+                        <a href="elements-partner.html" class="playbill-category btn">Мои элементы</a>
+                        <a href="partner-reviews.html" class="playbill-category btn ">Отзывы</a>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="personal-cabinet__content cabinet-profile">
+                    <div class="cabinet-profile__data">
+                        <div class="cabinet-profile__data-item">
+                            <div class="cabinet-profile__date-label">Имя:</div>
+                            <div id="data-name" class="cabinet-profile__date-value">Евгений</div>
+                        </div>
+                        <div class="cabinet-profile__data-item">
+                            <div class="cabinet-profile__date-label">Почта:</div>
+                            <div id="data-email" class="cabinet-profile__date-value">ex@mail.com</div>
+                        </div>
+                        <div class="cabinet-profile__data-item">
+                            <div class="cabinet-profile__date-label">Телефон:</div>
+                            <div id="data-phone" class="cabinet-profile__date-value">Телефон:</div>
+                        </div>
+                    </div>
+                    <div class="cabinet-profile__checkbox">
+                        <div class="fixed-pay__form-checkbox">
+                            <label class="control control-radio costum-radio">
+                                Хочу получать маркетенговые предложения от сервиса
+                                <input class="choosen-radio" name="personal-date" value="agree" type="checkbox" required
+                                    checked name="1" />
+                                <div class="control_indicator"></div>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="cabinet-profile__btns">
+                        <button id="change-data-btn" class="cabinet-profile__btn btn btn-transparent-green"
+                            data-open="data-change">Изменить
+                            данные</button>
+                        <a href="password-reset.html" class="cabinet-profile__btn btn btn-transparent-green">Сбросить
+                            пароль</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="data-change" class="personal-cabinet__windows hide">
+        <div class="personal-cabinet">
+            <div class="container">
+                <div class="personal-cabinet__header">
+                    <h2 class="personal-cabinet__title section-title">
+                        Редактирование
+                    </h2>
+                </div>
+            </div>
+            <div class="personal-cabinet__inner">
+                <div class="container">
+                    <div class="cabinet-window">
+                        <form id="change-data-form" action="">
+                            <div class="cabinet-window__body">
+                                <div class="cabinet-window__row">
+                                    <div class="popup__input-label">Имя</div>
+                                    <div class="costum-input">
+                                        <input type="text" name="name" value="Евгений" class="" placeholder="Имя"
+                                            required></input>
+                                        <div class="costum-input__icon">
+                                            <img src="img/icon/user.svg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cabinet-window__row">
+                                    <div class="popup__input-label">Почта</div>
+                                    <div class="costum-input">
+                                        <input type="email" name="email" value="ex@mail.com" class=""
+                                            placeholder="ex@mail.com" required></input>
+                                        <div class="costum-input__icon">
+                                            <img src="img/icon/email.svg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cabinet-window__row">
+                                    <div class="popup__input-label">Телефон</div>
+                                    <div class="costum-input">
+                                        <input type="tel" name="phone" class="input-phone"
+                                            placeholder="+7 000 000 00 00" value="+7 000 000 00 00" required></input>
+                                        <div class="costum-input__icon">
+                                            <img src="img/icon/call.svg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cabinet-window__row">
+                                    <button id="save-change" type="submit"
+                                        class="cabinet-window__btn btn btn-green">Сохранить</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @@include('./components/_footer.html')
+    @@include('./components/_fixed-menu-show.html')
+    @@include('./components/_popups.html')
+    @@include('./components/_scripts.html')
+</body>
+
+</html>

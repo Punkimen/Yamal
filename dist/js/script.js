@@ -73,6 +73,7 @@ $(document).ready(function () {
         const swiperCalendar = new Swiper('.playbill-events__calendar-slider', {
             slidesPerView: "auto",
             freeMode: true,
+            speed: 1000,
         })
         const swiperEvent = new Swiper('.playbill-events__slider--event', {
             slidesPerView: "auto",
@@ -103,7 +104,16 @@ $(document).ready(function () {
                 }
             }
         })
-
+        const swiperRoutes = new Swiper('.routes-wrapper', {
+            slidesPerView: "auto",
+            spaceBetween: 20,
+            breakpoints: {
+                767: {
+                    slidesPerView: 4,
+                    spaceBetween: 20,
+                }
+            }
+        })
         const swiperGallery = new Swiper('.gallery__slider', {
             slidesPerView: "auto",
             spaceBetween: 20,
@@ -131,6 +141,9 @@ $(document).ready(function () {
         })
         $('.goods-arrow__next').on('click', () => {
             swiperGoods.slideNext();
+        })
+        $('.routes-arrow__next').on('click', () => {
+            swiperRoutes.slideNext();
         })
         $('.gallery-arrow__next').on('click', () => {
             swiperGallery.slideNext();
@@ -165,8 +178,31 @@ $(document).ready(function () {
     })();
     // playbill
     (function () {
+        const eventsInner = $('.playbill-events__slider--event .swiper-wrapper')
+        const showhideBtn = () => {
+            if ($('.playbill-events__event').length <= 4) {
+                $('.event-arrow__next').hide()
+            } else {
+                $('.event-arrow__next').show()
+            }
+        };
+        showhideBtn();
+
         $('.playbill-category').on('click', function () {
             $(this).addClass('current').siblings().removeClass('current')
+        });
+        $('.playbill-events__inner-empty').hide()
+        $('.playbill-events__calendar-item').on('click', function () {
+            $('.playbill-events__calendar-item').removeClass('active');
+            $(this).addClass('active');
+            showhideBtn();
+            if (!$(this).hasClass('hasEvent')) {
+                $('.playbill-events__inner-slider').hide()
+                $('.playbill-events__inner-empty').show()
+            } else {
+                $('.playbill-events__inner-slider').show()
+                $('.playbill-events__inner-empty').hide()
+            }
         })
     })();
     // fixed-menu
@@ -306,9 +342,35 @@ $(document).ready(function () {
                     renderQuestions(count)
                 } else if (count === 3) {
                     $('.quiz-routes__progress-item').eq(4).addClass('active')
+                    const showPopup = el => {
+                        $('.popups').show();
+                        $('body').addClass('overlay');
+                        $(el).addClass('show');
+                    };
+                    showPopup('#preloader');
+                    $('#preloader').addClass('sizing')
+                    const closeModal = () => {
+                        $('.popup').removeClass('show');
+                        $('.popups').hide();
+                        $('body').removeClass('overlay');
+                    }
+                    setTimeout(() => {
+                        closeModal()
+                        $('#preloader').removeClass('show')
+                        $('.recomended-route').show()
+                        $([document.documentElement, document.body]).animate({
+                            scrollTop: $(".recomended-route").offset().top
+                        }, 1000);
+                    }, 3000)
                 }
 
                 $('.quiz-routes__progress-item').eq(count).addClass('active')
+            })
+            $('#repeatQuiz').on('click', function () {
+                count = 0;
+                $('.quiz-routes__progress-item').eq(count).nextAll().removeClass('active past')
+                renderQuestions(count)
+                $('.recomended-route').hide()
             })
         }
         renderQuestions(count)
@@ -353,37 +415,6 @@ $(document).ready(function () {
     })();
     // catalog
     (function () {
-        $('.card-item__price').each((index, el) => {
-            let countGreenElem = +el.getAttribute('data-price');
-            switch (countGreenElem) {
-                case 1:
-                    for (let i = 0; i <= countGreenElem - 1; i++) {
-                        el.children[i].style.color = 'green';
-                    }
-                    break
-                case 2:
-                    for (let i = 0; i <= countGreenElem - 1; i++) {
-                        el.children[i].style.color = 'green';
-                    }
-                    break
-                case 3:
-                    for (let i = 0; i <= countGreenElem - 1; i++) {
-                        el.children[i].style.color = 'green';
-                    }
-                    break
-                case 4:
-                    for (let i = 0; i <= countGreenElem - 1; i++) {
-                        el.children[i].style.color = 'green';
-                    }
-                    break
-                case 5:
-                    for (let i = 0; i <= countGreenElem - 1; i++) {
-                        el.children[i].style.color = 'green';
-                    }
-                    break
-            }
-
-        })
     })();
     // questions
     (function () {
@@ -530,15 +561,7 @@ $(document).ready(function () {
             let el = $(this).attr('data-popup');
             showPopup(el);
         })
-        $('#fixed-pay__submit').on('click', function (e) {
-            e.preventDefault()
-            if ($('#fixed-pay__form').valid()) {
-                let el = $(this).attr('data-popup');
-                showPopup(el);
-                $('.price-block__btn').addClass('disabled')
-                $('.price-block__btn').text('Оплачено')
-            }
-        })
+
     })();
     // showMore
     (function () {
@@ -643,533 +666,565 @@ $(document).ready(function () {
 
     // google map init and stylized 
     // steps planning way  
-    (function () {
-        let stepCount = 0;
-        // maps sеtting
+    if ($('#map').length) {
+        (function () {
+            let stepCount = 0;
+            // maps sеtting
 
-        const firstMap = function () {
-            let myLatlng
-            let flightPathCoordinates = [];
-            let oldCordinates = [];
-            let flightPath;
-            let map;
-            let markers = [];
-            let fromMarker = [];
-            let startMarkerst = [
-                {
-                    position: new google.maps.LatLng(66.86305851932107, 70.8545548132817),
-                    map: map,
-                    title: 'Яр-Сале',
-                    icon: {
-                        url: "img/icon/marker-sound.svg",
-                        scaledSize: new google.maps.Size(39.69, 39.69)
-                    },
-                    label: {
-                        text: "Яр-Сале",
-                        color: "#213A8F",
-                        fontWeight: "bold",
-                        fontSize: "12px",
-                        className: "map-label"
-                    }
-                },
-                {
-                    position: new google.maps.LatLng(67.46201765996048, 78.70893018336228),
-                    map: map,
-                    title: 'Тазовский',
-                    icon: {
-                        url: "img/icon/marker-sound.svg",
-                        scaledSize: new google.maps.Size(39.69, 39.69)
-                    },
-                    label: {
-                        text: "Тазовский",
-                        color: "#213A8F",
-                        fontWeight: "bold",
-                        fontSize: "12px",
-                        className: "map-label"
-                    }
-                },
-                {
-                    position: new google.maps.LatLng(66.55047769194653, 66.59826008447075),
-                    map: map,
-                    title: 'Салехард',
-                    icon: {
-                        url: "img/icon/btn-location.svg",
-                        scaledSize: new google.maps.Size(32, 32)
-                    },
-                    label: {
-                        text: "Салехард",
-                        color: "#213A8F",
-                        fontWeight: "bold",
-                        fontSize: "12px",
-                        className: "map-label"
-                    }
-                },
-                {
-                    position: new google.maps.LatLng(66.09653540676248, 76.65587017293807),
-                    map: map,
-                    title: 'Новый Уренгой',
-                    icon: {
-                        url: "img/icon/marker-sound.svg",
-                        scaledSize: new google.maps.Size(39.69, 39.69)
-                    },
-                    label: {
-                        text: "Новый Уренгой",
-                        color: "#213A8F",
-                        fontWeight: "bold",
-                        fontSize: "12px",
-                        className: "map-label"
-                    }
-                },
-                {
-                    position: new google.maps.LatLng(65.53514113422678, 72.50449449743208),
-                    map: map,
-                    title: 'Надым',
-                    icon: {
-                        url: "img/icon/btn-location.svg",
-                        scaledSize: new google.maps.Size(32, 32)
-                    },
-                    label: {
-                        text: "Надым",
-                        color: "#213A8F",
-                        fontWeight: "bold",
-                        fontSize: "12px",
-                        className: "map-label"
-                    }
-                },
-                {
-                    position: new google.maps.LatLng(68.41641830907557, 73.12853422144906),
-                    map: map,
-                    title: 'Сабетта',
-                    icon: {
-                        url: "img/icon/marker-sound.svg",
-                        scaledSize: new google.maps.Size(39.69, 39.69)
-                    },
-                    label: {
-                        text: "Сабетта",
-                        color: "#213A8F",
-                        fontWeight: "bold",
-                        fontSize: "12px",
-                        className: "map-label"
-                    }
-                },
-            ];
-            let lightMarkers = [
-                {
-                    position: new google.maps.LatLng(66.86305851932107, 70.8545548132817),
-                    map: map,
-                    title: 'Яр-Сале',
-                    icon: {
-                        url: "img/icon/sound-marker.svg",
-                        scaledSize: new google.maps.Size(14, 14)
-                    },
-                    label: {
-                        text: "",
-                        color: "#213A8F",
-                        fontWeight: "bold",
-                        fontSize: "0px",
-                        className: "hide"
-                    }
-                },
-                {
-                    position: new google.maps.LatLng(67.46201765996048, 78.70893018336228),
-                    map: map,
-                    title: 'Тазовский',
-                    icon: {
-                        url: "img/icon/sound-marker.svg",
-                        scaledSize: new google.maps.Size(14, 14)
-                    },
-                    label: {
-                        text: "",
-                        color: "#213A8F",
-                        fontWeight: "bold",
-                        fontSize: "0px",
-                        className: "hide"
-                    }
-                },
-
-                {
-                    position: new google.maps.LatLng(66.09653540676248, 76.65587017293807),
-                    map: map,
-                    title: 'Новый Уренгой',
-                    icon: {
-                        url: "img/icon/sound-marker.svg",
-                        scaledSize: new google.maps.Size(14, 14)
-                    },
-                    label: {
-                        text: "",
-                        color: "#213A8F",
-                        fontWeight: "bold",
-                        fontSize: "0px",
-                        className: "hide"
-                    }
-                },
-                {
-                    position: new google.maps.LatLng(68.41641830907557, 73.12853422144906),
-                    map: map,
-                    title: 'Новый Уренгой',
-                    icon: {
-                        url: "img/icon/sound-marker.svg",
-                        scaledSize: new google.maps.Size(14, 14)
-                    },
-                    label: {
-                        text: "",
-                        color: "#213A8F",
-                        fontWeight: "bold",
-                        fontSize: "0px",
-                        className: "hide"
-                    }
-                },
-            ];
-            let cityMarkersFrom = [
-                {
-                    position: new google.maps.LatLng(55.7526903859156, 37.62987442234599),
-                    map: map,
-                    title: 'Москва',
-                    icon: {
-                        url: "img/icon/btn-location.svg",
-                        scaledSize: new google.maps.Size(32, 32)
-                    },
-                    label: {
-                        text: "Москва",
-                        color: "#213A8F",
-                        fontWeight: "bold",
-                        fontSize: "12px",
-                        className: "map-label"
-                    }
-                },
-                {
-                    position: new google.maps.LatLng(61.36087770604348, 31.326917871606124),
-                    map: map,
-                    title: 'Санкт-Петербург',
-                    icon: {
-                        url: "img/icon/btn-location.svg",
-                        scaledSize: new google.maps.Size(32, 32)
-                    },
-                    label: {
-                        text: "Санкт-Петербург",
-                        color: "#213A8F",
-                        fontWeight: "bold",
-                        fontSize: "12px",
-                        className: "map-label"
-                    }
-                },
-                {
-                    position: new google.maps.LatLng(45.03590893134328, 38.97089281611214),
-                    map: map,
-                    title: 'Краснодар',
-                    icon: {
-                        url: "img/icon/btn-location.svg",
-                        scaledSize: new google.maps.Size(32, 32)
-                    },
-                    label: {
-                        text: "Краснодар",
-                        color: "#213A8F",
-                        fontWeight: "bold",
-                        fontSize: "12px",
-                        className: "map-label"
-                    }
-                },
-            ];
-            const lineSymbol = {
-                path: "M 0,-1 0,1",
-                strokeOpacity: 1,
-                scale: 1,
-                strokeWeight: 2,
-                strokeColor: "#213A8F",
-            };
-            // Создаем маркеры в markers
-            function addMarker(position, map, title, icon, label) {
-                const marker = new google.maps.Marker({
-                    position,
-                    map,
-                    title,
-                    icon,
-                    label,
-                });
-                markers.push(marker);
-            }
-            // отдельный массив для городов России
-            function addMarkerFrom(position, map, title, icon, label) {
-                const marker = new google.maps.Marker({
-                    position,
-                    map,
-                    title,
-                    icon,
-                    label,
-                });
-                fromMarker.push(marker);
-            }
-            function createStartMass() {
-                startMarkerst.forEach(el => {
-                    addMarker(el.position, el.map, el.title, el.icon, el.label)
-                })
-            }
-            createStartMass();
-
-            // Sets the map on all markers in the array.
-            function setMapOnAll(map) {
-                for (let i = 0; i < markers.length; i++) {
-                    markers[i].setMap(map);
-                }
-                for (let i = 0; i < fromMarker.length; i++) {
-                    fromMarker[i].setMap(map);
-                }
-            }
-            // createCoordinates
-            function createCoordinates(marker1, marker2) {
-                flightPathCoordinates = [];
-                flightPathCoordinates.push(marker1, marker2)
-                // let startPoint = {}
-                flightPath = new google.maps.Polyline({
-                    path: flightPathCoordinates,
-                    strokeOpacity: 0,
-                    icons: [
-                        {
-                            icon: lineSymbol,
-                            offset: "0",
-                            repeat: "6px",
+            const firstMap = function () {
+                let myLatlng
+                let flightPathCoordinates = [];
+                let oldCordinates = [];
+                let flightPath;
+                let map;
+                let markers = [];
+                let fromMarker = [];
+                let startMarkerst = [
+                    {
+                        position: new google.maps.LatLng(66.86305851932107, 70.8545548132817),
+                        map: map,
+                        title: 'Яр-Сале',
+                        icon: {
+                            url: "img/icon/marker-sound.svg",
+                            scaledSize: new google.maps.Size(39.69, 39.69)
                         },
-                    ]
-                })
-                oldCordinates.push(flightPath)
-            }
-            // отфильровать массивы, чтобы получить 2 города
-            function filterMarkers(name) {
-                markers = markers.filter(el => name === el.title)
-            }
-            // добавить линию
-            function addLine() {
-                flightPath.setMap(map);
-            }
-            // убрать линию
-            function removeLine() {
-                oldCordinates.forEach(el => {
-                    el.setMap(null);
-                })
-            }
-            // Removes the markers from the map, but keeps them in the array.
-            function hideMarkers() {
-                for (let i = 0; i < markers.length; i++) {
-                    markers[i].setMap(null);
-                }
-                for (let i = 0; i < fromMarker.length; i++) {
-                    fromMarker[i].setMap(null);
-                }
-            }
-            // Shows any markers currently in the array.
-            function showMarkers() {
-                setMapOnAll(map);
-            }
-            // add cityFrom
-            const inputsCityFrom = $('.choosen-radio-from');
-            const inputsCityTo = $('.choosen-radio-to');
-            // add distance block
-            function createDistanceBlock(distance) {
-                return new google.maps.InfoWindow({
-                    content: distance
-                })
-            }
-            function initialize() {
-                myLatlng = new google.maps.LatLng(67.01156439141535, 73.95476052039851);
-
-                var mapOptions = {
-                    zoom: 5,
-                    center: myLatlng,
-                    mapTypeControl: false,
-                    overviewMapControl: false,
-                    panControl: false,
-                    zoomControl: false,
-                    streetViewControl: false,
-                    keyboardShortcuts: false,
-                    styles: [
-                        {
-                            "elementType": "geometry",
-                            "stylers": [
-                                {
-                                    "color": "#f2f2f2"
-                                }
-                            ]
-                        },
-                        {
-                            "elementType": "labels.icon",
-                            "stylers": [
-                                {
-                                    "visibility": "off"
-                                }
-                            ]
-                        },
-                        {
-                            "elementType": "labels.text.fill",
-                            "stylers": [
-                                {
-                                    "color": "#616161"
-                                }
-                            ]
-                        },
-                        {
-                            "elementType": "labels.text.stroke",
-                            "stylers": [
-                                {
-                                    "color": "#f5f5f5"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "administrative.land_parcel",
-                            "elementType": "labels.text.fill",
-                            "stylers": [
-                                {
-                                    "color": "#bdbdbd"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "poi",
-                            "elementType": "geometry",
-                            "stylers": [
-                                {
-                                    "color": "#eeeeee"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "poi",
-                            "elementType": "labels.text.fill",
-                            "stylers": [
-                                {
-                                    "color": "#757575"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "poi.park",
-                            "elementType": "geometry",
-                            "stylers": [
-                                {
-                                    "color": "#e5e5e5"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "poi.park",
-                            "elementType": "labels.text.fill",
-                            "stylers": [
-                                {
-                                    "color": "#9e9e9e"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "road",
-                            "elementType": "geometry",
-                            "stylers": [
-                                {
-                                    "color": "#ffffff"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "road.arterial",
-                            "elementType": "labels.text.fill",
-                            "stylers": [
-                                {
-                                    "color": "#757575"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "road.highway",
-                            "elementType": "geometry",
-                            "stylers": [
-                                {
-                                    "color": "#dadada"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "road.highway",
-                            "elementType": "labels.text.fill",
-                            "stylers": [
-                                {
-                                    "color": "#616161"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "road.local",
-                            "elementType": "labels.text.fill",
-                            "stylers": [
-                                {
-                                    "color": "#9e9e9e"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "transit.line",
-                            "elementType": "geometry",
-                            "stylers": [
-                                {
-                                    "color": "#e5e5e5"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "transit.station",
-                            "elementType": "geometry",
-                            "stylers": [
-                                {
-                                    "color": "#eeeeee"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "water",
-                            "elementType": "geometry",
-                            "stylers": [
-                                {
-                                    "color": "#cad2d4"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "water",
-                            "elementType": "labels.text.fill",
-                            "stylers": [
-                                {
-                                    "color": "#bdbdbd"
-                                }
-                            ]
+                        label: {
+                            text: "Яр-Сале",
+                            color: "#213A8F",
+                            fontWeight: "bold",
+                            fontSize: "12px",
+                            className: "map-label"
                         }
-                    ]
+                    },
+                    {
+                        position: new google.maps.LatLng(67.46201765996048, 78.70893018336228),
+                        map: map,
+                        title: 'Тазовский',
+                        icon: {
+                            url: "img/icon/marker-sound.svg",
+                            scaledSize: new google.maps.Size(39.69, 39.69)
+                        },
+                        label: {
+                            text: "Тазовский",
+                            color: "#213A8F",
+                            fontWeight: "bold",
+                            fontSize: "12px",
+                            className: "map-label"
+                        }
+                    },
+                    {
+                        position: new google.maps.LatLng(66.55047769194653, 66.59826008447075),
+                        map: map,
+                        title: 'Салехард',
+                        icon: {
+                            url: "img/icon/btn-location.svg",
+                            scaledSize: new google.maps.Size(32, 32)
+                        },
+                        label: {
+                            text: "Салехард",
+                            color: "#213A8F",
+                            fontWeight: "bold",
+                            fontSize: "12px",
+                            className: "map-label"
+                        }
+                    },
+                    {
+                        position: new google.maps.LatLng(66.09653540676248, 76.65587017293807),
+                        map: map,
+                        title: 'Новый Уренгой',
+                        icon: {
+                            url: "img/icon/marker-sound.svg",
+                            scaledSize: new google.maps.Size(39.69, 39.69)
+                        },
+                        label: {
+                            text: "Новый Уренгой",
+                            color: "#213A8F",
+                            fontWeight: "bold",
+                            fontSize: "12px",
+                            className: "map-label"
+                        }
+                    },
+                    {
+                        position: new google.maps.LatLng(65.53514113422678, 72.50449449743208),
+                        map: map,
+                        title: 'Надым',
+                        icon: {
+                            url: "img/icon/btn-location.svg",
+                            scaledSize: new google.maps.Size(32, 32)
+                        },
+                        label: {
+                            text: "Надым",
+                            color: "#213A8F",
+                            fontWeight: "bold",
+                            fontSize: "12px",
+                            className: "map-label"
+                        }
+                    },
+                    {
+                        position: new google.maps.LatLng(68.41641830907557, 73.12853422144906),
+                        map: map,
+                        title: 'Сабетта',
+                        icon: {
+                            url: "img/icon/marker-sound.svg",
+                            scaledSize: new google.maps.Size(39.69, 39.69)
+                        },
+                        label: {
+                            text: "Сабетта",
+                            color: "#213A8F",
+                            fontWeight: "bold",
+                            fontSize: "12px",
+                            className: "map-label"
+                        }
+                    },
+                ];
+                let lightMarkers = [
+                    {
+                        position: new google.maps.LatLng(66.86305851932107, 70.8545548132817),
+                        map: map,
+                        title: 'Яр-Сале',
+                        icon: {
+                            url: "img/icon/sound-marker.svg",
+                            scaledSize: new google.maps.Size(14, 14)
+                        },
+                        label: {
+                            text: "",
+                            color: "#213A8F",
+                            fontWeight: "bold",
+                            fontSize: "0px",
+                            className: "hide"
+                        }
+                    },
+                    {
+                        position: new google.maps.LatLng(67.46201765996048, 78.70893018336228),
+                        map: map,
+                        title: 'Тазовский',
+                        icon: {
+                            url: "img/icon/sound-marker.svg",
+                            scaledSize: new google.maps.Size(14, 14)
+                        },
+                        label: {
+                            text: "",
+                            color: "#213A8F",
+                            fontWeight: "bold",
+                            fontSize: "0px",
+                            className: "hide"
+                        }
+                    },
+
+                    {
+                        position: new google.maps.LatLng(66.09653540676248, 76.65587017293807),
+                        map: map,
+                        title: 'Новый Уренгой',
+                        icon: {
+                            url: "img/icon/sound-marker.svg",
+                            scaledSize: new google.maps.Size(14, 14)
+                        },
+                        label: {
+                            text: "",
+                            color: "#213A8F",
+                            fontWeight: "bold",
+                            fontSize: "0px",
+                            className: "hide"
+                        }
+                    },
+                    {
+                        position: new google.maps.LatLng(68.41641830907557, 73.12853422144906),
+                        map: map,
+                        title: 'Новый Уренгой',
+                        icon: {
+                            url: "img/icon/sound-marker.svg",
+                            scaledSize: new google.maps.Size(14, 14)
+                        },
+                        label: {
+                            text: "",
+                            color: "#213A8F",
+                            fontWeight: "bold",
+                            fontSize: "0px",
+                            className: "hide"
+                        }
+                    },
+                ];
+                let cityMarkersFrom = [
+                    {
+                        position: new google.maps.LatLng(55.7526903859156, 37.62987442234599),
+                        map: map,
+                        title: 'Москва',
+                        icon: {
+                            url: "img/icon/btn-location.svg",
+                            scaledSize: new google.maps.Size(32, 32)
+                        },
+                        label: {
+                            text: "Москва",
+                            color: "#213A8F",
+                            fontWeight: "bold",
+                            fontSize: "12px",
+                            className: "map-label"
+                        }
+                    },
+                    {
+                        position: new google.maps.LatLng(61.36087770604348, 31.326917871606124),
+                        map: map,
+                        title: 'Санкт-Петербург',
+                        icon: {
+                            url: "img/icon/btn-location.svg",
+                            scaledSize: new google.maps.Size(32, 32)
+                        },
+                        label: {
+                            text: "Санкт-Петербург",
+                            color: "#213A8F",
+                            fontWeight: "bold",
+                            fontSize: "12px",
+                            className: "map-label"
+                        }
+                    },
+                    {
+                        position: new google.maps.LatLng(45.03590893134328, 38.97089281611214),
+                        map: map,
+                        title: 'Краснодар',
+                        icon: {
+                            url: "img/icon/btn-location.svg",
+                            scaledSize: new google.maps.Size(32, 32)
+                        },
+                        label: {
+                            text: "Краснодар",
+                            color: "#213A8F",
+                            fontWeight: "bold",
+                            fontSize: "12px",
+                            className: "map-label"
+                        }
+                    },
+                ];
+                const lineSymbol = {
+                    path: "M 0,-1 0,1",
+                    strokeOpacity: 1,
+                    scale: 1,
+                    strokeWeight: 2,
+                    strokeColor: "#213A8F",
                 };
-                map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
-                setMapOnAll(map)
-
-                function createWayOnMap() {
-                    let name = $('#city-to-value').text().trim()
-                    hideMarkers()
-                    createStartMass()
-                    filterMarkers(name);
-                    createDistanceBlock("2165 км").open(map, markers[0])
-                    createCoordinates(fromMarker[0].position, markers[0].position);
-                    removeLine()
-                    setTimeout(addLine, 100);
-                    showMarkers()
+                // Создаем маркеры в markers
+                function addMarker(position, map, title, icon, label) {
+                    const marker = new google.maps.Marker({
+                        position,
+                        map,
+                        title,
+                        icon,
+                        label,
+                    });
+                    markers.push(marker);
                 }
-                $('#add-light-map').on('click', function () {
-                    hideMarkers()
-                    markers = []
-                    $(this).toggleClass('active')
-                    if ($(this).hasClass('active')) {
-                        lightMarkers.forEach(el => {
-                            addMarker(el.position, el.map, el.title, el.icon, el.label)
-                        })
-                    } else {
-                        startMarkerst.forEach(el => {
-                            addMarker(el.position, el.map, el.title, el.icon, el.label)
-                        })
+                // отдельный массив для городов России
+                function addMarkerFrom(position, map, title, icon, label) {
+                    const marker = new google.maps.Marker({
+                        position,
+                        map,
+                        title,
+                        icon,
+                        label,
+                    });
+                    fromMarker.push(marker);
+                }
+                function createStartMass() {
+                    startMarkerst.forEach(el => {
+                        addMarker(el.position, el.map, el.title, el.icon, el.label)
+                    })
+                }
+                createStartMass();
+
+                // Sets the map on all markers in the array.
+                function setMapOnAll(map) {
+                    for (let i = 0; i < markers.length; i++) {
+                        markers[i].setMap(map);
                     }
+                    for (let i = 0; i < fromMarker.length; i++) {
+                        fromMarker[i].setMap(map);
+                    }
+                }
+                // createCoordinates
+                function createCoordinates(marker1, marker2) {
+                    flightPathCoordinates = [];
+                    flightPathCoordinates.push(marker1, marker2)
+                    // let startPoint = {}
+                    flightPath = new google.maps.Polyline({
+                        path: flightPathCoordinates,
+                        strokeOpacity: 0,
+                        icons: [
+                            {
+                                icon: lineSymbol,
+                                offset: "0",
+                                repeat: "6px",
+                            },
+                        ]
+                    })
+                    oldCordinates.push(flightPath)
+                }
+                // отфильровать массивы, чтобы получить 2 города
+                function filterMarkers(name) {
+                    markers = markers.filter(el => name === el.title)
+                }
+                // добавить линию
+                function addLine() {
+                    flightPath.setMap(map);
+                }
+                // убрать линию
+                function removeLine() {
+                    oldCordinates.forEach(el => {
+                        el.setMap(null);
+                    })
+                }
+                // Removes the markers from the map, but keeps them in the array.
+                function hideMarkers() {
+                    for (let i = 0; i < markers.length; i++) {
+                        markers[i].setMap(null);
+                    }
+                    for (let i = 0; i < fromMarker.length; i++) {
+                        fromMarker[i].setMap(null);
+                    }
+                }
+                // Shows any markers currently in the array.
+                function showMarkers() {
+                    setMapOnAll(map);
+                }
+                // add cityFrom
+                const inputsCityFrom = $('.choosen-radio-from');
+                const inputsCityTo = $('.choosen-radio-to');
+                // add distance block
+                function createDistanceBlock(distance) {
+                    return new google.maps.InfoWindow({
+                        content: distance
+                    })
+                }
+                function initialize() {
+                    myLatlng = new google.maps.LatLng(67.01156439141535, 73.95476052039851);
+
+                    var mapOptions = {
+                        zoom: 5,
+                        center: myLatlng,
+                        mapTypeControl: false,
+                        overviewMapControl: false,
+                        panControl: false,
+                        zoomControl: false,
+                        streetViewControl: false,
+                        keyboardShortcuts: false,
+                        styles: [
+                            {
+                                "elementType": "geometry",
+                                "stylers": [
+                                    {
+                                        "color": "#f2f2f2"
+                                    }
+                                ]
+                            },
+                            {
+                                "elementType": "labels.icon",
+                                "stylers": [
+                                    {
+                                        "visibility": "off"
+                                    }
+                                ]
+                            },
+                            {
+                                "elementType": "labels.text.fill",
+                                "stylers": [
+                                    {
+                                        "color": "#616161"
+                                    }
+                                ]
+                            },
+                            {
+                                "elementType": "labels.text.stroke",
+                                "stylers": [
+                                    {
+                                        "color": "#f5f5f5"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "administrative.land_parcel",
+                                "elementType": "labels.text.fill",
+                                "stylers": [
+                                    {
+                                        "color": "#bdbdbd"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "poi",
+                                "elementType": "geometry",
+                                "stylers": [
+                                    {
+                                        "color": "#eeeeee"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "poi",
+                                "elementType": "labels.text.fill",
+                                "stylers": [
+                                    {
+                                        "color": "#757575"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "poi.park",
+                                "elementType": "geometry",
+                                "stylers": [
+                                    {
+                                        "color": "#e5e5e5"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "poi.park",
+                                "elementType": "labels.text.fill",
+                                "stylers": [
+                                    {
+                                        "color": "#9e9e9e"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "road",
+                                "elementType": "geometry",
+                                "stylers": [
+                                    {
+                                        "color": "#ffffff"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "road.arterial",
+                                "elementType": "labels.text.fill",
+                                "stylers": [
+                                    {
+                                        "color": "#757575"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "road.highway",
+                                "elementType": "geometry",
+                                "stylers": [
+                                    {
+                                        "color": "#dadada"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "road.highway",
+                                "elementType": "labels.text.fill",
+                                "stylers": [
+                                    {
+                                        "color": "#616161"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "road.local",
+                                "elementType": "labels.text.fill",
+                                "stylers": [
+                                    {
+                                        "color": "#9e9e9e"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "transit.line",
+                                "elementType": "geometry",
+                                "stylers": [
+                                    {
+                                        "color": "#e5e5e5"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "transit.station",
+                                "elementType": "geometry",
+                                "stylers": [
+                                    {
+                                        "color": "#eeeeee"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "water",
+                                "elementType": "geometry",
+                                "stylers": [
+                                    {
+                                        "color": "#cad2d4"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "water",
+                                "elementType": "labels.text.fill",
+                                "stylers": [
+                                    {
+                                        "color": "#bdbdbd"
+                                    }
+                                ]
+                            }
+                        ]
+                    };
+                    map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+                    setMapOnAll(map)
+
+                    function createWayOnMap() {
+                        let name = $('#city-to-value').text().trim()
+                        hideMarkers()
+                        createStartMass()
+                        filterMarkers(name);
+                        createDistanceBlock("2165 км").open(map, markers[0])
+                        createCoordinates(fromMarker[0].position, markers[0].position);
+                        removeLine()
+                        setTimeout(addLine, 100);
+                        showMarkers()
+                    }
+                    $('#add-light-map').on('click', function () {
+                        hideMarkers()
+                        markers = []
+                        $(this).toggleClass('active')
+                        if ($(this).hasClass('active')) {
+                            lightMarkers.forEach(el => {
+                                addMarker(el.position, el.map, el.title, el.icon, el.label)
+                            })
+                        } else {
+                            startMarkerst.forEach(el => {
+                                addMarker(el.position, el.map, el.title, el.icon, el.label)
+                            })
+                        }
+                        markers.forEach(el => {
+                            el.addListener('click', function (e) {
+                                let val = this.title;
+                                $('#city-to-value').text(val);
+                                $('.enter-banner__where').addClass('filed')
+                                if ($('.enter-banner__from ').hasClass('filed') && $('.enter-banner__where').hasClass('filed')) {
+                                    createWayOnMap()
+                                }
+
+                            })
+                        })
+                        setMapOnAll(map)
+                    })
+                    inputsCityFrom.on('change', function () {
+                        for (let i = 0; i < fromMarker.length; i++) {
+                            fromMarker[i].setMap(null);
+                        }
+                        fromMarker = [];
+                        let i = +$(this).val();
+                        addMarkerFrom(cityMarkersFrom[i].position, cityMarkersFrom[i].map, cityMarkersFrom[i].title, cityMarkersFrom[i].icon, cityMarkersFrom[i].label);
+                    })
+                    inputsCityFrom.on('change', function () {
+                        if ($('.enter-banner__from ').hasClass('filed') && $('.enter-banner__where').hasClass('filed')) {
+                            createWayOnMap()
+                        }
+                    });
+                    inputsCityTo.on('change', function () {
+                        if ($('.enter-banner__from').hasClass('filed') && $('.enter-banner__where').hasClass('filed')) {
+                            createWayOnMap()
+                        }
+                    })
                     markers.forEach(el => {
                         el.addListener('click', function (e) {
                             let val = this.title;
@@ -1181,747 +1236,716 @@ $(document).ready(function () {
 
                         })
                     })
-                    setMapOnAll(map)
-                })
-                inputsCityFrom.on('change', function () {
-                    for (let i = 0; i < fromMarker.length; i++) {
-                        fromMarker[i].setMap(null);
-                    }
-                    fromMarker = [];
-                    let i = +$(this).val();
-                    addMarkerFrom(cityMarkersFrom[i].position, cityMarkersFrom[i].map, cityMarkersFrom[i].title, cityMarkersFrom[i].icon, cityMarkersFrom[i].label);
-                })
-                inputsCityFrom.on('change', function () {
-                    if ($('.enter-banner__from ').hasClass('filed') && $('.enter-banner__where').hasClass('filed')) {
-                        createWayOnMap()
-                    }
-                });
-                inputsCityTo.on('change', function () {
-                    if ($('.enter-banner__from').hasClass('filed') && $('.enter-banner__where').hasClass('filed')) {
-                        createWayOnMap()
-                    }
-                })
-                markers.forEach(el => {
-                    el.addListener('click', function (e) {
-                        let val = this.title;
-                        $('#city-to-value').text(val);
-                        $('.enter-banner__where').addClass('filed')
-                        if ($('.enter-banner__from ').hasClass('filed') && $('.enter-banner__where').hasClass('filed')) {
-                            createWayOnMap()
-                        }
+                }
 
+                google.maps.event.addDomListener(window, 'load', initialize);
+            }
+
+            firstMap()
+
+            const secondMap = function () {
+                const lineSymbol = {
+                    path: "M 0,-1 0,1",
+                    strokeOpacity: 1,
+                    scale: 1,
+                    strokeWeight: 2,
+                    strokeColor: "#213A8F",
+                };
+                let myLatlng
+                let flightPathCoordinates = [];
+                let oldCordinates = [];
+                let flightPath;
+                let map1;
+                let allCordinates1 = [
+                    [
+                        { lat: 66.53256677261557, lng: 66.61196913935893 },
+                        { lat: 66.52692261179189, lng: 66.59257347430562 },
+                        { lat: 66.53797994510903, lng: 66.59587795576483 },
+                        { lat: 66.53551938734692, lng: 66.61205704031188 },
+                    ],
+                    [
+                        { lat: 66.52640978771203, lng: 66.60338814095442 },
+                        { lat: 66.524683202413, lng: 66.59579212514542 },
+                        { lat: 66.52692261179189, lng: 66.59257347430562 },
+                        { lat: 66.53797994510903, lng: 66.59587795576483 },
+                    ],
+                    [
+                        { lat: 66.53256677261557, lng: 66.61196913935893 },
+                        { lat: 66.524683202413, lng: 66.59579212514542 },
+                        { lat: 66.52692261179189, lng: 66.59257347430562 },
+                        { lat: 66.524683202413, lng: 66.59579212514542 },
+                    ],
+                ];
+                let markers = [];
+                let startMarkerst = [
+
+                    {
+                        position: new google.maps.LatLng(66.54008719373186, 66.59395247904227),
+                        map: map,
+                        map: map1,
+                        title: 'Центр города',
+                        icon: {
+                            url: "img/icon/center-btn-location.svg",
+                            scaledSize: new google.maps.Size(32, 32)
+                        },
+                        label: {
+                            text: "",
+                            color: "#213A8F",
+                            fontWeight: "bold",
+                            fontSize: "0",
+                            className: "map-label"
+                        }
+                    },
+                    {
+                        position: new google.maps.LatLng(66.53256677261557, 66.61196913935893),
+                        map: map,
+                        map: map1,
+                        title: 'Хостел «Хмель и Соль»',
+                        icon: {
+                            url: "img/icon/btn-location.svg",
+                            scaledSize: new google.maps.Size(32, 32)
+                        },
+                        label: {
+                            text: "Хостел «Хмель и Соль»",
+                            color: "#213A8F",
+                            fontWeight: "bold",
+                            fontSize: "12px",
+                            className: "map-label"
+                        }
+                    },
+                    {
+                        position: new google.maps.LatLng(66.52692261179189, 66.59257347430562),
+                        map: map,
+                        title: 'Хостел «Хмель и Соль»',
+                        icon: {
+                            url: "img/icon/btn-location.svg",
+                            scaledSize: new google.maps.Size(32, 32)
+                        },
+                        label: {
+                            text: "Тазовский",
+                            color: "#213A8F",
+                            fontWeight: "bold",
+                            fontSize: "12px",
+                            className: "map-label"
+                        }
+                    },
+                    {
+                        position: new google.maps.LatLng(66.53797994510903, 66.59587795576483),
+                        map: map,
+                        title: 'Хостел «Хмель и Соль»',
+                        icon: {
+                            url: "img/icon/btn-location.svg",
+                            scaledSize: new google.maps.Size(32, 32)
+                        },
+                        label: {
+                            text: "Салехард",
+                            color: "#213A8F",
+                            fontWeight: "bold",
+                            fontSize: "12px",
+                            className: "map-label"
+                        }
+                    },
+                    {
+                        position: new google.maps.LatLng(66.53551938734692, 66.61205704031188),
+                        map: map,
+                        title: 'Хостел «Хмель и Соль»',
+                        icon: {
+                            url: "img/icon/btn-location.svg",
+                            scaledSize: new google.maps.Size(32, 32)
+                        },
+                        label: {
+                            text: "Новый Уренгой",
+                            color: "#213A8F",
+                            fontWeight: "bold",
+                            fontSize: "12px",
+                            className: "map-label"
+                        }
+                    },
+                    {
+                        position: new google.maps.LatLng(66.52640978771203, 66.60338814095442),
+                        map: map,
+                        title: 'Хостел «Хмель и Соль»',
+                        icon: {
+                            url: "img/icon/btn-location.svg",
+                            scaledSize: new google.maps.Size(32, 32)
+                        },
+                        label: {
+                            text: "Надым",
+                            color: "#213A8F",
+                            fontWeight: "bold",
+                            fontSize: "12px",
+                            className: "map-label"
+                        }
+                    },
+                    {
+                        position: new google.maps.LatLng(66.524683202413, 66.59579212514542),
+                        map: map,
+                        title: 'Хостел «Хмель и Соль»',
+                        icon: {
+                            url: "img/icon/btn-location.svg",
+                            scaledSize: new google.maps.Size(32, 32)
+                        },
+                        label: {
+                            text: "Сабетта",
+                            color: "#213A8F",
+                            fontWeight: "bold",
+                            fontSize: "12px",
+                            className: "map-label"
+                        }
+                    },
+                ];
+                // createCoordinates
+                function createCoordinates(...markers) {
+                    flightPathCoordinates = [];
+                    markers.forEach(el => {
+                        flightPathCoordinates.push(el)
                     })
-                })
-            }
-
-            google.maps.event.addDomListener(window, 'load', initialize);
-        }
-
-        firstMap()
-
-        const secondMap = function () {
-            const lineSymbol = {
-                path: "M 0,-1 0,1",
-                strokeOpacity: 1,
-                scale: 1,
-                strokeWeight: 2,
-                strokeColor: "#213A8F",
-            };
-            let myLatlng
-            let flightPathCoordinates = [];
-            let oldCordinates = [];
-            let flightPath;
-            let map1;
-            let allCordinates1 = [
-                [
-                    { lat: 66.53256677261557, lng: 66.61196913935893 },
-                    { lat: 66.52692261179189, lng: 66.59257347430562 },
-                    { lat: 66.53797994510903, lng: 66.59587795576483 },
-                    { lat: 66.53551938734692, lng: 66.61205704031188 },
-                ],
-                [
-                    { lat: 66.52640978771203, lng: 66.60338814095442 },
-                    { lat: 66.524683202413, lng: 66.59579212514542 },
-                    { lat: 66.52692261179189, lng: 66.59257347430562 },
-                    { lat: 66.53797994510903, lng: 66.59587795576483 },
-                ],
-                [
-                    { lat: 66.53256677261557, lng: 66.61196913935893 },
-                    { lat: 66.524683202413, lng: 66.59579212514542 },
-                    { lat: 66.52692261179189, lng: 66.59257347430562 },
-                    { lat: 66.524683202413, lng: 66.59579212514542 },
-                ],
-            ];
-            let markers = [];
-            let startMarkerst = [
-
-                {
-                    position: new google.maps.LatLng(66.54008719373186, 66.59395247904227),
-                    map: map,
-                    map: map1,
-                    title: 'Центр города',
-                    icon: {
-                        url: "img/icon/center-btn-location.svg",
-                        scaledSize: new google.maps.Size(32, 32)
-                    },
-                    label: {
-                        text: "",
-                        color: "#213A8F",
-                        fontWeight: "bold",
-                        fontSize: "0",
-                        className: "map-label"
-                    }
-                },
-                {
-                    position: new google.maps.LatLng(66.53256677261557, 66.61196913935893),
-                    map: map,
-                    map: map1,
-                    title: 'Хостел «Хмель и Соль»',
-                    icon: {
-                        url: "img/icon/btn-location.svg",
-                        scaledSize: new google.maps.Size(32, 32)
-                    },
-                    label: {
-                        text: "Хостел «Хмель и Соль»",
-                        color: "#213A8F",
-                        fontWeight: "bold",
-                        fontSize: "12px",
-                        className: "map-label"
-                    }
-                },
-                {
-                    position: new google.maps.LatLng(66.52692261179189, 66.59257347430562),
-                    map: map,
-                    title: 'Хостел «Хмель и Соль»',
-                    icon: {
-                        url: "img/icon/btn-location.svg",
-                        scaledSize: new google.maps.Size(32, 32)
-                    },
-                    label: {
-                        text: "Тазовский",
-                        color: "#213A8F",
-                        fontWeight: "bold",
-                        fontSize: "12px",
-                        className: "map-label"
-                    }
-                },
-                {
-                    position: new google.maps.LatLng(66.53797994510903, 66.59587795576483),
-                    map: map,
-                    title: 'Хостел «Хмель и Соль»',
-                    icon: {
-                        url: "img/icon/btn-location.svg",
-                        scaledSize: new google.maps.Size(32, 32)
-                    },
-                    label: {
-                        text: "Салехард",
-                        color: "#213A8F",
-                        fontWeight: "bold",
-                        fontSize: "12px",
-                        className: "map-label"
-                    }
-                },
-                {
-                    position: new google.maps.LatLng(66.53551938734692, 66.61205704031188),
-                    map: map,
-                    title: 'Хостел «Хмель и Соль»',
-                    icon: {
-                        url: "img/icon/btn-location.svg",
-                        scaledSize: new google.maps.Size(32, 32)
-                    },
-                    label: {
-                        text: "Новый Уренгой",
-                        color: "#213A8F",
-                        fontWeight: "bold",
-                        fontSize: "12px",
-                        className: "map-label"
-                    }
-                },
-                {
-                    position: new google.maps.LatLng(66.52640978771203, 66.60338814095442),
-                    map: map,
-                    title: 'Хостел «Хмель и Соль»',
-                    icon: {
-                        url: "img/icon/btn-location.svg",
-                        scaledSize: new google.maps.Size(32, 32)
-                    },
-                    label: {
-                        text: "Надым",
-                        color: "#213A8F",
-                        fontWeight: "bold",
-                        fontSize: "12px",
-                        className: "map-label"
-                    }
-                },
-                {
-                    position: new google.maps.LatLng(66.524683202413, 66.59579212514542),
-                    map: map,
-                    title: 'Хостел «Хмель и Соль»',
-                    icon: {
-                        url: "img/icon/btn-location.svg",
-                        scaledSize: new google.maps.Size(32, 32)
-                    },
-                    label: {
-                        text: "Сабетта",
-                        color: "#213A8F",
-                        fontWeight: "bold",
-                        fontSize: "12px",
-                        className: "map-label"
-                    }
-                },
-            ];
-            // createCoordinates
-            function createCoordinates(...markers) {
-                flightPathCoordinates = [];
-                markers.forEach(el => {
-                    flightPathCoordinates.push(el)
-                })
-                // let startPoint = {}
-                flightPath = new google.maps.Polyline({
-                    path: flightPathCoordinates,
-                    strokeOpacity: 0,
-                    icons: [
-                        {
-                            icon: lineSymbol,
-                            offset: "0",
-                            repeat: "6px",
-                        },
-                    ]
-                })
-                oldCordinates.push(flightPath)
-            }
-            // добавить линию
-            function addLine() {
-                flightPath.setMap(map1);
-            }
-            // убрать линию
-            function removeLine() {
-                oldCordinates.forEach(el => {
-                    el.setMap(null);
-                })
-            }
-            function addMarker(position, map, title, icon, label) {
-                const marker = new google.maps.Marker({
-                    position,
-                    map,
-                    title,
-                    icon,
-                    label,
-                });
-                markers.push(marker);
-            }
-            function createStartMass() {
-                startMarkerst.forEach(el => {
-                    addMarker(el.position, el.map, el.title, el.icon, el.label)
-                })
-            }
-            createStartMass()
-            function setMapOnAll(map) {
-                for (let i = 0; i < markers.length; i++) {
-                    markers[i].setMap(map);
+                    // let startPoint = {}
+                    flightPath = new google.maps.Polyline({
+                        path: flightPathCoordinates,
+                        strokeOpacity: 0,
+                        icons: [
+                            {
+                                icon: lineSymbol,
+                                offset: "0",
+                                repeat: "6px",
+                            },
+                        ]
+                    })
+                    oldCordinates.push(flightPath)
                 }
-            }
-            function initializeBuildMap() {
-                myLatlng = new google.maps.LatLng(66.53256297859949, 66.60141403516596);
-
-                var mapOptions = {
-                    zoom: 14,
-                    center: myLatlng,
-                    mapTypeControl: false,
-                    overviewMapControl: false,
-                    panControl: false,
-                    zoomControl: false,
-                    streetViewControl: false,
-                    keyboardShortcuts: false,
-                    styles: [
-                        {
-                            "elementType": "geometry",
-                            "stylers": [
-                                {
-                                    "color": "#f2f2f2"
-                                }
-                            ]
-                        },
-                        {
-                            "elementType": "labels.icon",
-                            "stylers": [
-                                {
-                                    "visibility": "off"
-                                }
-                            ]
-                        },
-                        {
-                            "elementType": "labels.text.fill",
-                            "stylers": [
-                                {
-                                    "color": "#616161"
-                                }
-                            ]
-                        },
-                        {
-                            "elementType": "labels.text.stroke",
-                            "stylers": [
-                                {
-                                    "color": "#f5f5f5"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "administrative.land_parcel",
-                            "elementType": "labels.text.fill",
-                            "stylers": [
-                                {
-                                    "color": "#bdbdbd"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "poi",
-                            "elementType": "geometry",
-                            "stylers": [
-                                {
-                                    "color": "#eeeeee"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "poi",
-                            "elementType": "labels.text.fill",
-                            "stylers": [
-                                {
-                                    "color": "#757575"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "poi.park",
-                            "elementType": "geometry",
-                            "stylers": [
-                                {
-                                    "color": "#e5e5e5"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "poi.park",
-                            "elementType": "labels.text.fill",
-                            "stylers": [
-                                {
-                                    "color": "#9e9e9e"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "road",
-                            "elementType": "geometry",
-                            "stylers": [
-                                {
-                                    "color": "#ffffff"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "road.arterial",
-                            "elementType": "labels.text.fill",
-                            "stylers": [
-                                {
-                                    "color": "#757575"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "road.highway",
-                            "elementType": "geometry",
-                            "stylers": [
-                                {
-                                    "color": "#dadada"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "road.highway",
-                            "elementType": "labels.text.fill",
-                            "stylers": [
-                                {
-                                    "color": "#616161"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "road.local",
-                            "elementType": "labels.text.fill",
-                            "stylers": [
-                                {
-                                    "color": "#9e9e9e"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "transit.line",
-                            "elementType": "geometry",
-                            "stylers": [
-                                {
-                                    "color": "#e5e5e5"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "transit.station",
-                            "elementType": "geometry",
-                            "stylers": [
-                                {
-                                    "color": "#eeeeee"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "water",
-                            "elementType": "geometry",
-                            "stylers": [
-                                {
-                                    "color": "#cad2d4"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "water",
-                            "elementType": "labels.text.fill",
-                            "stylers": [
-                                {
-                                    "color": "#bdbdbd"
-                                }
-                            ]
-                        }
-                    ]
-                };
-                map1 = new google.maps.Map(document.getElementById('build-way__map'), mapOptions);
-                setMapOnAll(map1)
-
-
-            }
-            document.addEventListener('click', e => {
-                if (e.target.closest('.build-list__date-label')) {
-                    $('.current-date-way').text(e.target.closest('.build-list__date-label').textContent)
-                    switch (e.target.closest('.build-list__date-label').getAttribute('data-num')) {
-                        case '1':
-                            createCoordinates(markers[1].position, markers[2].position, markers[3].position)
-                            break
-                        case '2':
-                            createCoordinates(markers[2].position, markers[1].position, markers[3].position)
-                            break
-                        case '3':
-                            createCoordinates(markers[1].position, markers[4].position, markers[2].position)
-                            break
-                        case '4':
-                            createCoordinates(markers[1].position, markers[2].position, markers[4].position)
-                            break
-                        case '5':
-                            createCoordinates(markers[2].position, markers[4].position, markers[3].position)
-                            break
-                        case '6':
-                            createCoordinates(markers[2].position, markers[4].position, markers[3].position)
-                            break
-                        case '6':
-                            createCoordinates(markers[1].position, markers[4].position, markers[3].position)
-                            break
-                    }
-
-                    removeLine()
-                    setTimeout(addLine, 200)
-                    // addLine()
+                // добавить линию
+                function addLine() {
+                    flightPath.setMap(map1);
                 }
-            })
+                // убрать линию
+                function removeLine() {
+                    oldCordinates.forEach(el => {
+                        el.setMap(null);
+                    })
+                }
+                function addMarker(position, map, title, icon, label) {
+                    const marker = new google.maps.Marker({
+                        position,
+                        map,
+                        title,
+                        icon,
+                        label,
+                    });
+                    markers.push(marker);
+                }
+                function createStartMass() {
+                    startMarkerst.forEach(el => {
+                        addMarker(el.position, el.map, el.title, el.icon, el.label)
+                    })
+                }
+                createStartMass()
+                function setMapOnAll(map) {
+                    for (let i = 0; i < markers.length; i++) {
+                        markers[i].setMap(map);
+                    }
+                }
+                function initializeBuildMap() {
+                    myLatlng = new google.maps.LatLng(66.53256297859949, 66.60141403516596);
 
-            google.maps.event.addDomListener(window, 'load', initializeBuildMap);
-        }
-        secondMap()
-        const thridMap = function () {
-            let flightPath;
-            let map;
-            function initializeChoosedMap() {
-                var myLatlng = new google.maps.LatLng(66.53256297859949, 66.60141403516596);
-                var pos1 = new google.maps.LatLng(66.53256677261557, 66.61196913935893);
-                var pos2 = new google.maps.LatLng(66.52692261179189, 66.59257347430562);
-                var pos3 = new google.maps.LatLng(66.53797994510903, 66.59587795576483);
-                var pos4 = new google.maps.LatLng(66.53551938734692, 66.61205704031188);
-                var pos5 = new google.maps.LatLng(66.52640978771203, 66.60338814095442);
-                var pos6 = new google.maps.LatLng(66.524683202413, 66.59579212514542);
+                    var mapOptions = {
+                        zoom: 14,
+                        center: myLatlng,
+                        mapTypeControl: false,
+                        overviewMapControl: false,
+                        panControl: false,
+                        zoomControl: false,
+                        streetViewControl: false,
+                        keyboardShortcuts: false,
+                        styles: [
+                            {
+                                "elementType": "geometry",
+                                "stylers": [
+                                    {
+                                        "color": "#f2f2f2"
+                                    }
+                                ]
+                            },
+                            {
+                                "elementType": "labels.icon",
+                                "stylers": [
+                                    {
+                                        "visibility": "off"
+                                    }
+                                ]
+                            },
+                            {
+                                "elementType": "labels.text.fill",
+                                "stylers": [
+                                    {
+                                        "color": "#616161"
+                                    }
+                                ]
+                            },
+                            {
+                                "elementType": "labels.text.stroke",
+                                "stylers": [
+                                    {
+                                        "color": "#f5f5f5"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "administrative.land_parcel",
+                                "elementType": "labels.text.fill",
+                                "stylers": [
+                                    {
+                                        "color": "#bdbdbd"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "poi",
+                                "elementType": "geometry",
+                                "stylers": [
+                                    {
+                                        "color": "#eeeeee"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "poi",
+                                "elementType": "labels.text.fill",
+                                "stylers": [
+                                    {
+                                        "color": "#757575"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "poi.park",
+                                "elementType": "geometry",
+                                "stylers": [
+                                    {
+                                        "color": "#e5e5e5"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "poi.park",
+                                "elementType": "labels.text.fill",
+                                "stylers": [
+                                    {
+                                        "color": "#9e9e9e"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "road",
+                                "elementType": "geometry",
+                                "stylers": [
+                                    {
+                                        "color": "#ffffff"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "road.arterial",
+                                "elementType": "labels.text.fill",
+                                "stylers": [
+                                    {
+                                        "color": "#757575"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "road.highway",
+                                "elementType": "geometry",
+                                "stylers": [
+                                    {
+                                        "color": "#dadada"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "road.highway",
+                                "elementType": "labels.text.fill",
+                                "stylers": [
+                                    {
+                                        "color": "#616161"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "road.local",
+                                "elementType": "labels.text.fill",
+                                "stylers": [
+                                    {
+                                        "color": "#9e9e9e"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "transit.line",
+                                "elementType": "geometry",
+                                "stylers": [
+                                    {
+                                        "color": "#e5e5e5"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "transit.station",
+                                "elementType": "geometry",
+                                "stylers": [
+                                    {
+                                        "color": "#eeeeee"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "water",
+                                "elementType": "geometry",
+                                "stylers": [
+                                    {
+                                        "color": "#cad2d4"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "water",
+                                "elementType": "labels.text.fill",
+                                "stylers": [
+                                    {
+                                        "color": "#bdbdbd"
+                                    }
+                                ]
+                            }
+                        ]
+                    };
+                    map1 = new google.maps.Map(document.getElementById('build-way__map'), mapOptions);
+                    setMapOnAll(map1)
 
-                var mapOptions = {
-                    zoom: 14,
-                    center: myLatlng,
-                    mapTypeControl: false,
-                    overviewMapControl: false,
-                    panControl: false,
-                    zoomControl: false,
-                    streetViewControl: false,
-                    keyboardShortcuts: false,
-                    styles: [
-                        {
-                            "elementType": "geometry",
-                            "stylers": [
-                                {
-                                    "color": "#f2f2f2"
-                                }
-                            ]
-                        },
-                        {
-                            "elementType": "labels.icon",
-                            "stylers": [
-                                {
-                                    "visibility": "off"
-                                }
-                            ]
-                        },
-                        {
-                            "elementType": "labels.text.fill",
-                            "stylers": [
-                                {
-                                    "color": "#616161"
-                                }
-                            ]
-                        },
-                        {
-                            "elementType": "labels.text.stroke",
-                            "stylers": [
-                                {
-                                    "color": "#f5f5f5"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "administrative.land_parcel",
-                            "elementType": "labels.text.fill",
-                            "stylers": [
-                                {
-                                    "color": "#bdbdbd"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "poi",
-                            "elementType": "geometry",
-                            "stylers": [
-                                {
-                                    "color": "#eeeeee"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "poi",
-                            "elementType": "labels.text.fill",
-                            "stylers": [
-                                {
-                                    "color": "#757575"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "poi.park",
-                            "elementType": "geometry",
-                            "stylers": [
-                                {
-                                    "color": "#e5e5e5"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "poi.park",
-                            "elementType": "labels.text.fill",
-                            "stylers": [
-                                {
-                                    "color": "#9e9e9e"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "road",
-                            "elementType": "geometry",
-                            "stylers": [
-                                {
-                                    "color": "#ffffff"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "road.arterial",
-                            "elementType": "labels.text.fill",
-                            "stylers": [
-                                {
-                                    "color": "#757575"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "road.highway",
-                            "elementType": "geometry",
-                            "stylers": [
-                                {
-                                    "color": "#dadada"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "road.highway",
-                            "elementType": "labels.text.fill",
-                            "stylers": [
-                                {
-                                    "color": "#616161"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "road.local",
-                            "elementType": "labels.text.fill",
-                            "stylers": [
-                                {
-                                    "color": "#9e9e9e"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "transit.line",
-                            "elementType": "geometry",
-                            "stylers": [
-                                {
-                                    "color": "#e5e5e5"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "transit.station",
-                            "elementType": "geometry",
-                            "stylers": [
-                                {
-                                    "color": "#eeeeee"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "water",
-                            "elementType": "geometry",
-                            "stylers": [
-                                {
-                                    "color": "#cad2d4"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "water",
-                            "elementType": "labels.text.fill",
-                            "stylers": [
-                                {
-                                    "color": "#bdbdbd"
-                                }
-                            ]
+
+                }
+                document.addEventListener('click', e => {
+                    if (e.target.closest('.build-list__date-label')) {
+                        $('.current-date-way').text(e.target.closest('.build-list__date-label').textContent)
+                        switch (e.target.closest('.build-list__date-label').getAttribute('data-num')) {
+                            case '1':
+                                createCoordinates(markers[1].position, markers[2].position, markers[3].position)
+                                break
+                            case '2':
+                                createCoordinates(markers[2].position, markers[1].position, markers[3].position)
+                                break
+                            case '3':
+                                createCoordinates(markers[1].position, markers[4].position, markers[2].position)
+                                break
+                            case '4':
+                                createCoordinates(markers[1].position, markers[2].position, markers[4].position)
+                                break
+                            case '5':
+                                createCoordinates(markers[2].position, markers[4].position, markers[3].position)
+                                break
+                            case '6':
+                                createCoordinates(markers[2].position, markers[4].position, markers[3].position)
+                                break
+                            case '6':
+                                createCoordinates(markers[1].position, markers[4].position, markers[3].position)
+                                break
                         }
-                    ]
-                };
-                map = new google.maps.Map(document.getElementById('catalog-choose__map'), mapOptions);
-                var marker1 = new google.maps.Marker({
-                    position: pos1,
-                    map: map,
-                    title: 'Хостел «Хмель и Соль»',
-                    icon: {
-                        url: "img/icon/btn-location.svg",
-                        scaledSize: new google.maps.Size(32, 32)
-                    },
-                    label: {
-                        text: "Хостел «Хмель и Соль»",
-                        color: "#213A8F",
-                        fontWeight: "bold",
-                        fontSize: "12px",
-                        className: "map-label"
-                    }
 
-                });
-                var marker2 = new google.maps.Marker({
-                    position: pos2,
-                    map: map,
-                    title: 'Тазовский',
-                    icon: {
-                        url: "img/icon/btn-location.svg",
-                        scaledSize: new google.maps.Size(32, 32)
-                    },
-                    label: {
-                        text: "Тазовский",
-                        color: "#213A8F",
-                        fontWeight: "bold",
-                        fontSize: "12px",
-                        className: "map-label"
+                        removeLine()
+                        setTimeout(addLine, 200)
+                        // addLine()
                     }
-                });
-                var marker3 = new google.maps.Marker({
-                    position: pos3,
-                    map: map,
-                    title: 'Хостел «Ямбург»',
-                    icon: {
-                        url: "img/icon/btn-location.svg",
-                        scaledSize: new google.maps.Size(32, 32)
-                    },
-                    label: {
-                        text: "Хостел «Ямбург»",
-                        color: "#213A8F",
-                        fontWeight: "bold",
-                        fontSize: "12px",
-                        className: "map-label"
-                    }
-                });
-                var marker4 = new google.maps.Marker({
-                    position: pos4,
-                    map: map,
-                    title: 'Хостел «У Урсулы»',
-                    icon: {
-                        url: "img/icon/btn-location.svg",
-                        scaledSize: new google.maps.Size(32, 32)
-                    },
-                    label: {
-                        text: "Хостел «У Урсулы»",
-                        color: "#213A8F",
-                        fontWeight: "bold",
-                        fontSize: "12px",
-                        className: "map-label"
-                    }
-                });
-                var marker5 = new google.maps.Marker({
-                    position: pos5,
-                    map: map,
-                    title: 'Хостел «Хмель и Соль»',
-                    icon: {
-                        url: "img/icon/btn-location.svg",
-                        scaledSize: new google.maps.Size(32, 32)
-                    },
-                    label: {
-                        text: "Хостел «Хмель и Соль»",
-                        color: "#213A8F",
-                        fontWeight: "bold",
-                        fontSize: "12px",
-                        className: "map-label"
-                    }
-                });
-                var marker6 = new google.maps.Marker({
-                    position: pos6,
-                    map: map,
-                    title: 'Отель «Сибирь»',
-                    icon: {
-                        url: "img/icon/btn-location.svg",
-                        scaledSize: new google.maps.Size(32, 32)
-                    },
-                    label: {
-                        text: "Отель «Сибирь»",
-                        color: "#213A8F",
-                        fontWeight: "bold",
-                        fontSize: "12px",
-                        className: "map-label"
-                    }
-                });
+                })
 
-                function generateCard(title) {
-                    const mapContainer = document.querySelector('.catalog-choose__map-cards');
-                    mapContainer.textContent = ''
-                    const cardElem = document.createElement('div');
-                    cardElem.className = 'catalog__wrapper-item card-item photo hovered map-card';
-                    cardElem.innerHTML = `
+                google.maps.event.addDomListener(window, 'load', initializeBuildMap);
+            }
+            secondMap()
+            const thridMap = function () {
+                let flightPath;
+                let map;
+                function initializeChoosedMap() {
+                    var myLatlng = new google.maps.LatLng(66.53256297859949, 66.60141403516596);
+                    var pos1 = new google.maps.LatLng(66.53256677261557, 66.61196913935893);
+                    var pos2 = new google.maps.LatLng(66.52692261179189, 66.59257347430562);
+                    var pos3 = new google.maps.LatLng(66.53797994510903, 66.59587795576483);
+                    var pos4 = new google.maps.LatLng(66.53551938734692, 66.61205704031188);
+                    var pos5 = new google.maps.LatLng(66.52640978771203, 66.60338814095442);
+                    var pos6 = new google.maps.LatLng(66.524683202413, 66.59579212514542);
+
+                    var mapOptions = {
+                        zoom: 14,
+                        center: myLatlng,
+                        mapTypeControl: false,
+                        overviewMapControl: false,
+                        panControl: false,
+                        zoomControl: false,
+                        streetViewControl: false,
+                        keyboardShortcuts: false,
+                        styles: [
+                            {
+                                "elementType": "geometry",
+                                "stylers": [
+                                    {
+                                        "color": "#f2f2f2"
+                                    }
+                                ]
+                            },
+                            {
+                                "elementType": "labels.icon",
+                                "stylers": [
+                                    {
+                                        "visibility": "off"
+                                    }
+                                ]
+                            },
+                            {
+                                "elementType": "labels.text.fill",
+                                "stylers": [
+                                    {
+                                        "color": "#616161"
+                                    }
+                                ]
+                            },
+                            {
+                                "elementType": "labels.text.stroke",
+                                "stylers": [
+                                    {
+                                        "color": "#f5f5f5"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "administrative.land_parcel",
+                                "elementType": "labels.text.fill",
+                                "stylers": [
+                                    {
+                                        "color": "#bdbdbd"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "poi",
+                                "elementType": "geometry",
+                                "stylers": [
+                                    {
+                                        "color": "#eeeeee"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "poi",
+                                "elementType": "labels.text.fill",
+                                "stylers": [
+                                    {
+                                        "color": "#757575"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "poi.park",
+                                "elementType": "geometry",
+                                "stylers": [
+                                    {
+                                        "color": "#e5e5e5"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "poi.park",
+                                "elementType": "labels.text.fill",
+                                "stylers": [
+                                    {
+                                        "color": "#9e9e9e"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "road",
+                                "elementType": "geometry",
+                                "stylers": [
+                                    {
+                                        "color": "#ffffff"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "road.arterial",
+                                "elementType": "labels.text.fill",
+                                "stylers": [
+                                    {
+                                        "color": "#757575"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "road.highway",
+                                "elementType": "geometry",
+                                "stylers": [
+                                    {
+                                        "color": "#dadada"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "road.highway",
+                                "elementType": "labels.text.fill",
+                                "stylers": [
+                                    {
+                                        "color": "#616161"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "road.local",
+                                "elementType": "labels.text.fill",
+                                "stylers": [
+                                    {
+                                        "color": "#9e9e9e"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "transit.line",
+                                "elementType": "geometry",
+                                "stylers": [
+                                    {
+                                        "color": "#e5e5e5"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "transit.station",
+                                "elementType": "geometry",
+                                "stylers": [
+                                    {
+                                        "color": "#eeeeee"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "water",
+                                "elementType": "geometry",
+                                "stylers": [
+                                    {
+                                        "color": "#cad2d4"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "water",
+                                "elementType": "labels.text.fill",
+                                "stylers": [
+                                    {
+                                        "color": "#bdbdbd"
+                                    }
+                                ]
+                            }
+                        ]
+                    };
+                    map = new google.maps.Map(document.getElementById('catalog-choose__map'), mapOptions);
+                    var marker1 = new google.maps.Marker({
+                        position: pos1,
+                        map: map,
+                        title: 'Хостел «Хмель и Соль»',
+                        icon: {
+                            url: "img/icon/btn-location.svg",
+                            scaledSize: new google.maps.Size(32, 32)
+                        },
+                        label: {
+                            text: "Хостел «Хмель и Соль»",
+                            color: "#213A8F",
+                            fontWeight: "bold",
+                            fontSize: "12px",
+                            className: "map-label"
+                        }
+
+                    });
+                    var marker2 = new google.maps.Marker({
+                        position: pos2,
+                        map: map,
+                        title: 'Тазовский',
+                        icon: {
+                            url: "img/icon/btn-location.svg",
+                            scaledSize: new google.maps.Size(32, 32)
+                        },
+                        label: {
+                            text: "Тазовский",
+                            color: "#213A8F",
+                            fontWeight: "bold",
+                            fontSize: "12px",
+                            className: "map-label"
+                        }
+                    });
+                    var marker3 = new google.maps.Marker({
+                        position: pos3,
+                        map: map,
+                        title: 'Хостел «Ямбург»',
+                        icon: {
+                            url: "img/icon/btn-location.svg",
+                            scaledSize: new google.maps.Size(32, 32)
+                        },
+                        label: {
+                            text: "Хостел «Ямбург»",
+                            color: "#213A8F",
+                            fontWeight: "bold",
+                            fontSize: "12px",
+                            className: "map-label"
+                        }
+                    });
+                    var marker4 = new google.maps.Marker({
+                        position: pos4,
+                        map: map,
+                        title: 'Хостел «У Урсулы»',
+                        icon: {
+                            url: "img/icon/btn-location.svg",
+                            scaledSize: new google.maps.Size(32, 32)
+                        },
+                        label: {
+                            text: "Хостел «У Урсулы»",
+                            color: "#213A8F",
+                            fontWeight: "bold",
+                            fontSize: "12px",
+                            className: "map-label"
+                        }
+                    });
+                    var marker5 = new google.maps.Marker({
+                        position: pos5,
+                        map: map,
+                        title: 'Хостел «Хмель и Соль»',
+                        icon: {
+                            url: "img/icon/btn-location.svg",
+                            scaledSize: new google.maps.Size(32, 32)
+                        },
+                        label: {
+                            text: "Хостел «Хмель и Соль»",
+                            color: "#213A8F",
+                            fontWeight: "bold",
+                            fontSize: "12px",
+                            className: "map-label"
+                        }
+                    });
+                    var marker6 = new google.maps.Marker({
+                        position: pos6,
+                        map: map,
+                        title: 'Отель «Сибирь»',
+                        icon: {
+                            url: "img/icon/btn-location.svg",
+                            scaledSize: new google.maps.Size(32, 32)
+                        },
+                        label: {
+                            text: "Отель «Сибирь»",
+                            color: "#213A8F",
+                            fontWeight: "bold",
+                            fontSize: "12px",
+                            className: "map-label"
+                        }
+                    });
+
+                    function generateCard(title) {
+                        const mapContainer = document.querySelector('.catalog-choose__map-cards');
+                        mapContainer.textContent = ''
+                        const cardElem = document.createElement('div');
+                        cardElem.className = 'catalog__wrapper-item card-item photo hovered map-card';
+                        cardElem.innerHTML = `
                     <a href="">
                         <div class="card-item__img">
                             <img src="img/cards/card-restor_1.png" alt="Отель «Ямбург»">
@@ -1940,212 +1964,213 @@ $(document).ready(function () {
                         </div>
                     </button>
                     `
-                    mapContainer.append(cardElem)
+                        mapContainer.append(cardElem)
+
+                    }
+                    function removeCard() {
+                        const mapContainer = document.querySelector('.catalog-choose__map-cards');
+                        mapContainer.textContent = ''
+                    }
+                    document.addEventListener('click', function (e) {
+                        if (e.target.closest('.map-choose')) {
+                            if (e.target.closest('.map-choose').classList.contains('current')) {
+                                e.target.closest('.map-choose').classList.remove('current');
+                            } else {
+                                e.target.closest('.map-choose').classList.add('current');
+                            }
+                        }
+                    })
+                    marker1.addListener('click', function () {
+                        generateCard(this.title)
+                    });
+                    marker2.addListener('click', function () {
+                        generateCard(this.title)
+                    });
+                    marker3.addListener('click', function () {
+                        generateCard(this.title)
+                    });
+                    marker4.addListener('click', function () {
+                        generateCard(this.title)
+                    });
+                    marker5.addListener('click', function () {
+                        generateCard(this.title)
+                    });
+                    marker6.addListener('click', function () {
+                        generateCard(this.title)
+                    });
 
                 }
-                function removeCard() {
-                    const mapContainer = document.querySelector('.catalog-choose__map-cards');
-                    mapContainer.textContent = ''
-                }
-                document.addEventListener('click', function (e) {
-                    if (e.target.closest('.map-choose')) {
-                        if (e.target.closest('.map-choose').classList.contains('current')) {
-                            e.target.closest('.map-choose').classList.remove('current');
-                        } else {
-                            e.target.closest('.map-choose').classList.add('current');
-                        }
+                google.maps.event.addDomListener(window, 'load', initializeChoosedMap);
+            }
+            thridMap()
+
+
+            // maps sеtting end
+
+            // Steps
+
+            const $steps = $('.steps-planning__step');
+            const selectInputs = $('.enter-banner__input .custom-select');
+            const values = document.querySelectorAll('#planning-form .custom-select__current-elem');
+
+            const nextStep = function () {
+                stepCount++;
+                $steps.removeClass('show')
+                $steps.eq(stepCount).addClass('show');
+                $('.catalog-choose__catalog').show()
+                if (stepCount > 1) {
+                    $('#repeat-step-btn').addClass('show')
+                    $('#next-step-btn').removeClass('show')
+
+                } else if (stepCount > 0) { $('.enter-banner__form').addClass('only-btn') }
+            }
+            const prevStep = function () {
+                stepCount--;
+                $steps.removeClass('show')
+                $steps.eq(stepCount).addClass('show');
+                if (stepCount == 0) {
+                    $('#repeat-step-btn').removeClass('show')
+                    $('#next-step-btn').addClass('show')
+                    $('.enter-banner__form').removeClass('only-btn')
+                };
+            }
+            $('#next-step-btn').on('click', function () {
+                let fieldForm = true;
+                selectInputs.each((index, el) => {
+                    if (!el.classList.contains('filed')) {
+                        console.log(el);
+                        el.classList.add('error')
+                        fieldForm = false
+                    } else {
+                        el.classList.remove('error')
+                        fieldForm = true
                     }
                 })
-                marker1.addListener('click', function () {
-                    generateCard(this.title)
-                });
-                marker2.addListener('click', function () {
-                    generateCard(this.title)
-                });
-                marker3.addListener('click', function () {
-                    generateCard(this.title)
-                });
-                marker4.addListener('click', function () {
-                    generateCard(this.title)
-                });
-                marker5.addListener('click', function () {
-                    generateCard(this.title)
-                });
-                marker6.addListener('click', function () {
-                    generateCard(this.title)
-                });
-
-            }
-            google.maps.event.addDomListener(window, 'load', initializeChoosedMap);
-        }
-        thridMap()
-
-
-        // maps sеtting end
-
-        // Steps
-
-        const $steps = $('.steps-planning__step');
-        const selectInputs = $('.enter-banner__input .custom-select');
-        const values = document.querySelectorAll('#planning-form .custom-select__current-elem');
-
-        const nextStep = function () {
-            stepCount++;
-            $steps.removeClass('show')
-            $steps.eq(stepCount).addClass('show');
-            $('.catalog-choose__catalog').show()
-            if (stepCount > 1) {
-                $('#repeat-step-btn').addClass('show')
-                $('#next-step-btn').removeClass('show')
-
-            } else if (stepCount > 0) { $('.enter-banner__form').addClass('only-btn') }
-        }
-        const prevStep = function () {
-            stepCount--;
-            $steps.removeClass('show')
-            $steps.eq(stepCount).addClass('show');
-            if (stepCount == 0) {
-                $('#repeat-step-btn').removeClass('show')
-                $('#next-step-btn').addClass('show')
-                $('.enter-banner__form').removeClass('only-btn')
-            };
-        }
-        $('#next-step-btn').on('click', function () {
-            let fieldForm = true;
-            selectInputs.each((index, el) => {
-                if (!el.classList.contains('filed')) {
-                    console.log(el);
-                    el.classList.add('error')
-                    fieldForm = false
-                } else {
-                    el.classList.remove('error')
-                    fieldForm = true
+                if (fieldForm === true && stepCount === 0) {
+                    nextStep()
+                    $(this).removeClass('show');
+                    $('#repeat-step-btn').addClass('show');
+                    $('#planning-form .custom-select__header').addClass('disabled')
+                    $('#planning-form .costum-calendar').prop('disabled', true)
+                    values.forEach(el => {
+                        localStorage.setItem(el.getAttribute('data-title'), el.textContent)
+                    })
                 }
             })
-            if (fieldForm === true && stepCount === 0) {
-                nextStep()
-                $(this).removeClass('show');
-                $('#repeat-step-btn').addClass('show');
-                $('#planning-form .custom-select__header').addClass('disabled')
-                $('#planning-form .costum-calendar').prop('disabled', true)
-                values.forEach(el => {
-                    localStorage.setItem(el.getAttribute('data-title'), el.textContent)
-                })
-            }
-        })
-        $('#repeat-step-btn').on('click', function () {
-            // stepCount = 0;
-            // $steps.removeClass('show')
-            // $steps.eq(stepCount).addClass('show');
-            // $('#planning-form .custom-select__header').removeClass('disabled')
-            // $(this).removeClass('show');
-            // $('#next-step-btn').addClass('show'); $('.enter-banner__form').removeClass('only-btn');
-            // $('.choosen-radio').prop('checked', false);
-            // selectInputs.removeClass('filed')
-            // $('.enter-banner__input').removeClass('show-title')
-            // $('#city-from-value').text($('#city-from-value').attr('data-title'))
-            // $('#city-to-value').text($('#city-to-value').attr('data-title'))
-            // $('#calendar-value').html(`<span class="calendar-value__start">Когда</span>
-            // <span class="calendar-value__finish"></span>`)
-            // $('#type-of-recreation').text($('#type-of-recreation').attr('data-title'))
-            location.reload();
-        })
-        $('.btn-next').on('click', function () {
-            if (stepCount == 1 && !$('.choose-btn--hostel').hasClass('current') || stepCount == 2 && !$('.choose-btn--etertainment').hasClass('current')) {
-                return false;
-            } else
-                if (stepCount < $steps.length - 1) {
-                    nextStep()
-                }
-        });
-        $('.btn-back').on('click', function () {
-            if (stepCount > 0) {
-                prevStep()
-            }
-        })
-        $('.btn-end').on('click', function () {
-            $('.build-way__hendler').hide()
-            $('.build-way__hendler--done').addClass('done')
-            $('.build-plan__checkbox input').prop('disabled', true);
-            $('.build-plan__elem').addClass('done')
-            let indexCount = 0
-            if ($('.build-plan__list').css('display') === 'none') {
-                $('.build-plan__list-date .build-plan__icon-drag').each((index, el) => {
-                    indexCount++
-                    el.innerHTML = `<span class="build-plan__num">${indexCount}</span>`
-                })
-            } else {
-                $('.build-plan__icon-drag').each((index, el) => {
-                    indexCount++
-                    el.innerHTML = `<span class="build-plan__num">${indexCount}</span>`
-                })
-            }
-
-        })
-        // Steps end
-
-        // choose btn
-        $('.catalog-choose__type-search .btn').on('click', function () {
-            if ($(this).attr('data-value') === 'list-search') {
-                $('.catalog-choose__catalog').show()
-                $('.catalog-choose__map').hide()
-            } else if ($(this).attr('data-value') === 'map-search') {
-                $('.choose-btn[data-type="only"]').removeClass('current')
-                $('.choose-btn[data-type="only"]').prop('disabled', false);
-                $('.catalog-choose__catalog').hide()
-                $('.catalog-choose__map').show()
-            }
-        })
-        document.addEventListener('click', function (e) {
-            const btnsOnly = document.querySelectorAll('.choose-btn[data-type="only"]')
-            if (e.target.closest('.choose-btn')) {
-                let btnChoose = e.target.closest('.choose-btn')
-                if (btnChoose.getAttribute('data-type') === "only") {
-                    if (btnChoose.closest('.current')) {
-                        btnChoose.classList.remove('current')
-                        btnsOnly.forEach(el => {
-                            if (!el.closest('.current')) {
-                                el.disabled = false;
-                            }
-                        })
-                    } else {
-                        btnChoose.classList.add('current');
-                        btnsOnly.forEach(el => {
-                            if (!el.closest('.current')) {
-                                el.disabled = true;
-                            }
-                        })
+            $('#repeat-step-btn').on('click', function () {
+                // stepCount = 0;
+                // $steps.removeClass('show')
+                // $steps.eq(stepCount).addClass('show');
+                // $('#planning-form .custom-select__header').removeClass('disabled')
+                // $(this).removeClass('show');
+                // $('#next-step-btn').addClass('show'); $('.enter-banner__form').removeClass('only-btn');
+                // $('.choosen-radio').prop('checked', false);
+                // selectInputs.removeClass('filed')
+                // $('.enter-banner__input').removeClass('show-title')
+                // $('#city-from-value').text($('#city-from-value').attr('data-title'))
+                // $('#city-to-value').text($('#city-to-value').attr('data-title'))
+                // $('#calendar-value').html(`<span class="calendar-value__start">Когда</span>
+                // <span class="calendar-value__finish"></span>`)
+                // $('#type-of-recreation').text($('#type-of-recreation').attr('data-title'))
+                location.reload();
+            })
+            $('.btn-next').on('click', function () {
+                if (stepCount == 1 && !$('.choose-btn--hostel').hasClass('current') || stepCount == 2 && !$('.choose-btn--etertainment').hasClass('current')) {
+                    return false;
+                } else
+                    if (stepCount < $steps.length - 1) {
+                        nextStep()
                     }
+            });
+            $('.btn-back').on('click', function () {
+                if (stepCount > 0) {
+                    prevStep()
+                }
+            })
+            $('.btn-end').on('click', function () {
+                $('.build-way__hendler').hide()
+                $('.build-way__hendler--done').addClass('done')
+                $('.build-plan__checkbox input').prop('disabled', true);
+                $('.build-plan__elem').addClass('done')
+                let indexCount = 0
+                if ($('.build-plan__list').css('display') === 'none') {
+                    $('.build-plan__list-date .build-plan__icon-drag').each((index, el) => {
+                        indexCount++
+                        el.innerHTML = `<span class="build-plan__num">${indexCount}</span>`
+                    })
                 } else {
-                    if (btnChoose.closest('.current')) {
-                        btnChoose.classList.remove('current')
+                    $('.build-plan__icon-drag').each((index, el) => {
+                        indexCount++
+                        el.innerHTML = `<span class="build-plan__num">${indexCount}</span>`
+                    })
+                }
+
+            })
+            // Steps end
+
+            // choose btn
+            $('.catalog-choose__type-search .btn').on('click', function () {
+                if ($(this).attr('data-value') === 'list-search') {
+                    $('.catalog-choose__catalog').show()
+                    $('.catalog-choose__map').hide()
+                } else if ($(this).attr('data-value') === 'map-search') {
+                    $('.choose-btn[data-type="only"]').removeClass('current')
+                    $('.choose-btn[data-type="only"]').prop('disabled', false);
+                    $('.catalog-choose__catalog').hide()
+                    $('.catalog-choose__map').show()
+                }
+            })
+            document.addEventListener('click', function (e) {
+                const btnsOnly = document.querySelectorAll('.choose-btn[data-type="only"]')
+                if (e.target.closest('.choose-btn')) {
+                    let btnChoose = e.target.closest('.choose-btn')
+                    if (btnChoose.getAttribute('data-type') === "only") {
+                        if (btnChoose.closest('.current')) {
+                            btnChoose.classList.remove('current')
+                            btnsOnly.forEach(el => {
+                                if (!el.closest('.current')) {
+                                    el.disabled = false;
+                                }
+                            })
+                        } else {
+                            btnChoose.classList.add('current');
+                            btnsOnly.forEach(el => {
+                                if (!el.closest('.current')) {
+                                    el.disabled = true;
+                                }
+                            })
+                        }
                     } else {
-                        btnChoose.classList.add('current');
+                        if (btnChoose.closest('.current')) {
+                            btnChoose.classList.remove('current')
+                        } else {
+                            btnChoose.classList.add('current');
+                        }
                     }
                 }
-            }
-        })
-        // $('.choose-btn').on('click', function () {
-        //     if ($(this).attr('data-type') === "only") {
-        //         if ($(this).hasClass('current')) {
-        //             $(this).removeClass('current');
-        //             $('.choose-btn').prop('disabled', false);
-        //             $(this).prop('disabled', false);
-        //         } else {
-        //             $(this).addClass('current');
-        //             $('.choose-btn[data-type="only"]').prop('disabled', true);
-        //             $(this).prop('disabled', false);
-        //         }
-        //     } else {
-        //         if ($(this).hasClass('current')) {
-        //             $(this).removeClass('current');
-        //         } else {
-        //             $(this).addClass('current');
-        //         }
-        //     }
-        // })
-        // choose btn end
-    })();
+            })
+            // $('.choose-btn').on('click', function () {
+            //     if ($(this).attr('data-type') === "only") {
+            //         if ($(this).hasClass('current')) {
+            //             $(this).removeClass('current');
+            //             $('.choose-btn').prop('disabled', false);
+            //             $(this).prop('disabled', false);
+            //         } else {
+            //             $(this).addClass('current');
+            //             $('.choose-btn[data-type="only"]').prop('disabled', true);
+            //             $(this).prop('disabled', false);
+            //         }
+            //     } else {
+            //         if ($(this).hasClass('current')) {
+            //             $(this).removeClass('current');
+            //         } else {
+            //             $(this).addClass('current');
+            //         }
+            //     }
+            // })
+            // choose btn end
+        })();
+    }
     // drag list
     (function () {
         const defauldBuildList = document.querySelector('.build-plan__list')
@@ -2295,7 +2320,6 @@ $(document).ready(function () {
                 whereRender.append(planElement)
             })
         }
-
         const renderDateList = () => {
             dateList.textContent = '';
             let countId = 0
@@ -2312,25 +2336,27 @@ $(document).ready(function () {
                 dateList.append(dateElem)
             })
         };
-        shareDateCheckbox.addEventListener('change', function () {
-            if (shareDateCheckbox.checked === true) {
+        if (shareDateCheckbox) {
+            shareDateCheckbox.addEventListener('change', function () {
+                if (shareDateCheckbox.checked === true) {
 
-                renderDateList()
-                const dateInnerBlocks = document.querySelectorAll('.build-list__date-inner')
-                renderElementsPlan(dateInnerBlocks[0])
-                let arrayForDrag = []
-                dateInnerBlocks.forEach(el => arrayForDrag.push(el))
-                SortableInit(dateInnerBlocks)
-                defauldBuildList.style.display = 'none';
-            } else {
-                dateList.textContent = '';
-                defauldBuildList.style.display = 'block';
-                planElements.forEach(el => {
-                    defauldBuildList.append(el)
-                })
+                    renderDateList()
+                    const dateInnerBlocks = document.querySelectorAll('.build-list__date-inner')
+                    renderElementsPlan(dateInnerBlocks[0])
+                    let arrayForDrag = []
+                    dateInnerBlocks.forEach(el => arrayForDrag.push(el))
+                    SortableInit(dateInnerBlocks)
+                    defauldBuildList.style.display = 'none';
+                } else {
+                    dateList.textContent = '';
+                    defauldBuildList.style.display = 'block';
+                    planElements.forEach(el => {
+                        defauldBuildList.append(el)
+                    })
 
-            }
-        });
+                }
+            });
+        }
         const deleteElementPlan = (id) => {
             dataElementsPlan = dataElementsPlan.filter((el) => id !== el.id);
             if (document.querySelector('.build-plan__list').style.display == 'none') {
@@ -2339,38 +2365,41 @@ $(document).ready(function () {
                 renderElementsPlan(defauldBuildList);
             }
         }
-        renderElementsPlan(defauldBuildList);
-        document.addEventListener('click', e => {
-            if (e.target.closest('.btn-delete')) {
-                let id = e.target.getAttribute('data-id');
-                deleteElementPlan(id)
-            }
-            if (e.target.closest('.pay-btn.no-pay')) {
-                $('#new-pay').addClass('show')
-            }
-            if (e.target.closest('.pay-btn.payed')) {
-                $('#history-pay').addClass('show')
-            }
-        })
-        $('.js-buy-btn').on('click', function () { $('#new-pay').addClass('show') })
-
-        new Sortable(drag_1, {
-            animation: 150,
-            ghostClass: 'blue-background-class',
-            filter: '.no-drag'
-        });
-        function SortableInit(elements) {
-            elements.forEach(el => {
-                new Sortable(el, {
-                    animation: 150,
-                    handle: '.drag',
-                    group: 'shared',
-                    filter: '.no-drag'
-                });
+        if (defauldBuildList) {
+            renderElementsPlan(defauldBuildList);
+            document.addEventListener('click', e => {
+                if (e.target.closest('.btn-delete')) {
+                    let id = e.target.getAttribute('data-id');
+                    deleteElementPlan(id)
+                }
+                if (e.target.closest('.pay-btn.no-pay')) {
+                    $('#new-pay').addClass('show')
+                }
+                if (e.target.closest('.pay-btn.payed')) {
+                    $('#history-pay').addClass('show')
+                }
             })
-
         }
+        $('.js-buy-btn').on('click', function () { $('#new-pay').addClass('show') })
+        const dragElem = document.querySelector('#drag_1')
+        if (dragElem) {
+            new Sortable(drag_1, {
+                animation: 150,
+                ghostClass: 'blue-background-class',
+                filter: '.no-drag'
+            });
+            function SortableInit(elements) {
+                elements.forEach(el => {
+                    new Sortable(el, {
+                        animation: 150,
+                        handle: '.drag',
+                        group: 'shared',
+                        filter: '.no-drag'
+                    });
+                })
 
+            }
+        }
     })();
     // showMoreCards
     (function () {
@@ -2426,10 +2455,11 @@ $(document).ready(function () {
                 btn.style.display = 'none'
             }
         }
-        showhideBtn(catalogCardItems, showMoreBtn);
+        if (caralogChooseHostel) {
+            showhideBtn(catalogCardItems, showMoreBtn);
 
-        showhideBtn(entertainmentsCatalogItems, showMoreBtneEtertainments);
-
+            showhideBtn(entertainmentsCatalogItems, showMoreBtneEtertainments);
+        }
         function showMoreCards([...dataCards], catalog) {
             dataCards.forEach(el => {
                 const card = document.createElement('div')
@@ -2482,22 +2512,248 @@ $(document).ready(function () {
                 catalog.append(card);
             })
         }
-        showMoreBtn.addEventListener('click', function () {
-            showMoreCards(showMoreDataCard, caralogChooseHostel)
-        })
-        showMoreBtneEtertainments.addEventListener('click', function () {
-            showMoreCardsEtertainments(EntertainmentsDataCards, entertainmentsCatalog)
-        })
+        if (caralogChooseHostel) {
+            showMoreBtn.addEventListener('click', function () {
+                showMoreCards(showMoreDataCard, caralogChooseHostel)
+            })
+            showMoreBtneEtertainments.addEventListener('click', function () {
+                showMoreCardsEtertainments(EntertainmentsDataCards, entertainmentsCatalog)
+            })
+        }
     })();
+
+    // persinal cabinet 
+    (function () {
+
+    })();
+
     // formValidate 
     (function () {
         jQuery.extend(jQuery.validator.messages, {
             required: "Заполните поле",
         });
         $('.input-phone').mask('+7 000 000 00 00');
+        $('.input-code').mask('0000');
         $('#fixed-pay__form').validate();
         $('#sms-send').validate();
-    })()
+        $('#enter-phone').validate();
+        $('#enter-email').validate();
+        $('#reg-traveler').validate();
+        $('#reg-partner').validate();
+        $('#pas-reset').validate();
+        $('#change-data-form').validate();
+        $('#create-elem').validate();
+        $('.enter-next-btn').on('click', function (e) {
+            e.preventDefault();
+            if ($('#enter-phone').valid()) {
+                $('#window-phone-enter').addClass('hide')
+                $('#window-sms-code').removeClass('hide')
+            }
+        })
+        const showHideWindow = function (el) {
+            $('.cabinet-window').addClass('hide')
+            $(`#${el}`).removeClass('hide')
+            console.log(el);
+
+        }
+
+        $('.btn-open-window').on('click', function () {
+            let window = $(this).attr('data-open');
+            showHideWindow(window)
+        })
+
+        $('#become-partner').on('click', function () {
+            $(this).hide();
+            $('#become-traveler').show();
+        })
+        $('#become-traveler').on('click', function () {
+            $(this).hide();
+            $('#become-partner').show();
+        })
+        $('#submit-traveler').on('click', function (e) {
+            e.preventDefault();
+            if ($('#reg-traveler').valid()) {
+                window.location.href = 'traveler-sucsess.html';
+            }
+        })
+
+        $('#submit-partner').on('click', function (e) {
+            e.preventDefault();
+            if ($('#reg-partner').valid()) {
+                let window = $(this).attr('data-open');
+
+            }
+        })
+        $('#reset-pas-btn').on('click', function (e) {
+            e.preventDefault();
+            let window = $(this).attr('data-open');
+            if ($('#pas-reset').valid()) {
+                showHideWindow(window)
+            }
+        })
+        $('#change-data-btn').on('click', function () {
+            console.log('ee');
+            $('#personal-profile').addClass('hide')
+            $('#data-change').removeClass('hide')
+        })
+        $('#save-change').on('click', function (e) {
+            e.preventDefault()
+            console.log('ee');
+            if ($('#change-data-form').valid()) {
+                $('#personal-profile').removeClass('hide')
+                $('#data-change').addClass('hide')
+            }
+        });
+        $('.cabinet-history__btn').on('click', function () {
+            $('#history-pay').addClass('show')
+        })
+        $('.reviews-item').on('click', function (e) {
+            e.preventDefault()
+            let index = $(this).index()
+            $(this).addClass('current').siblings().removeClass('current')
+            $('.personal-review').removeClass('show')
+            $('.personal-review').eq(index).addClass('show')
+            let windowWidth = $(window).width();
+            if (windowWidth <= 992) {
+                console.log('w');
+                $('.cabinet-rewiews__left').hide()
+                $('#back-reviews').show()
+                $('.cabinet-rewiews__review').show()
+                // $('.personal-review').eq(index).addClass('show')
+            }
+        })
+        $('#back-reviews').on('click', function () {
+            $('.cabinet-rewiews__left').show()
+            $('#back-reviews').hide()
+            $('.cabinet-rewiews__review').hide()
+        });
+        $('#publish-elem').on('click', function (e) {
+            e.preventDefault()
+            if ($('#create-elem').valid()) {
+                window.location.href = 'sucsess-create-elem.html';
+            }
+        })
+        $('.choosen-radio').on('click', function () {
+            if ($(this).parents('.custom-select')) {
+                let value = $(this).parent().text()
+                $(this).parents('.custom-select').find('.custom-select__current-elem').text(value);
+                $('.custom-select__header').removeClass('active')
+                $(this).parents('.custom-select').find('.custom-select__header').removeClass('active')
+                $(this).parents('.custom-select').find('.custom-select__body').slideUp()
+            }
+
+        })
+        function rewiewsMovile() {
+            let windowWidth = $(window).width();
+            if (windowWidth <= 992) {
+                // $('.cabinet-rewiews__mobile-right').append($('.cabinet-rewiews__review'))
+                $('.reviews-item').on('click', function (e) {
+                    e.preventDefault()
+                    $('#back-reviews').show()
+                    let index = $(this).index()
+                    $(this).addClass('current').siblings().removeClass('current')
+                    $('.personal-review').removeClass('show')
+                    $('.personal-review').eq(index).addClass('show')
+                })
+            }
+
+        }
+        rewiewsMovile()
+        $(window).resize(() => {
+            rewiewsMovile();
+        })
+    })();
+    // create elem
+    (function () {
+        $('.upload-menu input').on('change', function () {
+            let value = $(this).val();
+            $('.upload-menu').hide()
+            console.log(value)
+            $('.download-description').addClass('upload')
+            $('.download-description').text(value);
+            $('.create-elem__download .delete-menu').show()
+        });
+        $('.delete-menu').on('click', function (e) {
+            e.preventDefault()
+            $('.upload-menu input').val('')
+            $('.upload-menu').show()
+            $('.download-description').removeClass('upload')
+            $('.create-elem__download .delete-menu').hide()
+            $('.download-description').text('.pdf < 500Мб');
+        })
+        function createWorkTime() {
+            let timeWork = document.createElement('div')
+            timeWork.className = 'cabinet-window__row';
+            timeWork.innerHTML = `
+            <div class="costum-input costum-input">
+                <input type="text" name="time-work" class=""
+                    placeholder="Пн-Вт 08:00 - 18:00" required></input>
+                <div class="costum-input__icon">
+                    <img src="img/icon/text.svg" alt="">
+                </div>
+            </div>
+            <button class="btn square-btn delete-elem">
+                <span>+</span>
+            </button>
+            `
+            $('#timeWork-plus').before(timeWork)
+        }
+        function createRout() {
+            let timeWork = document.createElement('div')
+            timeWork.className = 'cabinet-window__row create-elem__row-flex';
+            timeWork.innerHTML = `
+            <button class="btn square-btn delete-elem js-route-add">
+                <span>+</span>
+            </button>
+            <div class="cabinet-window__row">
+                <div class="costum-input costum-input">
+                    <input type="text" name="name-way" class="" placeholder="Название"
+                        required></input>
+                    <div class="costum-input__icon">
+                        <img src="img/icon/text.svg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="cabinet-window__row">
+                <div class="costum-input costum-input">
+                    <input type="text" name="link-way" class="" placeholder="Ссылка"
+                        required></input>
+                    <div class="costum-input__icon">
+                        <img src="img/icon/link.svg" alt="">
+                    </div>
+                </div>
+            </div>
+            `
+            $('#route-elem').before(timeWork)
+        }
+        $('#timeWork-plus .btn').on('click', function (e) {
+            e.preventDefault()
+            createWorkTime()
+
+        })
+        $('#route-elem .btn').on('click', function (e) {
+            e.preventDefault()
+            createRout()
+        })
+        $('#fixed-pay__submit').on('click', function (e) {
+            e.preventDefault()
+            if ($('#fixed-pay__form').valid()) {
+                window.location.href = 'sucsess-pay.html';
+            }
+        })
+        document.addEventListener('click', function (e) {
+            if (e.target.closest('.delete-elem')) {
+                let parentElem = e.target.closest('.delete-elem').parentElement;
+                parentElem.remove()
+            }
+            if (e.target.closest('.js-route-add')) {
+
+                let parentElem = e.target.closest('.delete-elem').parentElement;
+                parentElem.remove()
+            }
+        })
+    })();
+
 });
 
 

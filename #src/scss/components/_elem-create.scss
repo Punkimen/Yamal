@@ -1,0 +1,28 @@
+.input-label__header {
+    font-size: 12px;
+    line-height: 18px;
+}
+
+.input-select {
+    width: 100%;
+
+    .custom-select__header {
+        font-weight: bold;
+    }
+
+    .custom-select__elem {
+        &:not(:last-child) {
+            margin-bottom: 10px;
+        }
+    }
+}
+
+.btn-icon-right {
+    padding-right: 14px;
+    display: flex;
+    align-items: center;
+
+    span {
+        margin-right: 10px;
+    }
+}

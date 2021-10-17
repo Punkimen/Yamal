@@ -87,6 +87,11 @@
         @media(max-width: $md4) {
             left: auto;
             right: 0;
+
+            &--left {
+                right: auto;
+                left: 0;
+            }
         }
 
         // overflow-y: auto;

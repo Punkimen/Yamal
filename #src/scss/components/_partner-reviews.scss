@@ -1,0 +1,45 @@
+.partner-reviews {
+    &__header {
+        display: flex;
+        margin-bottom: 40px;
+
+        @media(max-width: $md4) {
+            display: block;
+        }
+
+        .cabinet-rewiews__back {
+            margin-bottom: 32px;
+        }
+    }
+
+    .custom-select {
+        @media(max-width: $md4) {
+            display: block;
+            margin-right: 0;
+        }
+
+        &:not(:last-child) {
+            margin-right: 32px;
+
+            @media(max-width: $md4) {
+                margin-right: 0;
+                margin-bottom: 32px;
+            }
+        }
+    }
+
+    &__all-reviews {
+        display: none;
+
+        &.show {
+            display: block;
+        }
+
+    }
+}
+
+.all-reviews__item {
+    &:not(last-child) {
+        margin-bottom: 40px;
+    }
+}

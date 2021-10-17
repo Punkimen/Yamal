@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yamal</title>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/jquery.mcustomscrollbar/3.0.6/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body>
+    @@include('./components/_header.html')
+    <div class="bread-crumbs">
+        <div class="container">
+            <ul class="bread-crumbs__list">
+                <li class="bread-crumbs__elem">
+                    <a href="/" class="bread-crumbs__link bread-crumbs__link--arrow">Главная</a>
+                </li>
+                <li class="bread-crumbs__elem">
+                    <a href="#" class="bread-crumbs__link">Личный кабинет</a>
+                </li>
+                <li class="bread-crumbs__elem">
+                    <a href="#" class="bread-crumbs__link">Регистрация</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <section class="personal-cabinet">
+        <div class="container">
+            <div class="personal-cabinet__header">
+                <h2 class="personal-cabinet__title section-title">
+                    Регистрация
+                </h2>
+            </div>
+        </div>
+        <div class="personal-cabinet__inner">
+            <div class="container">
+                <div class="cabinet-window">
+                    <div class="popup__icon">
+                        <img src="img/icon/sucsess-cabinet.svg">
+                    </div>
+                    <div class="cabinet-window__row">
+                        <div class="popup__title">
+                            Вы успешно зарегистрированы
+                        </div>
+                        <div class="popup__text">
+                            Ответ поступит на указанную почту
+                        </div>
+                    </div>
+                    <div class="cabinet-window__row cabinet-window__row--center">
+                        <a href="#" class="cabinet-window__btn btn btn-green">Профиль</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="banner banner-sale">
+        <div class="container banner__container">
+            <div class="banner__wrapper">
+                <div class="banner__content">
+                    <h2 class="banner__title section-title">Скидки в заведениях Ямала</h2>
+                    <div class="banner__text">Зарегистрируйтесь и получите электонную карту гостя, дающую скидку в
+                        заведениях Ямало-Ненецкого АО.</div>
+                    <button class="banner__create-acc btn btn-green">Активировать карту</button>
+                </div>
+                <div class="banner__photos">
+                    <div class="banner__photos-item photo-block ">
+                        <div class="photo-block__img">
+                            <img src="img/photo_1.png" alt="Ресторан «Край земли»">
+                        </div>
+                        <div class="photo-block__descr">
+                            <div class="photo-block__title descr-block__title">Ресторан «Край земли»</div>
+                            <div class="photo-block__text descr-block__text">г. Салехард</div>
+                        </div>
+                    </div>
+                    <div class="banner__photos-item photo-block ">
+                        <div class="photo-block__img">
+                            <img src="img/photo_2.png" alt="Музей истории Арктики">
+                        </div>
+                        <div class="photo-block__descr">
+                            <div class="photo-block__title descr-block__title">Музей истории Арктики</div>
+                            <div class="photo-block__text descr-block__text">г. Новый Уренгой</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sale__photos-descr descr-block ">
+                    <div class="descr-block__title">658 мест</div>
+                    <div class="descr-block__text">со скидкой для гостей</div>
+                </div>
+                <div class="banner__fly-icon banner__fly-icon--center fly-icon ">
+                    <img src="img/icon/receipt-disscount.svg" alt="">
+                </div>
+                <div class="banner__fly-icon banner__fly-icon--right fly-icon ">
+                    <img src="img/icon/buy-crypto.svg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    @@include('./components/_footer.html')
+    @@include('./components/_fixed-menu-show.html')
+    @@include('./components/_popups.html')
+    @@include('./components/_scripts.html')
+</body>
+
+</html>

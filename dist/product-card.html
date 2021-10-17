@@ -421,11 +421,7 @@
                             <div class="product-card__info">
                                 <div class="product-card__info-place">г. Салехард</div>
                                 <div class="product-card__info-price card-item__price" data-price="3">
-                                    <span>$</span>
-                                    <span>$</span>
-                                    <span>$</span>
-                                    <span>$</span>
-                                    <span>$</span>
+                                    Ср. чек до 500₽
                                 </div>
                                 <div class="product-card__info-status">Европейская кухня</div>
                             </div>
@@ -442,17 +438,14 @@
                                 <div class="product-card__description-head">
                                     <span>Адрес</span>
                                     <a href="#" class="on-map">
-                                        На карте
-                                        <svg class="">
-                                            <use xlink:href="./img/icons/icons.svg#map-marker"></use>
-                                        </svg>
+                                        Показать на карте
                                     </a>
                                 </div>
                                 <div class="product-card__description-info">
                                     г. Салехард, ул. Чубынина, д. 24
                                 </div>
                             </div>
-                            <div class="product-card__description-item">
+                            <div class="product-card__description-item product-card__description-item--phone">
                                 <div class="product-card__description-head">Телефон</div>
                                 <div class="product-card__description-info">
                                     <a href="tel:73492237340" class="underline">+7 (349) 223-73-40</a>
@@ -487,6 +480,14 @@
                                     </ul>
                                 </div>
                             </div>
+                            <button id="reserve-btn"
+                                class=" btn btn-green product-card__description-btn product-card__description-item--w100">
+                                Забронировать
+                            </button>
+                            <button id="download-PDF"
+                                class=" btn btn-green product-card__description-btn product-card__description-item--w100">
+                                Скачать меню .PDF
+                            </button>
                         </div>
                         <div class="product-card__text product-card__block">
                             <p>Не следует, однако, забывать, что дальнейшее развитие различных форм деятельности
@@ -1402,7 +1403,7 @@
                 </div>
             </form>
         </div>
-        <div id="sucsess-pay" class="popup">
+        <!-- <div id="sucsess-pay" class="popup">
             <button class="fixed-filter__close popup-close fixed-filter__close--only btn js-close">
                 <img src="img/icon/filter-close.svg" alt="">
             </button>
@@ -1418,7 +1419,7 @@
                 </div>
             </div>
             <div class="popup__btns">
-                <div class="popup__btn-registr btn btn-green">Мои маршруты</div>
+                <a href="#" class="popup__btn-registr btn btn-green">Мои маршруты</a>
             </div>
         </div>
         <div id="error-pay" class="popup">
@@ -1439,6 +1440,14 @@
             <div class="popup__btns">
                 <div class="popup__btn-registr btn btn-green">Мои маршруты</div>
             </div>
+        </div> -->
+        <div id="preloader" class="preloader-loading">
+            <div class="preloader-loading__inner">
+                <svg class="">
+                    <use xlink:href="./img/icons/icons.svg#preloader-Illustration"></use>
+                </svg>
+            </div>
+
         </div>
     </div>
 </div>
@@ -1467,8 +1476,6 @@
     crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js"></script>
 <script src="https://cdn.rawgit.com/nizarmah/calendar-javascript-lib/master/calendarorganizer.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAn4lOodBWISBVdVsAchtPd8eRRPgycYco&language=ru">
-</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"
     integrity="sha512-zYXldzJsDrNKV+odAwFYiDXV2Cy37cwizT+NkuiPGsa9X1dOz04eHvUWVuxaJ299GvcJT31ug2zO4itXBjFx4w=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -1476,6 +1483,9 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vivus/0.4.6/vivus.min.js"
+    integrity="sha512-oUUeA7VTcWBqUJD/VYCBB4VeIE0g1pg5aRMiSUOMGnNNeCLRS39OlkcyyeJ0hYx2h3zxmIWhyKiUXKkfZ5Wryg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="js/script.js"></script>
 </body>
 

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yamal</title>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/jquery.mcustomscrollbar/3.0.6/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body>
+    @@include('./components/_header.html')
+    <div class="bread-crumbs">
+        <div class="container">
+            <ul class="bread-crumbs__list">
+                <li class="bread-crumbs__elem">
+                    <a href="/" class="bread-crumbs__link bread-crumbs__link--arrow">Главная</a>
+                </li>
+                <li class="bread-crumbs__elem">
+                    <a href="#" class="bread-crumbs__link">Личный кабинет</a>
+                </li>
+                <li class="bread-crumbs__elem">
+                    <a href="#" class="bread-crumbs__link">Регистрация</a>
+                </li>
+                <li class="bread-crumbs__elem">
+                    <a href="#" class="bread-crumbs__link">Партнер</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <section class="personal-cabinet">
+        <div class="container">
+            <div class="personal-cabinet__header">
+                <h2 class="personal-cabinet__title section-title">
+                    Регистрация
+                </h2>
+                <button id="become-partner" type="button"
+                    class="btn-registration show btn btn-transparent-green btn-open-window"
+                    data-open="window-reg-partner">Стать
+                    партнером</button>
+                <button id="become-traveler" type="button"
+                    class="btn-registration btn btn-transparent-green btn-open-window"
+                    data-open="window-reg-traveler">Стать
+                    путешественником</button>
+            </div>
+        </div>
+        <div class="personal-cabinet__inner">
+            <div class="container">
+                <div id="window-reg-traveler" class="cabinet-window">
+                    <form id="reg-traveler" action="">
+                        <div class="cabinet-window__body">
+                            <div class="cabinet-window__row cabinet-window__row--bordered">
+                                <div class="cabinet-window__social-icon cabinet-window__social-icon--center">
+                                    <a href="#" class="social-icon">
+                                        <img src="img/icon/vk-blue.svg" alt="">
+                                    </a>
+                                    <a href="#" class="social-icon">
+                                        <img src="img/icon/facebook-blue.svg" alt="">
+                                    </a>
+                                    <a href="#" class="social-icon">
+                                        <img src="img/icon/twitter-blue.svg" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="cabinet-window__row cabinet-window__row--bordered">
+                                <div class="cabinet-window__bordered">
+                                    <div class="cabinet-window__row">
+                                        <div class="popup__input-label">Имя</div>
+                                        <div class="costum-input">
+                                            <input type="text" name="name" class="" placeholder="Имя" required></input>
+                                            <div class="costum-input__icon">
+                                                <img src="img/icon/user.svg" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cabinet-window__row">
+                                        <div class="popup__input-label">Телефон</div>
+                                        <div class="costum-input">
+                                            <input type="email" name="email" class="" placeholder="+7 000 000 00 00"
+                                                required></input>
+                                            <div class="costum-input__icon">
+                                                <img src="img/icon/email.svg" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cabinet-window__row">
+                                        <div class="popup__input-label">Телефон</div>
+                                        <div class="costum-input">
+                                            <input type="tel" name="phone" class="input-phone"
+                                                placeholder="+7 000 000 00 00" required></input>
+                                            <div class="costum-input__icon">
+                                                <img src="img/icon/call.svg" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cabinet-window__row">
+                                <div class="fixed-pay__form-checkboxes">
+                                    <div class="fixed-pay__form-checkbox">
+                                        <label class="control control-radio costum-radio">
+                                            Даю согласие на <a href="#" class="underline color-green">обработку
+                                                персональных
+                                                данных</a>
+                                            <input class="choosen-radio" name="personal-date" value="agree"
+                                                type="checkbox" required checked name="1" />
+                                            <div class="control_indicator"></div>
+                                        </label>
+                                    </div>
+                                    <div class="fixed-pay__form-checkbox">
+                                        <label class="control control-radio costum-radio">
+                                            Хочу получать маркетенговые предложения от сервиса
+                                            <input class="choosen-radio" name="proposal" value="want" type="checkbox"
+                                                name="1" />
+                                            <div class="control_indicator"></div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cabinet-window__row cabinet-window__row--center">
+                                <button id="submit-traveler" type="submit"
+                                    class="cabinet-window__btn btn submit-registr btn-green"
+                                    data-open="window-reg-sucsess">Регистрация</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div id="window-reg-partner" class="cabinet-window hide">
+                    <form id="reg-partner" action="">
+                        <div class="cabinet-window__body">
+                            <div class="cabinet-window__row">
+                                <div class="popup__input-label">Имя</div>
+                                <div class="costum-input">
+                                    <input type="text" name="name" class="" placeholder="Имя" required></input>
+                                    <div class="costum-input__icon">
+                                        <img src="img/icon/user.svg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cabinet-window__row">
+                                <div class="popup__input-label">Почта</div>
+                                <div class="costum-input">
+                                    <input type="email" name="email" class="" placeholder="+7 000 000 00 00"
+                                        required></input>
+                                    <div class="costum-input__icon">
+                                        <img src="img/icon/email.svg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cabinet-window__row">
+                                <div class="popup__input-label">Телефон</div>
+                                <div class="costum-input">
+                                    <input type="tel" name="phone" class="input-phone" placeholder="+7 000 000 00 00"
+                                        required></input>
+                                    <div class="costum-input__icon">
+                                        <img src="img/icon/call.svg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cabinet-window__row">
+                                <div class="fixed-pay__form-checkboxes">
+                                    <div class="fixed-pay__form-checkbox">
+                                        <label class="control control-radio costum-radio">
+                                            Даю согласие на <a href="#" class="underline color-green">обработку
+                                                персональных
+                                                данных</a>
+                                            <input class="choosen-radio" name="personal-date" value="agree"
+                                                type="checkbox" required checked name="1" />
+                                            <div class="control_indicator"></div>
+                                        </label>
+                                    </div>
+                                    <div class="fixed-pay__form-checkbox">
+                                        <label class="control control-radio costum-radio">
+                                            Хочу получать маркетенговые предложения от сервиса
+                                            <input class="choosen-radio" name="proposal" value="want" type="checkbox"
+                                                name="1" />
+                                            <div class="control_indicator"></div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cabinet-window__row cabinet-window__row--center">
+                                <button id="submit-partner" type="submit"
+                                    class="cabinet-window__btn submit-registr btn btn-green"
+                                    data-open="window-reg-sucsess">Регистрация</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div id="window-reg-sucsess" class="cabinet-window hide">
+                    <div class="popup__icon">
+                        <img src="img/icon/sucsess-cabinet.svg">
+                    </div>
+                    <div class="cabinet-window__row">
+                        <div class="popup__title">
+                            Заявка на регистрацию отправлена
+                        </div>
+                        <div class="popup__text">
+                            Ответ поступит на указанную почту
+                        </div>
+                    </div>
+                    <div class="cabinet-window__row cabinet-window__row--center">
+                        <a href="#" class="cabinet-window__btn btn btn-green">Главная страница</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    @@include('./components/_footer.html')
+    @@include('./components/_fixed-menu-show.html')
+    @@include('./components/_popups.html')
+    @@include('./components/_scripts.html')
+</body>
+
+</html>

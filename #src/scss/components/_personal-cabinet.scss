@@ -1,0 +1,111 @@
+.personal-cabinet {
+    padding-bottom: 70px;
+
+    &__title {
+        margin-bottom: 40px;
+    }
+
+    &__navigation {
+        padding: 20px 32px;
+        background: #F2F2F2;
+        box-shadow: 0px 7px 40px -7px rgba(0, 0, 0, 0.3);
+        border-radius: 12px;
+        margin-bottom: 40px;
+
+        @media(max-width: $md4) {
+            border-radius: 12px 0 0 12px;
+        }
+
+        .playbill__categoryes {
+            margin-bottom: 0 !important;
+            padding-bottom: 0 !important;
+        }
+
+        .playbill-category {
+            white-space: nowrap;
+        }
+
+        .mCSB_horizontal.mCSB_inside>.mCSB_container {
+            margin-bottom: 0 !important;
+        }
+    }
+
+    &__body {}
+}
+
+.contaoner-nav {
+    @media(max-width: $md4) {
+        padding-right: 0;
+    }
+}
+
+.cabinet-profile {
+    padding-bottom: 170px;
+
+    &__data {
+        margin-bottom: 24px;
+    }
+
+    &__data-item {
+        display: flex;
+        align-items: flex-end;
+    }
+
+    &__date-label {
+        color: #213A8F;
+        margin-right: 10px;
+    }
+
+    &__date-value {}
+
+    &__checkbox {
+        max-width: 240px;
+        width: 100%;
+        margin-bottom: 24px;
+
+        @media(max-width: $md5) {
+            max-width: 300px;
+        }
+    }
+
+    &__btns {
+        display: flex;
+
+        @media(max-width: $md5) {
+            display: block;
+        }
+    }
+
+    &__btn {
+        @media(max-width: $md5) {
+            width: 100%;
+        }
+
+        &:not(:last-child) {
+            margin-right: 24px;
+
+            @media(max-width: $md5) {
+                margin-right: 0;
+                margin-bottom: 24px;
+            }
+        }
+    }
+}
+
+.fixed-pay {
+
+    &__form-checkbox {}
+}
+
+.control {
+
+    &_indicator {}
+}
+
+.control-radio {}
+
+.costum-radio {}
+
+.choosen-radio {}
+
+.btn-transparent-green {}

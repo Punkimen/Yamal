@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yamal</title>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/jquery.mcustomscrollbar/3.0.6/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body>
+    @@include('./components/_header.html')
+    <a href="#" class="banner-link">
+        <div class="container">
+            <span>Скидочная карта гостя</span>
+            <img src="img/icon/arrow-right.svg" alt="">
+        </div>
+    </a>
+    <div class="bread-crumbs">
+        <div class="container">
+            <ul class="bread-crumbs__list">
+                <li class="bread-crumbs__elem">
+                    <a href="/" class="bread-crumbs__link bread-crumbs__link--arrow">Главная</a>
+                </li>
+                <li class="bread-crumbs__elem">
+                    <a href="#" class="bread-crumbs__link">Линый кабинет</a>
+                </li>
+                <li class="bread-crumbs__elem">
+                    <a href="#" class="bread-crumbs__link">Мои отзывы</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <section class="personal-cabinet">
+        <div class="container">
+            <h2 class="personal-cabinet__title section-title">
+                Личный кабинет
+            </h2>
+        </div>
+        <div class="personal-cabinet__body ">
+            <div class="contaoner-nav container">
+                <div class="personal-cabinet__navigation">
+                    <div class="playbill__categoryes">
+                        <a href="personal-cabinet.html" class="playbill-category btn ">Профиль</a>
+                        <a href="my-routes.html" class="playbill-category btn ">Мои маршруты</a>
+                        <a href="history-pay.html" class="playbill-category btn ">Мои покупки</a>
+                        <a href="my-reviews.html" class="playbill-category btn current">Мои отзывы</a>
+                        <a href="favorite.html" class="playbill-category btn">Избранное</a>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="personal-cabinet__content cabinet-rewiews">
+
+                    <div class="cabinet-routes__header cabinet-rewiews__header">
+                        <div id="back-reviews" class="cabinet-rewiews__back">
+                            <button type="button" class="cabinet-rewiews__btn-back btn btn-green">
+                                <svg class="">
+                                    <use xlink:href="./img/icons/icons.svg#arrow-slide"></use>
+                                </svg>
+                                <span>Назад</span>
+                            </button>
+                        </div>
+                        <div class="playbill__select-sort custom-select">
+                            <div class="custom-select__header">
+                                <div class="custom-select__arrow">
+                                    <img src="img/icon/select-arrow.svg" alt="">
+                                </div>
+                                <span class="custom-select__current-elem">Сортировать элементы по</span>
+                            </div>
+                            <div class="custom-select__body custom-select__body--left">
+                                <ul class="custom-select-list">
+                                    <li class="custom-select__elem">
+                                        <label class="control control-radio costum-radio">
+                                            Все отзывы
+                                            <input class="choosen-radio" value="all" type="radio" name="sort" checked />
+                                            <div class="control_indicator"></div>
+                                        </label>
+                                    </li>
+                                    <li class="custom-select__elem">
+                                        <label class="control control-radio costum-radio">
+                                            Только положительные
+                                            <input class="choosen-radio" value="positive" type="radio" name="sort"
+                                                checked />
+                                            <div class="control_indicator"></div>
+                                        </label>
+                                    </li>
+                                    <li class="custom-select__elem">
+                                        <label class="control control-radio costum-radio">
+                                            Только отрицательные
+                                            <input class="choosen-radio" value="negative" type="radio" name="sort"
+                                                checked />
+                                            <div class="control_indicator"></div>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cabinet-rewiews__wrapper">
+                        <div class="cabinet-rewiews__left">
+
+                            <div class="cabinet-routes__item cabinet-numbers">
+                                <a href="#" class="cabinet-numbers__item reviews-item current">
+                                    <div class="cabinet-numbers__num">№9348754029 / </div>
+                                    <div class="cabinet-numbers__name">Спектакль «Хмель и Соль»</div>
+                                </a>
+                                <a href="#" class="cabinet-numbers__item reviews-item">
+                                    <div class="cabinet-numbers__num">№9348754029 / </div>
+                                    <div class="cabinet-numbers__name">Спектакль «Хмель и Соль»</div>
+                                </a>
+                                <a href="#" class="cabinet-numbers__item reviews-item">
+                                    <div class="cabinet-numbers__num">№9348754029 / </div>
+                                    <div class="cabinet-numbers__name">Спектакль «Хмель и Соль»</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="cabinet-rewiews__right">
+                            <div class="cabinet-rewiews__review">
+                                <div class="all-reviews__item personal-review show">
+                                    <div class="personal-review__header">
+                                        <div class="personal-review__left">
+                                            <div class="personal-review__status personal-review__status--like">
+                                                <svg class="">
+                                                    <use xlink:href="./img/icons/icons.svg#like"></use>
+                                                </svg>
+                                            </div>
+                                            <div class="personal-review__person">
+                                                <div class="personal-review__name">Екатерина</div>
+                                                <div class="personal-review__date">20.10.2021 в 02:05</div>
+                                            </div>
+                                        </div>
+                                        <button class="personal-review__delete btn btn-transparent-blue"
+                                            data-popup='#popup-delete-rewiew'>
+                                            Удалить
+                                        </button>
+                                    </div>
+                                    <div class="personal-review__body">
+                                        <p class="personal-review__text">Имеется спорная точка зрения, гласящая примерно
+                                            следующее: независимые государства представляют собой не что иное, как
+                                            квинтэссенцию победы маркетинга над разумом и должны быть превращены в
+                                            посмешище, хотя само их существование приносит несомненную пользу обществу.
+                                            В
+                                            целом, конечно, внедрение современных методик обеспечивает актуальность форм
+                                            воздействия.</p>
+                                    </div>
+                                </div>
+                                <div class="all-reviews__item personal-review">
+                                    <div class="personal-review__header">
+                                        <div class="personal-review__left">
+                                            <div class="personal-review__status personal-review__status--like">
+                                                <svg class="">
+                                                    <use xlink:href="./img/icons/icons.svg#like"></use>
+                                                </svg>
+                                            </div>
+                                            <div class="personal-review__person">
+                                                <div class="personal-review__name">Иванов</div>
+                                                <div class="personal-review__date">20.10.2021 в 02:05</div>
+                                            </div>
+                                        </div>
+                                        <button class="personal-review__delete btn btn-transparent-blue"
+                                            data-popup='#popup-delete-rewiew'>
+                                            Удалить
+                                        </button>
+                                    </div>
+                                    <div class="personal-review__body">
+                                        <p class="personal-review__text">Имеется спорная точка зрения, гласящая примерно
+                                            следующее: независимые государства представляют собой не что иное, как
+                                            квинтэссенцию победы маркетинга над разумом и должны быть превращены в
+                                            посмешище, хотя само их существование приносит несомненную пользу обществу.
+                                            В
+                                            целом, конечно, внедрение современных методик обеспечивает актуальность форм
+                                            воздействия.</p>
+                                    </div>
+                                </div>
+                                <div class="all-reviews__item personal-review">
+                                    <div class="personal-review__header">
+                                        <div class="personal-review__left">
+                                            <div class="personal-review__status personal-review__status--like">
+                                                <svg class="">
+                                                    <use xlink:href="./img/icons/icons.svg#like"></use>
+                                                </svg>
+                                            </div>
+                                            <div class="personal-review__person">
+                                                <div class="personal-review__name">Иванчик</div>
+                                                <div class="personal-review__date">20.10.2021 в 02:05</div>
+                                            </div>
+                                        </div>
+                                        <button class="personal-review__delete btn btn-transparent-blue"
+                                            data-popup='#popup-delete-rewiew'>
+                                            Удалить
+                                        </button>
+                                    </div>
+                                    <div class="personal-review__body">
+                                        <p class="personal-review__text">Имеется спорная точка зрения, гласящая примерно
+                                            следующее: независимые государства представляют собой не что иное, как
+                                            квинтэссенцию победы маркетинга над разумом и должны быть превращены в
+                                            посмешище, хотя само их существование приносит несомненную пользу обществу.
+                                            В
+                                            целом, конечно, внедрение современных методик обеспечивает актуальность форм
+                                            воздействия.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="personal-cabinet__windows hide">
+            <div class="personal-cabinet">
+                <div class="personal-cabinet__inner">
+                    <div class="container">
+                        <div class="cabinet-window">
+                            <div class="popup__icon">
+                                <img src="img/icon/sucsess-icon.svg">
+                            </div>
+                            <div class="cabinet-window__row">
+                                <div class="popup__title">
+                                    Нет комментариев от вашего имени
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    @@include('./components/_footer.html')
+    @@include('./components/_fixed-menu-show.html')
+    @@include('./components/_popups.html')
+    @@include('./components/_scripts.html')
+</body>
+
+</html>

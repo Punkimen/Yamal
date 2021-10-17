@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yamal</title>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/jquery.mcustomscrollbar/3.0.6/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body>
+    @@include('./components/_header.html')
+    <a href="#" class="banner-link">
+        <div class="container">
+            <span>Скидочная карта гостя</span>
+            <img src="img/icon/arrow-right.svg" alt="">
+        </div>
+    </a>
+    <div class="bread-crumbs">
+        <div class="container">
+            <ul class="bread-crumbs__list">
+                <li class="bread-crumbs__elem">
+                    <a href="/" class="bread-crumbs__link bread-crumbs__link--arrow">Главная</a>
+                </li>
+                <li class="bread-crumbs__elem">
+                    <a href="#" class="bread-crumbs__link">Линый кабинет</a>
+                </li>
+                <li class="bread-crumbs__elem">
+                    <a href="#" class="bread-crumbs__link">Мои покупки</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <section class="personal-cabinet">
+        <div class="container">
+            <h2 class="personal-cabinet__title section-title">
+                Личный кабинет
+            </h2>
+        </div>
+        <div class="personal-cabinet__body">
+            <div class="contaoner-nav container">
+                <div class="personal-cabinet__navigation">
+                    <div class="playbill__categoryes">
+                        <a href="personal-cabinet.html" class="playbill-category btn ">Профиль</a>
+                        <a href="my-routes.html" class="playbill-category btn ">Мои маршруты</a>
+                        <a href="history-pay.html" class="playbill-category btn current">Мои покупки</a>
+                        <a href="my-reviews.html" class="playbill-category btn">Мои отзывы</a>
+                        <a href="favorite.html" class="playbill-category btn">Избранное</a>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="personal-cabinet__content cabinet-history">
+                    <div class="cabinet-history__header">
+                        <div class="playbill__categoryes catalog-categories">
+                            <button type="button" class="playbill-category btn current">Все</button>
+                            <button type="button" class="playbill-category btn">Туры</button>
+                            <button type="button" class="playbill-category btn">Мероприятия</button>
+                            <div class="cabinet-history__now cabinet-now-text">3 маршрута</div>
+                        </div>
+                        <a href="#" class="cabinet-history__btn btn btn-green">История покупок</a>
+                    </div>
+                    <div class="catalog__wrapper cabinet-history__catalog hide">
+                        <a href="" class="catalog__wrapper-item card-item photo" data-status="Через 3 дня">
+                            <div class="card-item__img">
+                                <img src="img/cards/card-restor_1.png" alt="Тур «По Ямалу»">
+                            </div>
+                            <div class="card-item__footer">
+                                <div class="card-item__name">Тур «По Ямалу»</div>
+                                <div class="card-item__price" data-price="3">
+                                    Ср. чек до 500₽
+                                </div>
+                            </div>
+                        </a>
+                        <a href="" class="catalog__wrapper-item card-item photo" data-status="Через 6 дней">
+                            <div class="card-item__img">
+                                <img src="img/cards/card-restor_2.png" alt="Ресторан «Хмель и Соль»">
+                            </div>
+                            <div class="card-item__footer">
+                                <div class="card-item__name">Ресторан «Хмель и Соль»</div>
+                                <div class="card-item__price" data-price="1">
+                                    Ср. чек до 500₽
+                                </div>
+                            </div>
+                        </a>
+                        <a href="" class="catalog__wrapper-item card-item photo" data-status="Через 7 дней">
+                            <div class="card-item__img">
+                                <img src="img/cards/card-restor_3.png" alt="Кафе «У Урсулы»">
+                            </div>
+                            <div class="card-item__footer">
+                                <div class="card-item__name">Кафе «У Урсулы»</div>
+                                <div class="card-item__price" data-price="5">
+                                    Ср. чек до 500₽
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="personal-cabinet__windows hide">
+            <div class="personal-cabinet">
+                <div class="personal-cabinet__inner">
+                    <div class="container">
+                        <div class="cabinet-window">
+                            <div class="popup__icon">
+                                <img src="img/icon/sucsess-icon.svg">
+                            </div>
+                            <div class="cabinet-window__row">
+                                <div class="popup__title">
+                                    Здесь ничего нет
+                                </div>
+                                <div class="popup__text">
+                                    Создайте новый маршрут и добавьте в кабинет
+                                </div>
+                            </div>
+                            <div class="cabinet-window__row cabinet-window__row--center">
+                                <a href="#" class="cabinet-window__btn btn btn-green">Создать маршрут</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    @@include('./components/_footer.html')
+    @@include('./components/_fixed-menu-show.html')
+    @@include('./components/_fixed-pay.html')
+    @@include('./components/_popups.html')
+    @@include('./components/_scripts.html')
+</body>
+
+</html>

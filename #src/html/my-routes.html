@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yamal</title>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/jquery.mcustomscrollbar/3.0.6/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body>
+    @@include('./components/_header.html')
+    <a href="#" class="banner-link">
+        <div class="container">
+            <span>Скидочная карта гостя</span>
+            <img src="img/icon/arrow-right.svg" alt="">
+        </div>
+    </a>
+    <div class="bread-crumbs">
+        <div class="container">
+            <ul class="bread-crumbs__list">
+                <li class="bread-crumbs__elem">
+                    <a href="/" class="bread-crumbs__link bread-crumbs__link--arrow">Главная</a>
+                </li>
+                <li class="bread-crumbs__elem">
+                    <a href="#" class="bread-crumbs__link">Линый кабинет</a>
+                </li>
+                <li class="bread-crumbs__elem">
+                    <a href="#" class="bread-crumbs__link">Мои маршруты</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <section class="personal-cabinet">
+        <div class="container">
+            <h2 class="personal-cabinet__title section-title">
+                Личный кабинет
+            </h2>
+        </div>
+        <div class="personal-cabinet__body ">
+            <div class="contaoner-nav container">
+                <div class="personal-cabinet__navigation">
+                    <div class="playbill__categoryes">
+                        <a href="personal-cabinet.html" class="playbill-category btn ">Профиль</a>
+                        <a href="my-routes.html" class="playbill-category btn current">Мои маршруты</a>
+                        <a href="history-pay.html" class="playbill-category btn">Мои покупки</a>
+                        <a href="my-reviews.html" class="playbill-category btn">Мои отзывы</a>
+                        <a href="favorite.html" class="playbill-category btn">Избранное</a>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="personal-cabinet__content cabinet-routes">
+                    <div class="cabinet-routes__header">
+                        <div class="cabinet-routes__now cabinet-now-text">3 маршрута</div>
+                        <a href="#" class=" btn btn-green">Создать маршрут</a>
+                    </div>
+                    <div class="cabinet-routes__wrapper">
+                        <div class="cabinet-routes__item cabinet-numbers">
+                            <a href="#" class="cabinet-numbers__item">
+                                <div class="cabinet-numbers__num">№9348754029 / </div>
+                                <div class="cabinet-numbers__name">Санкт-Петербург - Салехард</div>
+                            </a>
+                            <a href="#" class="cabinet-numbers__item">
+                                <div class="cabinet-numbers__num">№9348754029 / </div>
+                                <div class="cabinet-numbers__name">Санкт-Петербург - Салехард</div>
+                            </a>
+                            <a href="#" class="cabinet-numbers__item">
+                                <div class="cabinet-numbers__num">№9348754029 / </div>
+                                <div class="cabinet-numbers__name">Санкт-Петербург - Салехард</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="personal-cabinet__windows hide ">
+            <div class="personal-cabinet">
+                <div class="personal-cabinet__inner">
+                    <div class="container">
+                        <div class="cabinet-window">
+                            <div class="popup__icon">
+                                <img src="img/icon/sucsess-icon.svg">
+                            </div>
+                            <div class="cabinet-window__row">
+                                <div class="popup__title">
+                                    Здесь ничего нет
+                                </div>
+                                <div class="popup__text">
+                                    Создайте новый маршрут и добавьте в кабинет
+                                </div>
+                            </div>
+                            <div class="cabinet-window__row cabinet-window__row--center">
+                                <a href="#" class="cabinet-window__btn btn btn-green">Создать маршрут</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    @@include('./components/_footer.html')
+    @@include('./components/_fixed-menu-show.html')
+    @@include('./components/_popups.html')
+    @@include('./components/_scripts.html')
+</body>
+
+</html>
