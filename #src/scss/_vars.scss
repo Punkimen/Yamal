@@ -374,6 +374,17 @@ a.btn {
     text-decoration: underline;
 }
 
+.site-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.page {
+    flex-grow: 1;
+}
+
 .hide {
     display: none;
 }

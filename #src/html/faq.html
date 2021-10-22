@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yamal</title>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/jquery.mcustomscrollbar/3.0.6/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/last-syles.css">
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body>
+    <div class="site-content">
+        @@include('./components/_header.html')
+        <main class="page">
+            <div class="bread-crumbs">
+                <div class="container">
+                    <ul class="bread-crumbs__list">
+                        <li class="bread-crumbs__elem">
+                            <a href="/" class="bread-crumbs__link bread-crumbs__link--arrow">Главная</a>
+                        </li>
+                        <li class="bread-crumbs__elem">
+                            <a href="#" class="bread-crumbs__link">Часто задаваемые вопросы</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <section class="faq">
+                <div class="container">
+                    <h2 class="faq__title section-title">Часто задаваемые вопросы</h2>
+                    <div class="faq__wrapper cabinet-numbers">
+                        <a href="faq-routes.html" class="cabinet-numbers__item">
+                            Маршруты
+                        </a>
+                        <a href="#" class="cabinet-numbers__item">
+                            Переезд
+                        </a>
+                        <a href="#" class="cabinet-numbers__item">
+                            Зоны отдыха
+                        </a>
+                        <a href="#" class="cabinet-numbers__item">
+                            Природа
+                        </a>
+                        <a href="#" class="cabinet-numbers__item">
+                            Особо охраняемые природные территории
+                        </a>
+                        <a href="#" class="cabinet-numbers__item">
+                            Дикие животные
+                        </a>
+                        <a href="#" class="cabinet-numbers__item">
+                            Магазин
+                        </a>
+                        <a href="#" class="cabinet-numbers__item">
+                            Бульдозеры
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+        @@include('./components/_footer.html')
+    </div>
+    @@include('./components/_fixed-menu.html')
+    @@include('./components/_popups.html')
+    @@include('./components/_scripts.html')
+    <script src="js/newScripts.js"></script>
+</body>
+
+</html>

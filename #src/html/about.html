@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yamal</title>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/jquery.mcustomscrollbar/3.0.6/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/last-syles.css">
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body>
+    <div class="site-content">
+        @@include('./components/_header.html')
+        <main class="page">
+            <div class="bread-crumbs">
+                <div class="container">
+                    <ul class="bread-crumbs__list">
+                        <li class="bread-crumbs__elem">
+                            <a href="/" class="bread-crumbs__link bread-crumbs__link--arrow">Главная</a>
+                        </li>
+                        <li class="bread-crumbs__elem">
+                            <a href="#" class="bread-crumbs__link">О Ямале</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <section class="about">
+                <div class="container">
+                    <div class="about__title section-title">О Ямале</div>
+                    <div class="about__wrapper">
+                        <div class="about-item">
+                            <div class="about-item__photo">
+                                <img src="img/about/img-1.png" alt="">
+                            </div>
+                            <div class="about-item__descr">Уникальный город на полярном круге</div>
+                        </div>
+                        <div class="about-item">
+                            <div class="about-item__photo">
+                                <img src="img/about/img-2.png" alt="">
+                            </div>
+                            <div class="about-item__descr">Полярный Урал ждет!</div>
+                        </div>
+                        <div class="about-item">
+                            <div class="about-item__photo">
+                                <img src="img/about/img-3.png" alt="">
+                            </div>
+                            <div class="about-item__descr">Традиции народов Ямала</div>
+                        </div>
+                        <div class="about-item">
+                            <div class="about-item__photo">
+                                <img src="img/about/img-4.png" alt="">
+                            </div>
+                            <div class="about-item__descr">По следам 501 стройки…</div>
+                        </div>
+                        <div class="about-item">
+                            <div class="about-item__photo">
+                                <img src="img/about/img-5.png" alt="">
+                            </div>
+                            <div class="about-item__descr">“Земля Надежды”</div>
+                        </div>
+                        <div class="about-item">
+                            <div class="about-item__photo">
+                                <img src="img/about/img-6.png" alt="">
+                            </div>
+                            <div class="about-item__descr">Кто такие Сихиртя?</div>
+                        </div>
+                        <div class="about-item">
+                            <div class="about-item__photo">
+                                <img src="img/about/img-7.png" alt="">
+                            </div>
+                            <div class="about-item__descr">Северное сияние</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            @@include('./components/_questions.html')
+        </main>
+        @@include('./components/_footer.html')
+    </div>
+    @@include('./components/_fixed-menu.html')
+    @@include('./components/_popups.html')
+    @@include('./components/_scripts.html')
+    <script src="js/newScripts.js"></script>
+</body>
+
+</html>

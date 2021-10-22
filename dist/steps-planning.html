@@ -634,7 +634,7 @@
             </div>
         </div>
     </div>
-    <div id="step_1" class="steps-planning__step steps-planning__step--1 show">
+    <div id="step_1" class="steps-planning__step steps-planning__step--1 ">
         <div class="container container-map">
             <div class="steps-planning__map custom-map">
                 <div class="custom-map__text custom-map__description">
@@ -1323,7 +1323,7 @@
     </div>
 </section>
     </div>
-    <div id="step_4" class="steps-planning__step steps-planning__step--4 ">
+    <div id="step_4" class="steps-planning__step steps-planning__step--4 show">
         <div class="container build-way__container">
             <div class="build-way">
                 <div class="build-way__header">
@@ -2720,6 +2720,439 @@
     <script
         src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAn4lOodBWISBVdVsAchtPd8eRRPgycYco&language=ru">
     </script>
+    <script src="js/datainit.js"></script>
+    <script>
+        // first-step map
+
+        mapsData.startMarkerFirst = [{
+                position: new google.maps.LatLng(66.86305851932107, 70.8545548132817),
+                map: map,
+                title: 'Яр-Сале',
+                icon: {
+                    url: "img/icon/marker-sound.svg",
+                    scaledSize: new google.maps.Size(39.69, 39.69)
+                },
+                label: {
+                    text: "Яр-Сале",
+                    color: "#213A8F",
+                    fontWeight: "bold",
+                    fontSize: "12px",
+                    className: "map-label"
+                }
+            },
+            {
+                position: new google.maps.LatLng(67.46201765996048, 78.70893018336228),
+                map: map,
+                title: 'Тазовский',
+                icon: {
+                    url: "img/icon/marker-sound.svg",
+                    scaledSize: new google.maps.Size(39.69, 39.69)
+                },
+                label: {
+                    text: "Тазовский",
+                    color: "#213A8F",
+                    fontWeight: "bold",
+                    fontSize: "12px",
+                    className: "map-label"
+                }
+            },
+            {
+                position: new google.maps.LatLng(66.55047769194653, 66.59826008447075),
+                map: map,
+                title: 'Салехард',
+                icon: {
+                    url: "img/icon/btn-location.svg",
+                    scaledSize: new google.maps.Size(32, 32)
+                },
+                label: {
+                    text: "Салехард",
+                    color: "#213A8F",
+                    fontWeight: "bold",
+                    fontSize: "12px",
+                    className: "map-label"
+                }
+            },
+            {
+                position: new google.maps.LatLng(66.09653540676248, 76.65587017293807),
+                map: map,
+                title: 'Новый Уренгой',
+                icon: {
+                    url: "img/icon/marker-sound.svg",
+                    scaledSize: new google.maps.Size(39.69, 39.69)
+                },
+                label: {
+                    text: "Новый Уренгой",
+                    color: "#213A8F",
+                    fontWeight: "bold",
+                    fontSize: "12px",
+                    className: "map-label"
+                }
+            },
+            {
+                position: new google.maps.LatLng(65.53514113422678, 72.50449449743208),
+                map: map,
+                title: 'Надым',
+                icon: {
+                    url: "img/icon/btn-location.svg",
+                    scaledSize: new google.maps.Size(32, 32)
+                },
+                label: {
+                    text: "Надым",
+                    color: "#213A8F",
+                    fontWeight: "bold",
+                    fontSize: "12px",
+                    className: "map-label"
+                }
+            },
+            {
+                position: new google.maps.LatLng(68.41641830907557, 73.12853422144906),
+                map: map,
+                title: 'Сабетта',
+                icon: {
+                    url: "img/icon/marker-sound.svg",
+                    scaledSize: new google.maps.Size(39.69, 39.69)
+                },
+                label: {
+                    text: "Сабетта",
+                    color: "#213A8F",
+                    fontWeight: "bold",
+                    fontSize: "12px",
+                    className: "map-label"
+                }
+            },
+        ];
+        mapsData.lightMarkerFirstMap = [{
+                position: new google.maps.LatLng(66.86305851932107, 70.8545548132817),
+                map: map,
+                title: 'Яр-Сале',
+                icon: {
+                    url: "img/icon/sound-marker.svg",
+                    scaledSize: new google.maps.Size(14, 14)
+                },
+                label: {
+                    text: "",
+                    color: "#213A8F",
+                    fontWeight: "bold",
+                    fontSize: "0px",
+                    className: "hide"
+                }
+            },
+            {
+                position: new google.maps.LatLng(67.46201765996048, 78.70893018336228),
+                map: map,
+                title: 'Тазовский',
+                icon: {
+                    url: "img/icon/sound-marker.svg",
+                    scaledSize: new google.maps.Size(14, 14)
+                },
+                label: {
+                    text: "",
+                    color: "#213A8F",
+                    fontWeight: "bold",
+                    fontSize: "0px",
+                    className: "hide"
+                }
+            },
+
+            {
+                position: new google.maps.LatLng(66.09653540676248, 76.65587017293807),
+                map: map,
+                title: 'Новый Уренгой',
+                icon: {
+                    url: "img/icon/sound-marker.svg",
+                    scaledSize: new google.maps.Size(14, 14)
+                },
+                label: {
+                    text: "",
+                    color: "#213A8F",
+                    fontWeight: "bold",
+                    fontSize: "0px",
+                    className: "hide"
+                }
+            },
+            {
+                position: new google.maps.LatLng(68.41641830907557, 73.12853422144906),
+                map: map,
+                title: 'Новый Уренгой',
+                icon: {
+                    url: "img/icon/sound-marker.svg",
+                    scaledSize: new google.maps.Size(14, 14)
+                },
+                label: {
+                    text: "",
+                    color: "#213A8F",
+                    fontWeight: "bold",
+                    fontSize: "0px",
+                    className: "hide"
+                }
+            },
+        ];
+        mapsData.cityMarkersFrom = [{
+                position: new google.maps.LatLng(55.7526903859156, 37.62987442234599),
+                map: map,
+                title: 'Москва',
+                icon: {
+                    url: "img/icon/btn-location.svg",
+                    scaledSize: new google.maps.Size(32, 32)
+                },
+                label: {
+                    text: "Москва",
+                    color: "#213A8F",
+                    fontWeight: "bold",
+                    fontSize: "12px",
+                    className: "map-label"
+                }
+            },
+            {
+                position: new google.maps.LatLng(61.36087770604348, 31.326917871606124),
+                map: map,
+                title: 'Санкт-Петербург',
+                icon: {
+                    url: "img/icon/btn-location.svg",
+                    scaledSize: new google.maps.Size(32, 32)
+                },
+                label: {
+                    text: "Санкт-Петербург",
+                    color: "#213A8F",
+                    fontWeight: "bold",
+                    fontSize: "12px",
+                    className: "map-label"
+                }
+            },
+            {
+                position: new google.maps.LatLng(45.03590893134328, 38.97089281611214),
+                map: map,
+                title: 'Краснодар',
+                icon: {
+                    url: "img/icon/btn-location.svg",
+                    scaledSize: new google.maps.Size(32, 32)
+                },
+                label: {
+                    text: "Краснодар",
+                    color: "#213A8F",
+                    fontWeight: "bold",
+                    fontSize: "12px",
+                    className: "map-label"
+                }
+            },
+        ];
+        // second-step map
+        mapsData.startMarkersHostelMap = [{
+                position: new google.maps.LatLng(66.53256297859949, 66.60141403516596),
+                map: map,
+                title: 'Хостел «Хмель и Соль»',
+                icon: {
+                    url: "img/icon/btn-location.svg",
+                    scaledSize: new google.maps.Size(32, 32)
+                },
+                label: {
+                    text: "Хостел «Хмель и Соль»",
+                    color: "#213A8F",
+                    fontWeight: "bold",
+                    fontSize: "12px",
+                    className: "map-label"
+                }
+
+            },
+            {
+                position: new google.maps.LatLng(66.52692261179189, 66.59257347430562),
+                map: map,
+                title: 'Тазовский',
+                icon: {
+                    url: "img/icon/btn-location.svg",
+                    scaledSize: new google.maps.Size(32, 32)
+                },
+                label: {
+                    text: "Тазовский",
+                    color: "#213A8F",
+                    fontWeight: "bold",
+                    fontSize: "12px",
+                    className: "map-label"
+                }
+            },
+            {
+                position: new google.maps.LatLng(66.53797994510903, 66.59587795576483),
+                map: map,
+                title: 'Хостел «Ямбург»',
+                icon: {
+                    url: "img/icon/btn-location.svg",
+                    scaledSize: new google.maps.Size(32, 32)
+                },
+                label: {
+                    text: "Хостел «Ямбург»",
+                    color: "#213A8F",
+                    fontWeight: "bold",
+                    fontSize: "12px",
+                    className: "map-label"
+                }
+            },
+            {
+                position: new google.maps.LatLng(66.53551938734692, 66.61205704031188),
+                map: map,
+                title: 'Хостел «У Урсулы»',
+                icon: {
+                    url: "img/icon/btn-location.svg",
+                    scaledSize: new google.maps.Size(32, 32)
+                },
+                label: {
+                    text: "Хостел «У Урсулы»",
+                    color: "#213A8F",
+                    fontWeight: "bold",
+                    fontSize: "12px",
+                    className: "map-label"
+                }
+            },
+            {
+                position: new google.maps.LatLng(66.52640978771203, 66.60338814095442),
+                map: map,
+                title: 'Хостел «Хмель и Соль»',
+                icon: {
+                    url: "img/icon/btn-location.svg",
+                    scaledSize: new google.maps.Size(32, 32)
+                },
+                label: {
+                    text: "Хостел «Хмель и Соль»",
+                    color: "#213A8F",
+                    fontWeight: "bold",
+                    fontSize: "12px",
+                    className: "map-label"
+                }
+            },
+            {
+                position: new google.maps.LatLng(66.524683202413, 66.59579212514542),
+                map: map,
+                title: 'Отель «Сибирь»',
+                icon: {
+                    url: "img/icon/btn-location.svg",
+                    scaledSize: new google.maps.Size(32, 32)
+                },
+                label: {
+                    text: "Отель «Сибирь»",
+                    color: "#213A8F",
+                    fontWeight: "bold",
+                    fontSize: "12px",
+                    className: "map-label"
+                }
+            },
+        ]
+        // thrid-step map
+        mapsData.startMarkersYourWay = [{
+                position: new google.maps.LatLng(66.54008719373186, 66.59395247904227),
+                map: map,
+                title: 'Центр города',
+                icon: {
+                    url: "img/icon/center-btn-location.svg",
+                    scaledSize: new google.maps.Size(32, 32)
+                },
+                label: {
+                    text: "",
+                    color: "#213A8F",
+                    fontWeight: "bold",
+                    fontSize: "0",
+                    className: "map-label"
+                }
+            },
+            {
+                position: new google.maps.LatLng(66.53256677261557, 66.61196913935893),
+                map: map,
+                title: 'Хостел «Хмель и Соль»',
+                icon: {
+                    url: "img/icon/btn-location.svg",
+                    scaledSize: new google.maps.Size(32, 32)
+                },
+                label: {
+                    text: "Хостел «Хмель и Соль»",
+                    color: "#213A8F",
+                    fontWeight: "bold",
+                    fontSize: "12px",
+                    className: "map-label"
+                }
+            },
+            {
+                position: new google.maps.LatLng(66.52692261179189, 66.59257347430562),
+                map: map,
+                title: 'Хостел «Хмель и Соль»',
+                icon: {
+                    url: "img/icon/btn-location.svg",
+                    scaledSize: new google.maps.Size(32, 32)
+                },
+                label: {
+                    text: "Тазовский",
+                    color: "#213A8F",
+                    fontWeight: "bold",
+                    fontSize: "12px",
+                    className: "map-label"
+                }
+            },
+            {
+                position: new google.maps.LatLng(66.53797994510903, 66.59587795576483),
+                map: map,
+                title: 'Хостел «Хмель и Соль»',
+                icon: {
+                    url: "img/icon/btn-location.svg",
+                    scaledSize: new google.maps.Size(32, 32)
+                },
+                label: {
+                    text: "Салехард",
+                    color: "#213A8F",
+                    fontWeight: "bold",
+                    fontSize: "12px",
+                    className: "map-label"
+                }
+            },
+            {
+                position: new google.maps.LatLng(66.53551938734692, 66.61205704031188),
+                map: map,
+                title: 'Хостел «Хмель и Соль»',
+                icon: {
+                    url: "img/icon/btn-location.svg",
+                    scaledSize: new google.maps.Size(32, 32)
+                },
+                label: {
+                    text: "Новый Уренгой",
+                    color: "#213A8F",
+                    fontWeight: "bold",
+                    fontSize: "12px",
+                    className: "map-label"
+                }
+            },
+            {
+                position: new google.maps.LatLng(66.52640978771203, 66.60338814095442),
+                map: map,
+                title: 'Хостел «Хмель и Соль»',
+                icon: {
+                    url: "img/icon/btn-location.svg",
+                    scaledSize: new google.maps.Size(32, 32)
+                },
+                label: {
+                    text: "Надым",
+                    color: "#213A8F",
+                    fontWeight: "bold",
+                    fontSize: "12px",
+                    className: "map-label"
+                }
+            },
+            {
+                position: new google.maps.LatLng(66.524683202413, 66.59579212514542),
+                map: map,
+                title: 'Хостел «Хмель и Соль»',
+                icon: {
+                    url: "img/icon/btn-location.svg",
+                    scaledSize: new google.maps.Size(32, 32)
+                },
+                label: {
+                    text: "Сабетта",
+                    color: "#213A8F",
+                    fontWeight: "bold",
+                    fontSize: "12px",
+                    className: "map-label"
+                }
+            },
+        ];
+        mapsData.markersRenderYourWay = [mapsData.startMarkersYourWay[1].position, mapsData.startMarkersYourWay[2]
+            .position, mapsData.startMarkersYourWay[3].position
+        ]
+    </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.js"
@@ -2738,6 +3171,7 @@
     integrity="sha512-oUUeA7VTcWBqUJD/VYCBB4VeIE0g1pg5aRMiSUOMGnNNeCLRS39OlkcyyeJ0hYx2h3zxmIWhyKiUXKkfZ5Wryg=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="js/script.js"></script>
+    <script src="js/maps.js"></script>
 </body>
 
 </html>
