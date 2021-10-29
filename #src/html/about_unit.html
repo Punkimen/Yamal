@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yamal</title>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/jquery.mcustomscrollbar/3.0.6/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/last-syles.css">
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body>
+    <div class="site-content">
+        @@include('./components/_header.html')
+        <main class="page">
+            <div class="bread-crumbs">
+                <div class="container">
+                    <ul class="bread-crumbs__list">
+                        <li class="bread-crumbs__elem">
+                            <a href="/" class="bread-crumbs__link bread-crumbs__link--arrow">Главная</a>
+                        </li>
+                        <li class="bread-crumbs__elem">
+                            <a href="#" class="bread-crumbs__link">О Ямале</a>
+                        </li>
+                        <li class="bread-crumbs__elem">
+                            <a href="#" class="bread-crumbs__link">Полярный Урал ждет!</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <section class="about-unit">
+                <div class="about-unit__container container">
+                    <div class="about-unit__banner about-banner">
+                        <div class="about-banner__photo" style="background-image: url(img/about/about-banner.jpg);">
+                        </div>
+                        <div class="about-banner__content">
+                            <div class="about-banner__title section-title">Полярный Урал ждет!</div>
+                            <div class="about-banner__text-block about-unit__text-block" data-aos="flip-right"
+                                data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+                                <p class="about-banner__text about-unit__text">Первозданность нетронутой человеком
+                                    природы, необъятные
+                                    горные массивы и бурлящие водные потоки - именно так можно описать красоту Полярного
+                                    Урала.
+                                    Вдыхая свежесть арктического воздуха, тяжело сказать, что где-то существует шумный
+                                    мегаполис и каждый день начинается настырно звенящим будильником и сигналами машин
+                                    под окном. </p>
+                                <p class="about-banner__text about-unit__text">Здесь время как будто остановилось, и
+                                    человек оказывается
+                                    один на один с Миром, чувствует свое полное единение с природой. Волшебная атмосфера
+                                    местности заманчиво манит к себе, словно в захватывающую книгу о приключениях, где
+                                    вам отведена роль главного героя.</p>
+                                <p class="about-banner__text about-unit__text">При этом отделяет столицу России и Урал
+                                    чуть меньше 3
+                                    часов самолетом...</p>
+                            </div>
+                            <div class="about-banner__fly-icon about-banner__fly-icon--first fly-icon rellax"
+                                data-rellax-speed="-2">
+                                <img src="img/icon/airplane.svg" alt="">
+                            </div>
+                            <div class="about-banner__fly-icon about-banner__fly-icon--second fly-icon rellax"
+                                data-rellax-speed="2">
+                                <img src="img/icon/autobrightness.svg" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="about-unit__feature about-feature">
+                        <div class="about-feature__top">
+                            <div class="about-feature__inner">
+                                <div class="about-feature__border-photo hover-photo rellax" data-rellax-speed="1"
+                                    data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+                                    <img src="img/about/feature/border-photo.png" alt="">
+                                </div>
+                                <div class="about-feature__content">
+                                    <div class="about-feature__title green-title" data-aos="fade-down"
+                                        data-aos-easing="ease-out-cubic" data-aos-duration="1200">В чем особенность
+                                        северного
+                                        полуострова на краю Земли?</div>
+                                    <div class="about-feature__text-block" data-aos="fade-up"
+                                        data-aos-easing="ease-out-cubic" data-aos-duration="1200">
+                                        <p class="about-unit__text">Ямал это - необъятные просторы лесотундр и тайга с
+                                            множеством озер, болот и
+                                            рек, холодное Карское море. Попадая в этот уголок Сибири, трудно представить
+                                            себе насколько велик этот край и где-же его границы. Не случайно, Ямал с
+                                            ненецкого переводится как край земли. </p>
+                                        <p class="about-unit__text">Уникальная флора и фауна Ямала удивляет своим
+                                            разнообразием. Сотни видов
+                                            пернатых, росомахи и бурые медведи, северные дикие олени и лоси, выдры и
+                                            соболи облюбовали эту местность и стали диковинкой для туристов. Растут на
+                                            Ямале хвойные и лиственные деревья, много здесь ягод.</p>
+                                        <p class="about-unit__text">Отличается регион продолжительной зимой с
+                                            незначительными осадками, коротким
+                                            холодным летом. В зимнее время часто можно увидеть северное сияние.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="about-feature__photos">
+                            <div class="about-feature__photo hover-photo rellax" data-rellax-speed="2"
+                                style="background-image: url(img/about/feature/photo_1.jpg);" data-aos="flip-left"
+                                data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+                                <!-- <img src="" alt=""> -->
+                            </div>
+                            <div class="about-feature__photo hover-photo rellax" data-rellax-speed="-2"
+                                style="background-image: url(img/about/feature/photo_2.jpg);" data-aos="flip-left"
+                                data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+                                <!-- <img src="img/about/feature/photo_2.jpg" alt=""> -->
+                            </div>
+                            <div class="about-feature__photo hover-photo rellax" data-rellax-speed="2"
+                                style="background-image: url(img/about/feature/photo_3.jpg);" data-aos="flip-right"
+                                data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+                                <!-- <img src="img/about/feature/photo_3.jpg" alt=""> -->
+                            </div>
+                        </div>
+                        <div class="about-feature__pattern-bg">
+                            <!-- <img src="img/banner-pattern.png" alt=""> -->
+                        </div>
+                    </div>
+                    <div class="about-unit__landmarks about-landmarks">
+                        <div class="about-landmarks__wrapper">
+                            <div class="about-landmarks__text-block about-unit__text-block">
+                                <div class="about-landmark__title green-title" data-aos="fade-down"
+                                    data-aos-easing="ease-out-cubic" data-aos-duration="800">Достопримечательности
+                                    Ямала</div>
+                                <p class="about-landmark__text about-unit__text" data-aos="fade-up"
+                                    data-aos-easing="ease-out-cubic" data-aos-duration="1000">Первые упоминания о
+                                    Ямальском крае
+                                    датируются XI веком. До наших дней сохранились уникальные археологические памятники
+                                    с древних времён.</p>
+                                <p class="about-landmark__text about-unit__text" data-aos="fade-up"
+                                    data-aos-easing="ease-out-cubic" data-aos-duration="1000">Можно воочию увидеть
+                                    древние святилища
+                                    и жилища, стойбища. Посетить Йоркутинскую стоянку и проследовать путями, которыми
+                                    добирались на Ямал новгородские купцы в былые времена.</p>
+                                <p class="about-landmark__text about-unit__text" data-aos="fade-up"
+                                    data-aos-easing="ease-out-cubic" data-aos-duration="1000">На Ямале можно посмотреть
+                                    на останки
+                                    мамонтенка Любы, самого сохранившегося экспоната мамонта на всей планете,
+                                    пролежавшего в земле целых 42 тысячи лет!</p>
+                                <p class="about-landmark__text about-unit__text" data-aos="fade-up"
+                                    data-aos-easing="ease-out-cubic" data-aos-duration="1000">Посетить Обдорский острог,
+                                    уникальный
+                                    архитектурный деревянный комплекс, построенный без единого гвоздя.</p>
+                                <p class="about-landmark__text about-unit__text" data-aos="fade-up"
+                                    data-aos-easing="ease-out-cubic" data-aos-duration="1000">Получить сертификат на
+                                    память о
+                                    пересечении Полярного круга в городе Салехард - единственном городе во всем мире,
+                                    который находится на линии Северного полярного круга.</p>
+                                <p class="about-landmark__text about-unit__text" data-aos="fade-up"
+                                    data-aos-easing="ease-out-cubic" data-aos-duration="1000">Навестить местного Деда
+                                    Мороза - Ямал
+                                    Ири. «Работает» он круглый год и всех своих гостей встречает подарками и сладкими
+                                    угощениями.</p>
+                            </div>
+                            <div class="about-landmarks__back">
+                                <div class="about-landmarks__back-photo hover-photo rellax" data-rellax-speed="2">
+                                    <img src="img/about/landmarks/photo_1.jpg" alt="">
+                                    <div class="about-landmarks__fly-icon about-landmarks__fly-icon--first fly-icon rellax"
+                                        data-rellax-speed="3">
+                                        <img src="img/icon/unlimited.svg" alt="">
+                                    </div>
+                                </div>
+                                <div class="about-landmarks__back-photo hover-photo rellax" data-rellax-speed="-2">
+                                    <img src="img/about/landmarks/photo_2.jpg" alt="">
+                                    <div class="about-landmarks__fly-icon about-landmarks__fly-icon--second fly-icon rellax"
+                                        data-rellax-speed="-3">
+                                        <img src="img/icon/ranking.svg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-unit__active about-active">
+                        <div class="about-active__wrapper">
+                            <div class="about-active__content">
+                                <div class="about-active__title green-title" data-aos="fade-down"
+                                    data-aos-easing="ease-out-cubic" data-aos-duration="1000">Активный отдых на Полярном
+                                    Урале</div>
+                                <div class="about-active__text-block" data-aos="fade-up"
+                                    data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+                                    <p class="about-unit__text">Экстремальные климатические условия просто созданы для
+                                        активных видов спорта. Бесконечные снежные просторы идеально подходят для
+                                        катания на вездеходов и трекинга. </p>
+                                    <p class="about-unit__text">Природа Севера наполнит вас зарядом энергии, удивит
+                                        своим величием.</p>
+                                    <p class="about-unit__text">Выбор за вами: отправиться к древнему леднику Романтиков
+                                        или насладиться водопадами Нефритовой долины.</p>
+                                    <p class="about-unit__text">Более размеренный вариант отдыха - прогулки в упряжке с
+                                        оленями. На Ямале находится самое большое в мире оленье стадо, а весной здесь
+                                        проходит традиционное празднество - День оленевода. Красочный и яркий праздник.
+                                    </p>
+                                    <p class="about-unit__text">Не стоит забывать, что Ямал - рыбацкий край и придется
+                                        по вкусу ценителям рыбалки. На спокойных берегах, окаймленных елями и кедрами,
+                                        можно поймать трофеи: нельму весом до 50 кг, муксуна, окуня, язя,налима,тайменя
+                                        и других сибирских богатырей.</p>
+                                </div>
+                            </div>
+                            <div class="about-active__photo hover-photo rellax" data-rellax-speed="2">
+                                <img src="img/about/active/photo_1.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="about-active__big-photo">
+                            <img src="img/about/active/big-photo.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="about-unit__feature about-feature about-feature--hospitality">
+                        <div class="about-feature__top">
+                            <div class="about-feature__inner">
+                                <div class="about-feature__border-photo hover-photo rellax" data-rellax-speed="-2">
+                                    <img src="img/about/active/photo_4.jpg" alt="">
+                                    <div class="hospitality__fly-icon fly-icon rellax" data-rellax-speed="2">
+                                        <img src="img/icon/home.svg" alt="">
+                                    </div>
+                                </div>
+                                <div class="about-feature__content">
+                                    <div class="about-feature__title green-title" data-aos="fade-down"
+                                        data-aos-easing="ease-out-cubic" data-aos-duration="1000">В чем особенность
+                                        северного
+                                        полуострова на краю Земли?</div>
+                                    <div class="about-feature__text-block" data-aos="fade-up"
+                                        data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+                                        <p class="about-unit__text">Для тех, кто хочет прочувствовать национальный
+                                            колорит есть возможность остановиться у коренных жителей в чуме. Главная
+                                            фишка состоит в том, что принять вас могут местные и жить вы будете не в
+                                            гостевом домике, а в настоящем традиционном жилище. Это уникальная
+                                            возможность узнать быт и традиции удивительного северного народа, ближе
+                                            коснуться их культуры.</p>
+                                        <p class="about-unit__text">Те, кто не готов отказаться от благ цивилизации,
+                                            могут расположиться в гостинице.</p>
+                                        <p class="about-unit__text">Отличается регион продолжительной зимой с
+                                            незначительными осадками, коротким
+                                            холодным летом. В зимнее время часто можно увидеть северное сияние.</p>
+                                        <p class="about-unit__text">Гастрономический мир Ямала имеет свой особенный
+                                            «вкус». В первую очередь пища простая в приготовлении и сытная, чтобы
+                                            поддерживать организм в холодных погодных условиях.</p>
+                                        <p class="about-unit__text">Особенность в том, что вся кухня здесь представлена
+                                            вареными и вялеными блюдами, здесь еду не жарят, да и в целом многие яства
+                                            употребляются в сыром виде.</p>
+                                        <p class="about-unit__text">Уникальны стейки и вяленое мясо из оленины, рыбная
+                                            строганина, отварная дичь, уха. Популярны пироги с северными ягодами
+                                            (брусника, морошка, водяника).</p>
+                                        <p class="about-unit__text">Традиционное блюдо жителей Ямала суп «я». С
+                                            ненецкого «я» переводится как земля, мука, а готовится блюдо из ржаной муки.
+                                        </p>
+                                        <p class="about-unit__text">Описать весь колорит и аутентичность Ямала в одной
+                                            статье невозможно. Чтобы прочувствовать эту магию, необходимо побывать там.
+                                        </p>
+                                        <p class="about-unit__text">Посетив Ямало-Ненецкий край, вы откроете для себя
+                                            новый мир ощущений и совершенно иной взгляд на жизнь. Приоткройте дверь в
+                                            мир полярной сказки Ямала.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="recomeded-tour">
+                <div class="container">
+                    <div class="recomeded-tour__title section-title">Туры, которые могут вас заинтересовать</div>
+                </div>
+                <div class="container container-goods">
+                    <div class="photos__wrapper goods-wrapper swiper">
+                        <div class="swiper-wrapper">
+                            <a href="#" class="photos__wrapper-item photo swiper-slide">
+                                <div class="photo__img">
+                                    <img src="img/photo-1.png" alt="Тур по Ямалу">
+                                </div>
+                                <div class="photo__descr">
+                                    <div class="descr-block__title">Тур по Ямалу</div>
+                                    <div class="descr-block__text">3 дня 2 ночи</div>
+                                </div>
+                            </a>
+                            <a href="#" class="photos__wrapper-item photo swiper-slide">
+                                <div class="photo__img">
+                                    <img src="img/photo-2.png" alt="Культурная программа">
+                                </div>
+                                <div class="photo__descr">
+                                    <div class="descr-block__title">Культурная программа</div>
+                                    <div class="descr-block__text">2 дня</div>
+                                </div>
+                            </a>
+                            <a href="#" class="photos__wrapper-item photo swiper-slide">
+                                <div class="photo__img">
+                                    <img src="img/photo-3.png" alt="Этнографические парки">
+                                </div>
+                                <div class="photo__descr">
+                                    <div class="descr-block__title">Этнографические парки</div>
+                                    <div class="descr-block__text">7 дней 6 ночей</div>
+                                </div>
+                            </a>
+                            <a href="#" class="photos__wrapper-item photo swiper-slide">
+                                <div class="photo__img">
+                                    <img src="img/photo-4.png" alt="Восхождение на гору">
+                                </div>
+                                <div class="photo__descr">
+                                    <div class="descr-block__title">Восхождение на гору</div>
+                                    <div class="descr-block__text">Восхождение на гору</div>
+                                </div>
+                            </a>
+                            <a href="#" class="photos__wrapper-item photo swiper-slide">
+                                <div class="photo__img">
+                                    <img src="img/photo-2.png" alt="Культурная программа">
+                                </div>
+                                <div class="photo__descr">
+                                    <div class="descr-block__title">Культурная программа</div>
+                                    <div class="descr-block__text">2 дня</div>
+                                </div>
+                            </a>
+                            <a href="#" class="photos__wrapper-item photo swiper-slide">
+                                <div class="photo__img">
+                                    <img src="img/photo-3.png" alt="Этнографические парки">
+                                </div>
+                                <div class="photo__descr">
+                                    <div class="descr-block__title">Этнографические парки</div>
+                                    <div class="descr-block__text">7 дней 6 ночей</div>
+                                </div>
+                            </a>
+                            <a href="#" class="photos__wrapper-item photo swiper-slide">
+                                <div class="photo__img">
+                                    <img src="img/photo-4.png" alt="Восхождение на гору">
+                                </div>
+                                <div class="photo__descr">
+                                    <div class="descr-block__title">Восхождение на гору</div>
+                                    <div class="descr-block__text">Восхождение на гору</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <button type="button" class="slick-arrow goods-arrow__next btn">
+                        <svg class="">
+                            <use xlink:href="./img/icons/icons.svg#arrow-slide"></use>
+                        </svg>
+                    </button>
+                </div>
+            </section>
+
+        </main>
+        @@include('./components/_footer.html')
+    </div>
+    @@include('./components/_fixed-menu.html')
+    @@include('./components/_popups.html')
+    @@include('./components/_scripts.html')
+    <script src="js/newScripts.js"></script>
+</body>
+
+</html>

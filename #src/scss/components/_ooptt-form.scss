@@ -1,0 +1,13 @@
+.ooptt-form {
+    padding: 0;
+
+    .ooptt-form__checkbox {
+        &:not(:last-child) {
+            margin-bottom: 10px;
+        }
+    }
+
+    .fixed-pay__form-checkboxes {
+        margin-bottom: 15px;
+    }
+}

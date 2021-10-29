@@ -1,0 +1,134 @@
+.site-map {
+    padding-bottom: 150px;
+
+    @media(max-width: $md4) {
+        padding-bottom: 100px;
+    }
+
+    &__title {
+        padding-left: 60px;
+        margin-bottom: 70px;
+
+        @media(max-width: $md3) {
+            padding-left: 0;
+        }
+
+        @media(max-width: $md4) {
+            margin-bottom: 50px;
+        }
+    }
+
+    &__wrapper {
+        padding-left: 60px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+
+        @media(max-width: $md3) {
+            padding-left: 0;
+        }
+    }
+
+    &__left {
+        flex-grow: 1;
+        margin-right: 30px;
+
+        @media(max-width: $md5) {
+            margin-right: 0;
+        }
+    }
+
+    &__nav {
+        @media(max-width: $md5) {
+            font-size: 14px;
+            line-height: 20px;
+        }
+    }
+
+    &__nav-item {
+        &:not(:last-child) {
+            margin-bottom: 34px;
+        }
+    }
+
+    &__nav-link-main {
+        font-weight: bold;
+        color: $colorGreen;
+    }
+
+    &__nav-list {
+        position: relative;
+        padding-left: 40px;
+        margin-top: 20px;
+
+        &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 10px;
+            bottom: 13px;
+            width: 2px;
+            background: $colorGreen;
+        }
+    }
+
+    &__nav-elem {
+        &:not(:last-child) {
+            margin-bottom: 10px;
+        }
+    }
+
+    &__nav-link {
+        color: $colorBlue;
+    }
+
+    &__nav-sublist {
+        position: relative;
+        padding-left: 40px;
+
+        &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 10px;
+            bottom: 13px;
+            width: 2px;
+            background: $colorBlue;
+        }
+    }
+
+    &__right {
+        max-width: 240px;
+        width: 100%;
+
+        @media(max-width: $md3) {
+            max-width: 180px;
+        }
+
+        @media(max-width: $md5) {
+            display: none;
+        }
+    }
+
+    &__photos {}
+
+    &__photo {
+        &:not(:last-child) {
+            margin-bottom: 72px;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+    }
+}
+
+.container {}
+
+.section-title {}
+
+.hover-photo {}

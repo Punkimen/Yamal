@@ -328,7 +328,7 @@ $(document).ready(function () {
                         $('body').addClass('overlay');
                         $(el).addClass('show');
                     };
-                    showPopup('#preloader');
+                    // showPopup('#preloader');
                     $('#preloader').addClass('sizing')
                     const closeModal = () => {
                         $('.popup').removeClass('show');
@@ -813,13 +813,13 @@ $(document).ready(function () {
                 dateList.append(dateElem)
             })
         };
-
-        new Sortable(drag_1, {
-            animation: 150,
-            ghostClass: 'blue-background-class',
-            filter: '.no-drag'
-        });
-
+        if ($('#step_4').length !== 0) {
+            new Sortable(drag_1, {
+                animation: 150,
+                ghostClass: 'blue-background-class',
+                filter: '.no-drag'
+            });
+        }
         function SortableInit(elements) {
             elements.forEach(el => {
                 new Sortable(el, {
@@ -1018,6 +1018,7 @@ $(document).ready(function () {
         $('#pas-reset').validate();
         $('#change-data-form').validate();
         $('#create-elem').validate();
+
         $('.enter-next-btn').on('click', function (e) {
             e.preventDefault();
             if ($('#enter-phone').valid()) {
@@ -1059,6 +1060,8 @@ $(document).ready(function () {
                 showHideWindow(window)
             }
         })
+
+
         $('#reset-pas-btn').on('click', function (e) {
             e.preventDefault();
             let window = $(this).attr('data-open');
@@ -1110,7 +1113,8 @@ $(document).ready(function () {
         })
         $('.choosen-radio').on('click', function () {
             if ($(this).parents('.custom-select')) {
-                let value = $(this).parent().text()
+                let value = $(this).parent().text();
+                $(this).parents('.custom-select').addClass('filed')
                 $(this).parents('.custom-select').find('.custom-select__current-elem').text(value);
                 $('.custom-select__header').removeClass('active')
                 $(this).parents('.custom-select').find('.custom-select__header').removeClass('active')

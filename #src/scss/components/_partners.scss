@@ -1,0 +1,150 @@
+.partners {
+    @media(max-width: $md5) {
+        padding-top: 30px;
+    }
+
+    &__block {
+        margin-bottom: 187px;
+
+        @media(max-width: $md3) {
+            margin-bottom: 130px;
+        }
+
+        @media(max-width: $md5) {
+            margin-bottom: 90px;
+        }
+    }
+
+    .banner__photos {
+        top: 32px;
+
+        @media(max-width:$md2) {}
+    }
+
+    .photo-block:first-child {
+        bottom: 22%;
+        right: 92%;
+
+        @media(max-width:$md2) {
+            right: 70%;
+        }
+
+        @media(max-width:$md3) {
+            right: 33%;
+        }
+    }
+
+}
+
+.banner-partner {
+    .banner__title {
+        max-width: 500px;
+    }
+
+    .banner__content {
+        width: 100%;
+    }
+}
+
+.banner__btns {
+    display: flex;
+
+    .btn:not(:last-child) {
+        margin-right: 24px;
+    }
+}
+
+.partners__fly-icon {
+    position: absolute;
+    z-index: 3;
+
+    @media(max-width: $md4) {
+        display: none;
+    }
+
+    &--center-bottom {
+        bottom: -28px;
+        left: 43%;
+        transform: translateX(-50%);
+    }
+
+    &--right {
+        top: 80px;
+        right: 51px;
+
+        @media(max-width:$md3) {
+            top: -15px;
+            right: 0;
+        }
+    }
+}
+
+.banner-partner--hotel {
+    .partners__fly-icon {
+        position: absolute;
+        z-index: 3;
+
+        &--right {
+            top: 15px;
+            right: 140px;
+
+            @media(max-width:$md3) {
+                top: -15px;
+                right: 0;
+            }
+        }
+    }
+}
+
+.banner-partner--tour {
+    .partners__fly-icon {
+        position: absolute;
+        z-index: 3;
+
+        &--right {
+            top: 80px;
+            right: 295px;
+
+            @media(max-width:$md3) {
+                top: -15px;
+                right: 0;
+            }
+        }
+    }
+}
+
+.partners-more {
+    &__title {
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 32px;
+        margin-bottom: 32px;
+    }
+
+    &__nav {
+        width: auto;
+    }
+
+    .playbill__categoryes {
+        display: block;
+    }
+
+    .playbill-category {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        flex: 1;
+        width: 100%;
+        border: 2px solid $colorGreen;
+
+        &:hover {
+            background: $colorGreen;
+            color: #fff;
+        }
+
+        @media(max-width: $md3) {
+            flex: auto;
+        }
+    }
+}

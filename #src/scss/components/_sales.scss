@@ -59,6 +59,7 @@
     &__container {
         position: relative;
         padding-right: 84px;
+        height: 100%;
 
         @media(max-width: $md3) {
             padding-right: 24px;
@@ -109,6 +110,7 @@
             padding-top: 33px;
             padding-bottom: 49px;
             padding-right: 0;
+            width: 100%;
         }
 
         @media(max-width: $md4) {

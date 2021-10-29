@@ -1,0 +1,518 @@
+.aurora-block {
+    margin-bottom: 100px;
+
+    @media(max-width: $md4) {
+        padding-top: 20px;
+        margin-bottom: 250px;
+    }
+}
+
+.aurora-photos {
+    margin-bottom: 150px;
+
+    @media(max-width: $md4) {
+        margin-bottom: 100px;
+    }
+
+    &__level {}
+
+    &__level-inner {
+        position: relative;
+        z-index: 5;
+    }
+
+    &__wrapper {
+        margin-top: -75px;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+
+        @media(max-width: $md4) {
+            display: none;
+        }
+    }
+
+    &__photo {
+        &:not(:last-child) {
+            margin-right: 72px;
+
+            @media(max-width: $md2) {
+                margin-right: 0;
+            }
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    &__top {
+        padding-left: 80px;
+
+        @media(max-width: $md4) {
+            padding-left: 0;
+        }
+
+    }
+}
+
+.light-level {
+    min-height: 200px;
+    background: linear-gradient(270deg, #009974 0%, #213A8F 100%);
+    box-shadow: 0px 7px 40px -7px rgba(0, 0, 0, 0.3);
+    margin-right: 0;
+    margin-left: auto;
+    position: relative;
+    max-width: 1040px;
+    width: 100%;
+    z-index: 5;
+    padding-left: 130px;
+    border-radius: 12px;
+
+    @media(max-width: $md2) {
+        // max-width: 720px;
+        margin-bottom: 70px;
+        display: flex;
+        align-items: center;
+    }
+
+    @media(max-width: $md4) {
+        margin-bottom: 50px;
+        padding-left: 10px;
+    }
+
+    #planet {
+        position: absolute;
+        top: -90px;
+        left: -167px;
+        display: inline-block;
+
+        @media(max-width: $md4) {
+            top: -30px;
+            left: 50%;
+            transform: translate(-50%, -50%)
+        }
+    }
+
+    #globe {
+        transform: scale(0.5);
+    }
+
+    // &::before {
+    //     content: url(../img/aurora/planet.png);
+    //     position: absolute;
+    //     display: block;
+    //     left: -100px;
+    //     top: 0;
+
+    //     @media(max-width: $md4) {
+    //         top: -162px;
+    //         left: 50%;
+    //         transform: translateX(-50%);
+    //     }
+    // }
+
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__text-block {
+        padding: 10px 0;
+        max-width: 320px;
+        color: #fff;
+        margin-right: 20px;
+    }
+
+    &__title {
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 32px;
+        margin-bottom: 12px;
+    }
+
+    &__text {}
+
+    &__block {
+        max-width: 480px;
+        width: 100%;
+        padding: 32px 40px 32px 40px;
+        background: #f2f2f2;
+        box-shadow: 0px 7px 40px -7px rgba(0, 0, 0, 0.3);
+        border-radius: 12px;
+        position: relative;
+        z-index: 2;
+
+        @media(max-width:$md2) {
+            margin: 0 auto;
+        }
+
+        @media(max-width: $md4) {
+            display: none;
+        }
+    }
+
+    &__block-header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    &__block-label {
+        padding-left: 42px;
+        position: relative;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 32px;
+        color: #213A8F;
+
+        &::before {
+            content: url(../img/icon/sound-blue.svg);
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+
+    &__block-level {
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 32px;
+        color: $colorGreen;
+    }
+
+    &__block-dates {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    &__block-date {
+        cursor: pointer;
+        text-decoration: underline;
+        color: $colorBlue;
+
+        &.current {
+            text-decoration: none;
+            color: $colorGreen;
+        }
+
+        &:not(:last-child) {
+            margin-right: 10px;
+        }
+    }
+
+    &__block-levels {
+        display: flex;
+    }
+
+    &__block-num {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 32px;
+        width: 40px;
+        height: 40px;
+        color: #fff;
+
+        &.unactive {
+            color: #E4E4E4 !important;
+            background-color: #fff !important;
+        }
+    }
+}
+
+.aurora-widjet {
+    display: none;
+
+    @media(max-width: $md4) {
+        display: block;
+        max-width: 300px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .widjets-block {
+        max-width: 100%;
+    }
+
+    .northern-lights-arrow__prev {
+        top: 37px !important;
+    }
+
+    .northern-lights-arrow__next {
+        top: 37px !important;
+    }
+}
+
+
+
+.aurora-content {
+    position: relative;
+    padding-bottom: 150px;
+
+    &__pattern-bg {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 74px;
+        background-image: url(../img/Illustration-line.png);
+        background-repeat: repeat-y;
+        background-size: contain;
+        width: 170px;
+        height: 100%;
+        z-index: -1;
+
+        @media(max-width: $md3) {
+            right: 0;
+        }
+
+        @media(max-width: $md4) {
+            display: none;
+        }
+    }
+
+    &__block {
+        &:not(:last-child) {
+            margin-bottom: 150px;
+
+            @media(max-width: $md4) {
+                margin-bottom: 70px;
+            }
+        }
+    }
+
+    &__block-wrapper {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+
+    &__text-block {
+        max-width: 660px;
+        width: 100%;
+    }
+
+    &__text {
+        p {
+            display: block;
+
+            &:not(:last-child) {
+                margin-bottom: 24px;
+            }
+        }
+    }
+
+    &__title {
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 32px;
+        color: $colorGreen;
+        margin-bottom: 32px;
+    }
+
+    &__fly-icon {
+        @media(max-width: $md5) {
+            display: none;
+        }
+    }
+
+    &__fly-icon--left {
+        top: 100px;
+        left: -34px;
+    }
+
+    &__photos {
+        position: relative;
+        display: flex;
+        margin-top: -150px;
+        margin-bottom: 150px;
+
+        @media(max-width: $md2) {
+            margin-top: -120px;
+        }
+
+        @media(max-width: $md4) {
+            margin-top: -20px;
+        }
+    }
+
+    &__photo {
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        &:not(:last-child) {
+            margin-right: 72px;
+
+            @media(max-width: $md3) {
+                margin-right: 0;
+            }
+        }
+    }
+
+    &__photo--inContent {
+        @media(max-width: $md2) {
+            display: none;
+        }
+    }
+
+    &__list {
+        margin-bottom: 40px;
+        margin-top: 40px;
+    }
+
+    &__elem {
+        position: relative;
+        padding-left: 48px;
+
+        &:not(:last-child) {
+            margin-bottom: 14px;
+        }
+
+        &::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: $colorGreen;
+            position: absolute;
+            top: 12px;
+            left: 0;
+        }
+    }
+}
+
+.aurora-map__inner {
+    position: relative;
+    margin-bottom: 100px;
+
+    @media(max-width: $md3) {
+        display: none;
+    }
+}
+
+#aurora-map {
+    min-height: 372px;
+}
+
+.aurora-beauty {
+    position: relative;
+    margin-bottom: 150px;
+
+    @media(max-width: $md3) {
+        display: none;
+    }
+
+    &__fly-icon {
+        z-index: 6;
+    }
+
+    &__fly-1 {
+        position: absolute;
+        left: 6%;
+        bottom: 15%;
+    }
+
+    &__fly-2 {
+        position: absolute;
+        left: 17%;
+        top: 2%;
+    }
+
+    &__fly-3 {
+        position: absolute;
+        right: 12%;
+        bottom: 2%;
+    }
+
+    &__fly-4 {
+        position: absolute;
+        right: 1%;
+        top: 2%;
+
+        &.rellax {
+            z-index: 5;
+        }
+    }
+
+    &__wrapper {
+        display: flex;
+        min-height: 960px;
+    }
+
+    &__text-block {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 5;
+    }
+
+    &__title {
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 32px;
+        color: $colorGreen;
+        margin-bottom: 32px;
+    }
+
+    &__text {
+        p {
+            &:not(:last-child) {
+                margin-bottom: 24px;
+            }
+        }
+    }
+
+    &__photos {
+        padding-top: 40px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    &__photo {
+
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        &:last-child {
+            position: relative;
+            top: 200px;
+        }
+    }
+
+    &__photo--bottom {
+        align-self: flex-end;
+        // display: flex;
+        // flex-direction: column;
+        // justify-content: flex-end;
+        // align-items: flex-end;
+    }
+
+    &__fly-icon {}
+}
+
+.about-unit {
+
+    &__text-block {}
+}
+
+.hover-photo {}
+
+.fly-icon {}
+
+.rellax {}

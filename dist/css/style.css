@@ -2784,6 +2784,7 @@ body[data-aos-easing=ease-in-out-quart] [data-aos] {
 .banner__container {
   position: relative;
   padding-right: 84px;
+  height: 100%;
 }
 
 .banner__container::after {
@@ -3324,6 +3325,7 @@ body[data-aos-easing=ease-in-out-quart] [data-aos] {
   min-width: 165px;
   display: block;
   max-width: 100%;
+  width: 100%;
   height: auto;
 }
 
@@ -4035,6 +4037,10 @@ body[data-aos-easing=ease-in-out-quart] [data-aos] {
 .custom-select.filed .custom-select__header {
   color: #009974;
   border-color: #009974;
+}
+
+.custom-select.filed .custom-select__current-elem.default {
+  color: #009974;
 }
 
 .custom-select.error::after {
@@ -7948,6 +7954,7 @@ body[data-aos-easing=ease-in-out-quart] [data-aos] {
     padding-top: 33px;
     padding-bottom: 49px;
     padding-right: 0;
+    width: 100%;
   }
 
   .banner__title {

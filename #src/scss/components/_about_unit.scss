@@ -1,0 +1,413 @@
+.about-unit {
+    background: #f2f2f2;
+
+    .container {
+        @media(max-width: $md5) {
+            padding: 0 10px;
+        }
+    }
+
+    &__text {
+        &:not(:last-child) {
+            margin-bottom: 24px;
+        }
+    }
+
+    &__text-block {
+        padding: 50px 67px 50px 60px;
+        max-width: 780px;
+        width: 100%;
+        background: #F2F2F2;
+        box-shadow: 0px 7px 40px -7px rgba(0, 0, 0, 0.3);
+        border-radius: 12px;
+
+        @media(max-width: $md3) {
+            max-width: 540px;
+        }
+
+        @media(max-width: $md5) {
+            padding: 0;
+            width: 100%;
+            border-radius: 0;
+            box-shadow: none;
+            background: none;
+        }
+    }
+}
+
+.about-banner {
+
+
+    &__photo {
+        min-height: 480px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+
+        @media(max-width: $md5) {
+            min-height: 320px;
+        }
+    }
+
+    &__content {
+        position: relative;
+        margin-top: -24%;
+
+
+        @media(max-width: $md5) {
+            background: #f2f2f2;
+            padding: 24px 10px;
+            margin-top: 0;
+        }
+
+    }
+
+    &__title {
+        color: #fff;
+        padding-left: 60px;
+        margin-bottom: 50px;
+
+        @media(max-width: $md3) {
+            max-width: 540px;
+            padding-left: 0;
+            text-align: center;
+        }
+
+        @media(max-width: $md5) {
+            text-align: left;
+            color: #000;
+            margin-bottom: 24px;
+        }
+    }
+
+    &__text-block {}
+
+    &__fly-icon {
+        @media(max-width: $md3) {
+            display: none;
+        }
+
+        &--first {
+            left: 748px;
+            bottom: 75px;
+        }
+
+        &--second {
+            bottom: 207px;
+            right: 60px;
+        }
+    }
+}
+
+.about-unit {
+
+    &__feature {}
+
+
+}
+
+.about-unit {
+
+    &__feature {}
+}
+
+.about-feature {
+    padding-top: 151px;
+    position: relative;
+    margin-bottom: 150px;
+
+    @media(max-width: $md5) {
+        padding-top: 70px;
+        margin-bottom: 70px;
+    }
+
+    &__top {
+        position: relative;
+        z-index: 4;
+        margin-bottom: 72px;
+    }
+
+    &__inner {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding-right: 62px;
+
+        @media(max-width: $md3) {
+            padding-right: 0px;
+        }
+    }
+
+    &__border-photo {
+        max-width: 240px;
+        width: 100%;
+        margin-right: 50px;
+
+        @media(max-width: $md3) {
+            display: none;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    &__content {
+        max-width: 657px;
+        width: 100%;
+
+        @media(max-width: $md3) {
+            max-width: 540px;
+            margin-left: auto;
+        }
+    }
+
+    &__title {}
+
+    &__text-block {}
+
+    &__photos {
+        display: flex;
+
+        @media(max-width: $md5) {
+            display: none;
+        }
+    }
+
+    &__photo {
+        min-height: 480px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+
+        &:not(:last-child) {
+            margin-right: 6%;
+
+            @media(max-width: $md3) {
+                margin-right: 0;
+            }
+        }
+
+        &:first-child {
+            width: 40%;
+
+            @media(max-width: $md3) {
+                width: 50%;
+            }
+        }
+
+        &:nth-child(2) {
+            width: 28%;
+
+            @media(max-width: $md3) {
+                width: 25%;
+            }
+        }
+
+        &:last-child {
+            width: 20%;
+
+            @media(max-width: $md3) {
+                width: 25%;
+            }
+        }
+    }
+
+    &__pattern-bg {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 180px;
+        background-image: url(../img/Illustration-line.png);
+        background-repeat: repeat-y;
+        background-size: contain;
+        width: 170px;
+        height: 100%;
+        z-index: -1;
+
+        @media(max-width: $md3) {
+            left: 0;
+        }
+    }
+}
+
+.about-landmarks {
+    margin-bottom: 150px;
+    padding-bottom: 113px;
+    position: relative;
+
+    @media(max-width: $md5) {
+        padding-bottom: 0;
+        margin-bottom: 70px;
+    }
+
+    &__text-block {
+        position: relative;
+        z-index: 4;
+    }
+
+    &__back {
+        padding-top: 53px;
+        display: flex;
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        @media(max-width: $md4) {
+            display: none;
+        }
+    }
+
+    &__back-photo {
+        &:first-child {
+            top: 200px;
+
+            @media(max-width: $md3) {
+                top: 280px;
+            }
+        }
+
+        &:not(:last-child) {
+            margin-right: 72px;
+            position: relative;
+
+            @media(max-width: $md3) {
+                margin-right: 0;
+            }
+        }
+    }
+
+    &__fly-icon {
+        @media(max-width: $md3) {
+            display: none;
+        }
+    }
+
+    &__fly-icon--first {
+        position: absolute;
+        right: -33px;
+        bottom: 83px;
+    }
+
+    &__fly-icon--second {
+        position: absolute;
+        left: -33px;
+        top: -33px;
+
+    }
+}
+
+.about-active {
+    margin-bottom: 150px;
+
+    @media(max-width: $md4) {
+        margin-bottom: 70px;
+    }
+
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 150px;
+
+        @media(max-width: $md4) {
+            margin-bottom: 70px;
+        }
+    }
+
+    &__content {
+        max-width: 660px;
+        width: 100%;
+        margin-right: 20px;
+
+        @media(max-width: $md3) {
+            max-width: 540px;
+        }
+    }
+
+    &__title {}
+
+    &__text-block {}
+
+    &__photo {
+        max-width: 332px;
+        width: 100%;
+
+        @media(max-width: $md3) {
+            display: none;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    &__big-photo {
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+    }
+}
+
+.about-feature {}
+
+.hospitality__fly-icon {
+    position: absolute;
+    bottom: -33px;
+    right: -33px;
+    z-index: 2;
+}
+
+.hover-photo {
+    position: relative;
+    filter: grayscale(100%);
+    transition: all .2s;
+
+    @media(max-width: $md3) {
+        filter: grayscale(0%);
+    }
+
+    &:hover {
+        filter: grayscale(0%);
+    }
+}
+
+.about-feature.about-feature--hospitality {
+    padding-top: 0;
+}
+
+.green-title {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
+    color: $colorGreen;
+    margin-bottom: 32px;
+
+    @media(max-width: $md3) {
+        margin-bottom: 28px;
+    }
+
+    @media(max-width: $md4) {
+        font-size: 22px;
+        line-height: 28px;
+        margin-bottom: 24px;
+    }
+}
+
+.recomeded-tour {
+    margin-bottom: 150px;
+
+    @media(max-width: $md4) {
+        margin-bottom: 100px;
+    }
+}
+
+.recomeded-tour__title {
+    max-width: 476px;
+    width: 100%;
+}

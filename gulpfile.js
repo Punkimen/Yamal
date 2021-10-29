@@ -22,7 +22,7 @@ let path = {
         img: source_folder + '/img/**/*.{jpg,png,svg,gif,ico,webp}',
         fonts: source_folder + '/fonts/*.ttf',
         video: source_folder + '/video/*.mp4',
-        php: source_folder + '/mail/**/*.php',
+        php: source_folder + '/json/**/*.json',
     },
     watch: {
         html: source_folder + '/**/*.html',
@@ -30,7 +30,7 @@ let path = {
         js: source_folder + '/js/**/*.js',
         img: source_folder + '/img/**/*.{jpg,png,svg,gif,ico,webp}',
         svg: source_folder + '/iconsprite/*.svg',
-        php: source_folder + '/mail/**/*.php',
+        php: source_folder + '/json/**/*.json',
     },
     clean: './' + project_folder + '/'
 };

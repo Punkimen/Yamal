@@ -1,0 +1,33 @@
+.error-page {
+    @media(max-width: $md4) {
+        padding-bottom: 0;
+    }
+
+    .personal-cabinet__inner {
+        @media(max-width: $md4) {
+            padding-bottom: 0;
+        }
+    }
+}
+
+.error-window {
+    .popup__title {
+        margin-bottom: 10px;
+    }
+
+    .green-link {
+        color: #009974;
+    }
+
+    .cabinet-window__btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: auto;
+        margin: 0 auto;
+
+        @media(max-width: $md5) {
+            width: auto;
+        }
+    }
+}

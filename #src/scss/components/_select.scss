@@ -17,6 +17,10 @@
             color: $colorGreen;
             border-color: $colorGreen;
         }
+
+        .custom-select__current-elem.default {
+            color: $colorGreen;
+        }
     }
 
     &.error {

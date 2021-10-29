@@ -634,7 +634,7 @@
             </div>
         </div>
     </div>
-    <div id="step_1" class="steps-planning__step steps-planning__step--1 ">
+    <div id="step_1" class="steps-planning__step steps-planning__step--1 show">
         <div class="container container-map">
             <div class="steps-planning__map custom-map">
                 <div class="custom-map__text custom-map__description">
@@ -1323,7 +1323,7 @@
     </div>
 </section>
     </div>
-    <div id="step_4" class="steps-planning__step steps-planning__step--4 show">
+    <div id="step_4" class="steps-planning__step steps-planning__step--4 ">
         <div class="container build-way__container">
             <div class="build-way">
                 <div class="build-way__header">
@@ -2651,25 +2651,29 @@
                 </div>
             </form>
         </div>
-        <!-- <div id="sucsess-pay" class="popup">
-            <button class="fixed-filter__close popup-close fixed-filter__close--only btn js-close">
-                <img src="img/icon/filter-close.svg" alt="">
-            </button>
+        <div id="popup-oopt" class="popup">
+            <div class="popup__header">
+                <div class="popup__name">Заявка на ООПТ</div>
+                <button class="fixed-filter__close popup-close btn js-close">
+                    <img src="img/icon/filter-close.svg" alt="">
+                </button>
+            </div>
             <div class="popup__body">
                 <div class="popup__icon">
                     <img src="img/icon/popup-sucses.svg">
                 </div>
                 <div class="popup__title">
-                    Оплата прошла успешно
+                    Заявка успешно отправлена
                 </div>
                 <div class="popup__text">
-                    Маршрут уже добавлен в ваш кабинет
+                    Ответ направим на указанную почту
                 </div>
             </div>
             <div class="popup__btns">
-                <a href="#" class="popup__btn-registr btn btn-green">Мои маршруты</a>
+                <button class="popup__btn-registr btn btn-green js-close">Закрыть</button>
             </div>
         </div>
+        <!-- 
         <div id="error-pay" class="popup">
             <button class="fixed-filter__close fixed-filter__close--only popup-close btn js-close">
                 <img src="img/icon/filter-close.svg" alt="">
@@ -2720,10 +2724,9 @@
     <script
         src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAn4lOodBWISBVdVsAchtPd8eRRPgycYco&language=ru">
     </script>
-    <script src="js/datainit.js"></script>
-    <script>
+    <script src="js/dataInit.js"></script>
+    <script defer>
         // first-step map
-
         mapsData.startMarkerFirst = [{
                 position: new google.maps.LatLng(66.86305851932107, 70.8545548132817),
                 map: map,
@@ -3171,7 +3174,7 @@
     integrity="sha512-oUUeA7VTcWBqUJD/VYCBB4VeIE0g1pg5aRMiSUOMGnNNeCLRS39OlkcyyeJ0hYx2h3zxmIWhyKiUXKkfZ5Wryg=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="js/script.js"></script>
-    <script src="js/maps.js"></script>
+    <script src="js/maps.js" defer></script>
 </body>
 
 </html>

@@ -28,10 +28,9 @@
     <script
         src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAn4lOodBWISBVdVsAchtPd8eRRPgycYco&language=ru">
     </script>
-    <script src="js/datainit.js"></script>
-    <script>
+    <script src="js/dataInit.js"></script>
+    <script defer>
         // first-step map
-
         mapsData.startMarkerFirst = [{
                 position: new google.maps.LatLng(66.86305851932107, 70.8545548132817),
                 map: map,
@@ -462,7 +461,7 @@
         ]
     </script>
     @@include('./components/_scripts.html')
-    <script src="js/maps.js"></script>
+    <script src="js/maps.js" defer></script>
 </body>
 
 </html>
