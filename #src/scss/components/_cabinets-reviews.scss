@@ -83,32 +83,12 @@
     }
 }
 
-.cabinet-rewiews {
+.personal-cabinet {
+    .personal-review {
+        display: none;
 
-    &__mobile {}
-
-    &__mobile-wrapper {}
-
-    &__mobile-left {}
-
-    &__mobile-right {}
-}
-
-.cabinet-window {
-
-    &__btn-back {}
-}
-
-.btn {}
-
-.btn-transparent-green {}
-
-.btn-open-window {}
-
-.personal-review {
-    display: none;
-
-    &.show {
-        display: block;
+        &.show {
+            display: block;
+        }
     }
 }

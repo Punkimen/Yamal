@@ -328,7 +328,7 @@ $(document).ready(function () {
                         $('body').addClass('overlay');
                         $(el).addClass('show');
                     };
-                    // showPopup('#preloader');
+                    showPopup('#preloader');
                     $('#preloader').addClass('sizing')
                     const closeModal = () => {
                         $('.popup').removeClass('show');
@@ -600,8 +600,8 @@ $(document).ready(function () {
                 `;
                 $('.all-reviews__show-more').before(review);
             })
-
         }
+
         $('.all-reviews__show-more').on('click', function () {
             renderMoreReviews(dataRevew)
         })
@@ -609,7 +609,6 @@ $(document).ready(function () {
     // calendar
     (function () {
         $(function () {
-            console.log(daterangepicker.locale);
             $('input[name="daterange"]').daterangepicker({
                 opens: 'right',
                 autoUpdateInput: false,
@@ -637,7 +636,6 @@ $(document).ready(function () {
             $(this).parent().addClass('filed')
             $(this).parent().removeClass('error')
             $(this).parents('.enter-banner__input').addClass('show-title')
-            console.log();
         });
 
         $('input[name="daterange"]').on('cancel.daterangepicker', function (ev, picker) {
@@ -1029,8 +1027,6 @@ $(document).ready(function () {
         const showHideWindow = function (el) {
             $('.cabinet-window').addClass('hide')
             $(`#${el}`).removeClass('hide')
-            console.log(el);
-
         }
 
         $('.btn-open-window').on('click', function () {
@@ -1070,13 +1066,11 @@ $(document).ready(function () {
             }
         })
         $('#change-data-btn').on('click', function () {
-            console.log('ee');
             $('#personal-profile').addClass('hide')
             $('#data-change').removeClass('hide')
         })
         $('#save-change').on('click', function (e) {
             e.preventDefault()
-            console.log('ee');
             if ($('#change-data-form').valid()) {
                 $('#personal-profile').removeClass('hide')
                 $('#data-change').addClass('hide')
@@ -1093,11 +1087,10 @@ $(document).ready(function () {
             $('.personal-review').eq(index).addClass('show')
             let windowWidth = $(window).width();
             if (windowWidth <= 992) {
-                console.log('w');
                 $('.cabinet-rewiews__left').hide()
                 $('#back-reviews').show()
                 $('.cabinet-rewiews__review').show()
-                // $('.personal-review').eq(index).addClass('show')
+                $('.personal-review').eq(index).addClass('show')
             }
         })
         $('#back-reviews').on('click', function () {
@@ -1147,7 +1140,6 @@ $(document).ready(function () {
         $('.upload-menu input').on('change', function () {
             let value = $(this).val();
             $('.upload-menu').hide()
-            console.log(value)
             $('.download-description').addClass('upload')
             $('.download-description').text(value);
             $('.create-elem__download .delete-menu').show()

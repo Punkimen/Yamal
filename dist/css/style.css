@@ -7199,11 +7199,11 @@ body[data-aos-easing=ease-in-out-quart] [data-aos] {
   margin-right: 32px;
 }
 
-.personal-review {
+.personal-cabinet .personal-review {
   display: none;
 }
 
-.personal-review.show {
+.personal-cabinet .personal-review.show {
   display: block;
 }
 
